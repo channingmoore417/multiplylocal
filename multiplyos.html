@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MultiplyOS — The Platform Behind Your Growth</title>
+<meta name="description" content="MultiplyOS is the all-in-one business operating system that powers every Multiply Local client. Missed call text-back, automations, pipelines, reviews, and more.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#1c1c1c;--black-light:#232323;--black-card:#272727;--black-mid:#2e2e2e;
+    --red:#c23b2e;--red-dark:#9e2f25;--red-bright:#d44638;
+    --cream:#f5f0e8;--white:#faf7f2;--gray:#777;--gray-muted:#444;--gray-light:#999;
+    /* mockup UI colors — white/light with black+red brand */
+    --ui-bg:#ffffff;--ui-card:#f5f0e8;--ui-border:rgba(28,28,28,0.1);
+    --ui-surface:#faf7f2;--ui-surface2:#f0ebe0;
+    --ui-text:#1c1c1c;--ui-text-muted:#777;--ui-text-faint:rgba(28,28,28,0.3);
+    --ui-green:#16a34a;--ui-blue:#1d6fb8;--ui-yellow:#b45309;--ui-purple:#7c3aed;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden}
+  a{text-decoration:none;color:inherit}
+
+  .noise::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:0.4;pointer-events:none;z-index:0}
+
+  /* ── HEADER ── */
+  .site-header{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,28,28,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05)}
+  .header-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.08em;color:var(--cream)}
+  .header-logo .x{color:var(--red)}
+  .header-nav{display:flex;align-items:center;gap:36px;list-style:none}
+  .header-nav a{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gray-light);transition:color 0.2s}
+  .header-nav a:hover,.header-nav a.active{color:var(--cream)}
+  .header-cta{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;background:var(--red);color:var(--cream);padding:10px 24px;border-radius:3px;transition:background 0.2s,transform 0.15s;white-space:nowrap}
+  .header-cta:hover{background:var(--red-bright);transform:translateY(-1px)}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--cream);border-radius:2px}
+  .mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:var(--black-light);border-bottom:1px solid rgba(255,255,255,0.06);padding:28px 48px;z-index:99;flex-direction:column;gap:20px}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream)}
+  .mobile-cta-link{background:var(--red);color:var(--cream)!important;padding:12px 22px;border-radius:3px;text-align:center;margin-top:8px}
+
+  /* ── HERO ── */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:140px 48px 100px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(194,59,46,0.08) 0%,transparent 55%)}
+  .hero-bg{position:absolute;bottom:-40px;right:-40px;font-family:'Bebas Neue',sans-serif;font-size:clamp(200px,28vw,420px);color:rgba(255,255,255,0.018);line-height:1;pointer-events:none;letter-spacing:0.02em}
+  .hero-inner{max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+
+  .hero-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:var(--red);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  .hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--red);flex-shrink:0}
+  .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7.5vw,108px);line-height:0.88;letter-spacing:0.03em;color:var(--cream);margin-bottom:24px}
+  .hero-title .accent{color:var(--red)}
+  .hero-desc{font-size:18px;color:var(--gray-light);line-height:1.7;margin-bottom:40px;max-width:460px}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+  .btn-primary{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;background:var(--red);color:var(--cream);padding:16px 34px;border-radius:3px;transition:background 0.2s,transform 0.15s;display:inline-block}
+  .btn-primary:hover{background:var(--red-bright);transform:translateY(-2px)}
+  .btn-ghost{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--cream);border:1px solid rgba(245,240,232,0.2);padding:15px 28px;border-radius:3px;transition:all 0.2s;display:inline-block}
+  .btn-ghost:hover{border-color:rgba(245,240,232,0.5);transform:translateY(-2px)}
+
+  /* feature badge pills */
+  .feature-pills{display:flex;flex-wrap:wrap;gap:10px}
+  .pill{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:7px 14px;border-radius:3px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--gray-light)}
+
+  /* Hero right — dashboard mockup teaser */
+  .hero-mockup{
+    background:var(--ui-bg);
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid rgba(28,28,28,0.1);
+    box-shadow:0 32px 80px rgba(0,0,0,0.25);
+  }
+  .mockup-topbar{height:36px;background:#f0ebe0;border-bottom:1px solid rgba(28,28,28,0.08);display:flex;align-items:center;padding:0 16px;gap:8px}
+  .mockup-dot{width:10px;height:10px;border-radius:50%}
+  .mockup-title-bar{flex:1;text-align:center;font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(28,28,28,0.3)}
+  .mockup-body{padding:20px}
+
+  /* Dashboard stat cards */
+  .dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+  .dash-stat{background:var(--ui-card);border-radius:8px;padding:14px 16px;border:1px solid rgba(28,28,28,0.08)}
+  .dash-stat-label{font-size:10px;color:var(--ui-text-muted);margin-bottom:6px;font-family:'Oswald',sans-serif;letter-spacing:0.15em;text-transform:uppercase}
+  .dash-stat-num{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;letter-spacing:0.02em}
+  .dash-stat-sub{font-size:10px;margin-top:4px}
+
+  /* Mini pipeline */
+  .dash-pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+  .dash-pipe-col{background:var(--ui-surface2);border-radius:6px;padding:10px;border:1px solid rgba(28,28,28,0.08)}
+  .dash-pipe-head{font-size:9px;font-family:'Oswald',sans-serif;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,28,28,0.4);margin-bottom:8px}
+  .dash-pipe-card{background:#fff;border-radius:4px;padding:8px 10px;margin-bottom:6px;font-size:11px;color:var(--ui-text);border-left:2px solid;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+
+  /* Mini activity feed */
+  .dash-activity{background:var(--ui-surface2);border-radius:8px;padding:14px;border:1px solid rgba(28,28,28,0.08)}
+  .dash-activity-head{font-size:9px;font-family:'Oswald',sans-serif;letter-spacing:0.2em;text-transform:uppercase;color:rgba(28,28,28,0.35);margin-bottom:12px}
+  .dash-activity-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(28,28,28,0.06)}
+  .dash-activity-item:last-child{border-bottom:none}
+  .activity-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .activity-text{font-size:11px;color:rgba(28,28,28,0.7);flex:1}
+  .activity-time{font-size:10px;color:rgba(28,28,28,0.3)}
+
+  /* ── SECTION SHARED ── */
+  .section-label{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+  .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4.8vw,62px);letter-spacing:0.04em;line-height:1;margin-bottom:20px}
+
+  /* ── FEATURE SECTIONS ── */
+  .feature-section{padding:120px 48px;position:relative;border-top:1px solid rgba(255,255,255,0.04)}
+  .feature-section:nth-child(even){background:var(--black-light)}
+  .feature-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .feature-inner.reverse{direction:rtl}
+  .feature-inner.reverse > *{direction:ltr}
+  .feature-copy{}
+  .feature-tag{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+  .feature-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);letter-spacing:0.03em;line-height:1;color:var(--cream);margin-bottom:18px}
+  .feature-desc{font-size:16px;color:var(--gray-light);line-height:1.75;margin-bottom:32px}
+  .feature-bullets{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .feature-bullets li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--cream);line-height:1.5}
+  .feature-bullets li::before{content:'×';color:var(--red);font-family:'Bebas Neue',sans-serif;font-size:16px;flex-shrink:0;margin-top:1px}
+
+  /* ── MOCKUP SHARED ── */
+  .mockup-device{
+    position:relative;
+    filter:drop-shadow(0 24px 60px rgba(0,0,0,0.55));
+  }
+  .mockup-screen{
+    background:var(--ui-bg);
+    border-radius:12px;
+    border:1px solid rgba(28,28,28,0.12);
+    overflow:hidden;
+    font-family:'DM Sans',sans-serif;
+    box-shadow:0 24px 60px rgba(0,0,0,0.18);
+  }
+  .mockup-screen .topbar{
+    height:38px;background:#f0ebe0;
+    border-bottom:1px solid rgba(28,28,28,0.08);
+    display:flex;align-items:center;padding:0 16px;gap:7px;
+  }
+  .topbar .dot{width:9px;height:9px;border-radius:50%}
+  .topbar .bar-title{flex:1;text-align:center;font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(28,28,28,0.3)}
+
+  /* ── PHONE FRAME ── */
+  .phone-frame{
+    width:220px;
+    background:#111;
+    border-radius:36px;
+    padding:12px;
+    border:2px solid rgba(255,255,255,0.12);
+    box-shadow:0 32px 64px rgba(0,0,0,0.5);
+    margin:0 auto;
+  }
+  .phone-screen{
+    background:var(--ui-bg);
+    border-radius:26px;
+    overflow:hidden;
+    height:420px;
+    overflow-y:auto;
+  }
+  .phone-statusbar{height:28px;background:#f0ebe0;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:10px;color:rgba(28,28,28,0.45)}
+  .phone-notch{width:60px;height:16px;background:#111;border-radius:0 0 12px 12px;margin:0 auto}
+
+  /* =========================================
+     MOCKUP 1: MISSED CALL TEXT-BACK
+  ========================================= */
+  .sms-mock{padding:0}
+  .sms-header{background:#f0ebe0;padding:14px 18px;border-bottom:1px solid rgba(28,28,28,0.08);display:flex;align-items:center;gap:12px}
+  .sms-avatar{width:36px;height:36px;border-radius:50%;background:rgba(194,59,46,0.2);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--red);flex-shrink:0}
+  .sms-contact-name{font-size:13px;color:var(--ui-text);font-weight:600}
+  .sms-contact-sub{font-size:11px;color:var(--ui-text-muted)}
+  .sms-body{padding:16px 14px;display:flex;flex-direction:column;gap:10px}
+  .sms-notification{background:rgba(194,59,46,0.08);border:1px solid rgba(194,59,46,0.2);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .sms-notif-icon{font-size:18px;flex-shrink:0}
+  .sms-notif-text{font-size:12px;color:rgba(28,28,28,0.65);line-height:1.4}
+  .sms-notif-text strong{color:var(--ui-text);display:block;font-size:11px;margin-bottom:1px}
+  .bubble-wrap{display:flex;flex-direction:column;gap:8px}
+  .bubble{max-width:78%;padding:10px 13px;border-radius:16px;font-size:12px;line-height:1.5}
+  .bubble.them{background:#e8e4dc;color:var(--ui-text);align-self:flex-start;border-radius:4px 16px 16px 16px}
+  .bubble.us{background:var(--red);color:#fff;align-self:flex-end;border-radius:16px 4px 16px 16px}
+  .bubble-meta{font-size:10px;color:var(--gray-muted);margin-top:2px}
+  .bubble-meta.right{text-align:right}
+  .auto-badge{font-size:10px;color:var(--red);font-family:'Oswald',sans-serif;letter-spacing:0.15em;text-transform:uppercase;text-align:right;margin-top:-4px}
+  .sms-input-bar{margin:8px 0 0;background:#f0ebe0;border-radius:20px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(28,28,28,0.1)}
+  .sms-input-placeholder{font-size:12px;color:rgba(28,28,28,0.3)}
+  .sms-send-btn{width:26px;height:26px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff}
+
+  /* =========================================
+     MOCKUP 2: AUTOMATION WORKFLOW
+  ========================================= */
+  .workflow-mock{padding:20px;background:#fff}
+  .wf-title{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(28,28,28,0.35);margin-bottom:16px}
+  .wf-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+  .wf-node{
+    display:flex;align-items:center;gap:12px;
+    background:#f5f0e8;border:1px solid rgba(28,28,28,0.1);
+    border-radius:8px;padding:12px 16px;
+    width:100%;position:relative;
+  }
+  .wf-node.trigger{border-color:rgba(194,59,46,0.4);background:rgba(194,59,46,0.06)}
+  .wf-node-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+  .wf-node-info{flex:1}
+  .wf-node-label{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:3px}
+  .wf-node-name{font-size:13px;color:var(--ui-text);font-weight:500}
+  .wf-node-detail{font-size:11px;color:rgba(28,28,28,0.4);margin-top:2px}
+  .wf-badge{font-size:9px;font-family:'Oswald',sans-serif;letter-spacing:0.15em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+  .wf-connector{display:flex;align-items:center;gap:0;margin:0 0 0 22px;padding:4px 0}
+  .wf-line{width:1px;height:24px;background:rgba(28,28,28,0.12);margin-left:15px}
+  .wf-branch{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin:0}
+  .wf-branch-node{background:#f5f0e8;border:1px solid rgba(28,28,28,0.1);border-radius:8px;padding:10px 12px}
+  .wf-branch-label{font-size:9px;font-family:'Oswald',sans-serif;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:4px}
+  .wf-branch-name{font-size:12px;color:var(--ui-text)}
+
+  /* =========================================
+     MOCKUP 3: CHAT WIDGET
+  ========================================= */
+  .chat-browser{padding:0}
+  .browser-bar{background:rgba(255,255,255,0.04);padding:10px 14px;border-bottom:1px solid var(--ui-border);display:flex;align-items:center;gap:10px}
+  .browser-dots{display:flex;gap:5px}
+  .browser-url{flex:1;background:rgba(255,255,255,0.05);border-radius:12px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,0.2);font-family:monospace}
+  .browser-body{position:relative;background:#f8f8f8;min-height:300px;padding:24px}
+  /* fake website content */
+  .fake-site-header{background:#1c1c1c;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-radius:6px;margin-bottom:16px}
+  .fake-site-logo{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--cream);letter-spacing:0.08em}
+  .fake-site-logo .x{color:var(--red)}
+  .fake-hero-block{background:#e8e8e8;border-radius:6px;height:80px;margin-bottom:12px;display:flex;align-items:center;padding:16px}
+  .fake-hero-text{width:60%}
+  .fake-hero-h{background:#ccc;height:14px;border-radius:3px;width:80%;margin-bottom:8px}
+  .fake-hero-p{background:#ddd;height:10px;border-radius:3px;width:60%}
+  .fake-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+  .fake-content-card{background:#e8e8e8;border-radius:4px;height:50px}
+  /* Chat widget bubble */
+  .chat-widget-bubble{
+    position:absolute;bottom:16px;right:16px;
+    width:52px;height:52px;border-radius:50%;
+    background:var(--red);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+    box-shadow:0 4px 16px rgba(194,59,46,0.5);
+    cursor:pointer;
+    z-index:10;
+  }
+  /* Chat window */
+  .chat-window{
+    position:absolute;bottom:76px;right:16px;
+    width:260px;
+    background:#ffffff;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid rgba(28,28,28,0.1);
+    box-shadow:0 8px 32px rgba(0,0,0,0.15);
+  }
+  .chat-win-header{background:var(--red);padding:14px 16px;display:flex;align-items:center;gap:10px}
+  .chat-win-avatar{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:13px;color:#fff;flex-shrink:0}
+  .chat-win-name{font-size:13px;color:#fff;font-weight:600}
+  .chat-win-status{font-size:11px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:4px}
+  .status-dot{width:6px;height:6px;border-radius:50%;background:#22c55e}
+  .chat-win-body{padding:12px;display:flex;flex-direction:column;gap:8px;background:#f5f0e8}
+  .chat-win-bubble{padding:9px 12px;border-radius:10px;font-size:12px;line-height:1.5;max-width:85%}
+  .chat-win-bubble.bot{background:#ffffff;color:var(--ui-text);border:1px solid rgba(28,28,28,0.08);align-self:flex-start}
+  .chat-win-bubble.user{background:var(--red);color:#fff;align-self:flex-end}
+  .chat-win-input{background:#ffffff;border-top:1px solid rgba(28,28,28,0.08);padding:10px 12px;display:flex;align-items:center;gap:8px}
+  .chat-win-field{flex:1;background:#f0ebe0;border-radius:16px;padding:7px 12px;font-size:11px;color:rgba(28,28,28,0.3);border:1px solid rgba(28,28,28,0.08)}
+  .chat-win-send{width:28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;flex-shrink:0}
+
+  /* =========================================
+     MOCKUP 4: SALES PIPELINE
+  ========================================= */
+  .pipeline-mock{padding:16px;background:#fff}
+  .pipeline-topbar-inner{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .pipeline-title{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(28,28,28,0.5)}
+  .pipeline-actions{display:flex;gap:6px}
+  .pipeline-btn{font-size:10px;padding:5px 10px;border-radius:4px;background:#f0ebe0;color:rgba(28,28,28,0.5);border:1px solid rgba(28,28,28,0.1);font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase}
+  .pipeline-board{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .pipe-col{}
+  .pipe-col-head{font-size:9px;font-family:'Oswald',sans-serif;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);padding:8px 6px;display:flex;align-items:center;justify-content:space-between}
+  .pipe-col-count{background:rgba(28,28,28,0.07);border-radius:10px;padding:1px 6px;font-size:9px;color:rgba(28,28,28,0.5)}
+  .pipe-cards{display:flex;flex-direction:column;gap:6px}
+  .pipe-card{background:#fff;border:1px solid rgba(28,28,28,0.08);border-radius:6px;padding:10px;border-left:2px solid;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+  .pipe-card-name{font-size:11px;color:var(--ui-text);font-weight:600;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pipe-card-biz{font-size:10px;color:rgba(28,28,28,0.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pipe-card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+  .pipe-card-val{font-size:10px;color:var(--ui-green);font-weight:600}
+  .pipe-card-time{font-size:9px;color:rgba(28,28,28,0.3)}
+  .pipe-card-tag{font-size:9px;padding:2px 6px;border-radius:3px;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase}
+
+  /* =========================================
+     MOCKUP 5: MOBILE APP
+  ========================================= */
+  .app-phone{
+    width:240px;
+    background:#0d0d0d;
+    border-radius:44px;
+    padding:14px;
+    border:2px solid rgba(255,255,255,0.12);
+    box-shadow:0 32px 80px rgba(0,0,0,0.6);
+    margin:0 auto;
+  }
+  .app-screen{
+    background:var(--ui-bg);
+    border-radius:32px;
+    overflow:hidden;
+    height:480px;
+    overflow-y:auto;
+  }
+  .app-statusbar{height:32px;background:#f0ebe0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:10px;color:rgba(28,28,28,0.4)}
+  .app-notch{width:80px;height:22px;background:#0d0d0d;border-radius:0 0 16px 16px;margin:0 auto;position:relative;z-index:1}
+  .app-header{padding:12px 16px 8px;display:flex;align-items:center;justify-content:space-between}
+  .app-greeting{font-size:11px;color:rgba(28,28,28,0.4);margin-bottom:2px}
+  .app-biz-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.04em;color:var(--ui-text)}
+  .app-biz-name .x{color:var(--red)}
+  .app-notif-badge{width:28px;height:28px;border-radius:50%;background:rgba(194,59,46,0.15);border:1px solid rgba(194,59,46,0.3);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--red)}
+  .app-stats-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 16px;margin-bottom:14px}
+  .app-stat{background:#fff;border-radius:10px;padding:12px;border:1px solid rgba(28,28,28,0.08);box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+  .app-stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;line-height:1;margin-bottom:3px}
+  .app-stat-label{font-size:10px;color:rgba(28,28,28,0.4);font-family:'Oswald',sans-serif;letter-spacing:0.15em;text-transform:uppercase}
+  .app-section-label{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(28,28,28,0.35);padding:0 16px;margin-bottom:8px}
+  .app-feed{padding:0 16px;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+  .app-feed-item{background:#fff;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;border:1px solid rgba(28,28,28,0.07);box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+  .app-feed-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+  .app-feed-text{flex:1}
+  .app-feed-name{font-size:12px;color:var(--ui-text);font-weight:600}
+  .app-feed-sub{font-size:10px;color:rgba(28,28,28,0.4);margin-top:1px}
+  .app-feed-time{font-size:10px;color:rgba(28,28,28,0.3)}
+  .app-quick-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 16px}
+  .app-action{background:#fff;border-radius:10px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:5px;border:1px solid rgba(28,28,28,0.08)}
+  .app-action-icon{font-size:18px}
+  .app-action-label{font-size:9px;color:rgba(28,28,28,0.4);text-align:center;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase}
+
+  /* =========================================
+     MOCKUP 6: GOOGLE REVIEW AUTOMATION
+  ========================================= */
+  .review-mock{display:flex;flex-direction:column;gap:16px;padding:16px}
+
+  /* Review request SMS */
+  .review-sms-phone{
+    background:#e8e4dc;
+    border-radius:28px;
+    padding:10px;
+    border:1px solid rgba(255,255,255,0.1);
+    margin-bottom:8px;
+  }
+  .review-sms-screen{background:#fff;border-radius:20px;overflow:hidden}
+  .review-sms-statusbar{height:24px;background:#f0ebe0;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:9px;color:rgba(28,28,28,0.4)}
+  .review-sms-header{background:#f5f0e8;padding:10px 14px;text-align:center;border-bottom:1px solid rgba(28,28,28,0.07)}
+  .review-sms-contact{font-size:11px;color:rgba(28,28,28,0.45)}
+  .review-sms-name{font-size:13px;color:var(--ui-text);font-weight:600}
+  .review-sms-bubbles{padding:12px 10px;display:flex;flex-direction:column;gap:8px}
+  .review-bubble{max-width:82%;padding:9px 12px;border-radius:14px;font-size:11px;line-height:1.5}
+  .review-bubble.out{background:var(--red);color:#fff;align-self:flex-end;border-radius:14px 4px 14px 14px}
+  .review-link{color:rgba(255,255,255,0.8);text-decoration:underline;font-size:10px}
+  .review-auto-label{text-align:right;font-size:9px;color:rgba(28,28,28,0.3);margin-top:-4px;font-family:'Oswald',sans-serif;letter-spacing:0.15em;text-transform:uppercase}
+
+  /* Google review card */
+  .google-review-card{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid rgba(0,0,0,0.08)}
+  .google-review-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .google-logo{font-size:14px;font-weight:700;letter-spacing:-0.5px}
+  .g-blue{color:#4285f4}.g-red-g{color:#ea4335}.g-yellow{color:#fbbc05}.g-green{color:#34a853}
+  .google-review-biz{font-size:12px;font-weight:700;color:#202124;flex:1}
+  .google-stars-row{display:flex;gap:2px;margin-bottom:6px}
+  .google-star{color:#fbbc05;font-size:14px}
+  .google-review-text{font-size:12px;color:#5f6368;line-height:1.5;margin-bottom:8px}
+  .google-reviewer{display:flex;align-items:center;gap:8px}
+  .google-avatar{width:24px;height:24px;border-radius:50%;background:#e8f0fe;display:flex;align-items:center;justify-content:center;font-size:10px;color:#4285f4;font-weight:700}
+  .google-reviewer-name{font-size:11px;color:#202124;font-weight:600}
+  .google-reviewer-time{font-size:10px;color:#9aa0a6}
+  .new-badge{background:#e8f5e9;color:#1e7e34;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:auto;font-family:'Oswald',sans-serif;letter-spacing:0.1em;text-transform:uppercase}
+
+  /* ── CTA BAND ── */
+  .cta-band{padding:0 48px;background:var(--black);position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.05)}
+  .cta-band::before{content:'';position:absolute;top:0;left:0;bottom:0;width:52%;background:var(--red-dark);clip-path:polygon(0 0,100% 0,88% 100%,0 100%);z-index:0}
+  .cta-band::after{content:'×';position:absolute;left:2%;top:50%;transform:translateY(-52%);font-family:'Bebas Neue',sans-serif;font-size:520px;color:rgba(0,0,0,0.12);line-height:1;pointer-events:none;z-index:0}
+  .cta-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:100px 0}
+  .cta-left h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,6.5vw,96px);letter-spacing:0.03em;color:var(--cream);line-height:0.92}
+  .cta-left h2 .accent{color:var(--red)}
+  .cta-right p{font-size:18px;color:var(--gray-light);line-height:1.7;margin-bottom:40px;max-width:440px}
+  .cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+  .btn-cream{display:inline-block;font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:0.22em;text-transform:uppercase;background:var(--cream);color:var(--black);padding:24px 56px;border-radius:3px;transition:background 0.2s,transform 0.15s}
+  .btn-cream:hover{background:#fff;transform:translateY(-2px)}
+  .cta-sub{font-size:13px;color:var(--gray-muted);display:flex;align-items:center;gap:8px}
+  .cta-sub::before{content:'';display:block;width:16px;height:1px;background:var(--gray-muted);flex-shrink:0}
+
+  /* ── FOOTER ── */
+  .site-footer{background:var(--black-light);border-top:1px solid rgba(255,255,255,0.05);padding:88px 48px 44px}
+  .footer-inner{max-width:1200px;margin:0 auto}
+  .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:64px;margin-bottom:64px}
+  .f-logo{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:0.08em;color:var(--cream);display:block;margin-bottom:16px}
+  .f-logo .x{color:var(--red)}
+  .f-tagline{font-size:14px;color:var(--gray);line-height:1.65;margin-bottom:28px;max-width:280px}
+  .f-contact{font-size:13px;color:var(--gray-muted);line-height:2.1}
+  .f-contact a{color:var(--gray-muted);transition:color 0.2s}
+  .f-contact a:hover{color:var(--cream)}
+  .f-col h4{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:var(--gray-light);margin-bottom:22px}
+  .f-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .f-col ul li a{font-size:14px;color:var(--gray-muted);transition:color 0.2s}
+  .f-col ul li a:hover{color:var(--cream)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:36px;border-top:1px solid rgba(255,255,255,0.05);flex-wrap:wrap;gap:16px}
+  .f-copy{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray-muted)}
+  .f-bible{font-size:12px;color:var(--gray-muted);font-style:italic}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+  @media(max-width:1024px){
+    .hero-inner,.feature-inner,.cta-inner{grid-template-columns:1fr;gap:48px}
+    .feature-inner.reverse{direction:ltr}
+    .hero,.feature-section{padding-left:32px;padding-right:32px}
+    .cta-band,.site-footer{padding-left:32px;padding-right:32px}
+    .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+    .pipeline-board{grid-template-columns:repeat(3,1fr)}
+    .cta-band::before{width:100%;clip-path:none;opacity:0.5}
+    .cta-inner{grid-template-columns:1fr;gap:40px;padding:80px 0}
+  }
+  @media(max-width:768px){
+    .site-header{padding:0 20px}
+    .header-nav,.header-cta{display:none}
+    .hamburger{display:flex}
+    .mobile-nav{padding:24px 20px}
+    .hero,.feature-section{padding-left:20px;padding-right:20px}
+    .cta-band,.site-footer{padding-left:20px;padding-right:20px}
+    .footer-top{grid-template-columns:1fr;gap:32px}
+    .footer-bottom{flex-direction:column;align-items:flex-start}
+    .dash-pipeline{grid-template-columns:repeat(2,1fr)}
+    .pipeline-board{grid-template-columns:1fr 1fr}
+    .hero-bg{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="header-logo">MULTI<span class="x">×</span>PLY</a>
+  <nav><ul class="header-nav">
+    <li><a href="index.html#benefits">Why It Works</a></li>
+    <li><a href="multiplyos.html" class="active">MultiplyOS</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></nav>
+  <a href="book.html" class="header-cta">Multiply My Business</a>
+  <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html#benefits" onclick="toggleMobileNav()">Why It Works</a>
+  <a href="multiplyos.html" onclick="toggleMobileNav()">MultiplyOS</a>
+  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+  <a href="book.html" class="mobile-cta-link">Multiply My Business</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero noise">
+  <div class="hero-bg" aria-hidden="true">OS</div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">The Platform</div>
+      <h1 class="hero-title">MULTIPLY<span class="accent">OS.</span><br>YOUR BUSINESS<br>ON AUTOPILOT.</h1>
+      <p class="hero-desc">Every Multiply Local plan comes powered by MultiplyOS — the all-in-one system that runs your leads, reviews, bookings, and automations 24/7 without you lifting a finger.</p>
+      <div class="hero-ctas">
+        <a href="book.html" class="btn-primary">Multiply My Business</a>
+        <a href="pricing.html" class="btn-ghost">See Plans</a>
+      </div>
+      <div class="feature-pills">
+        <span class="pill">Missed Call Text-Back</span>
+        <span class="pill">SMS &amp; Email Automations</span>
+        <span class="pill">Sales Pipeline</span>
+        <span class="pill">Chat Widget</span>
+        <span class="pill">Review Automation</span>
+        <span class="pill">Mobile App</span>
+        <span class="pill">Booking System</span>
+        <span class="pill">Payment Processing</span>
+      </div>
+    </div>
+
+    <!-- Dashboard teaser mockup -->
+    <div class="mockup-device">
+      <div class="hero-mockup">
+        <div class="mockup-topbar">
+          <div class="mockup-dot" style="background:#ff5f57"></div>
+          <div class="mockup-dot" style="background:#febc2e"></div>
+          <div class="mockup-dot" style="background:#28c840"></div>
+          <div class="mockup-title-bar">MultiplyOS — Dashboard</div>
+        </div>
+        <div class="mockup-body">
+          <div class="dash-stats">
+            <div class="dash-stat">
+              <div class="dash-stat-label">New Leads</div>
+              <div class="dash-stat-num" style="color:var(--red)">14</div>
+              <div class="dash-stat-sub" style="color:var(--ui-green);font-size:10px">↑ 3 today</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-label">Calls Missed</div>
+              <div class="dash-stat-num" style="color:var(--ui-yellow)">3</div>
+              <div class="dash-stat-sub" style="color:rgba(255,255,255,0.3);font-size:10px">Auto-texted ✓</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-label">Reviews</div>
+              <div class="dash-stat-num" style="color:var(--ui-green)">4.9</div>
+              <div class="dash-stat-sub" style="color:rgba(255,255,255,0.3);font-size:10px">127 total</div>
+            </div>
+          </div>
+          <div class="dash-pipeline">
+            <div class="dash-pipe-col">
+              <div class="dash-pipe-head" style="color:var(--ui-blue)">New</div>
+              <div class="dash-pipe-card" style="border-color:var(--ui-blue)">Marcus J.<div style="font-size:9px;color:rgba(255,255,255,0.3)">Pipe Repair</div></div>
+              <div class="dash-pipe-card" style="border-color:var(--ui-blue)">Sarah T.<div style="font-size:9px;color:rgba(255,255,255,0.3)">Water Heater</div></div>
+            </div>
+            <div class="dash-pipe-col">
+              <div class="dash-pipe-head" style="color:var(--ui-yellow)">Contacted</div>
+              <div class="dash-pipe-card" style="border-color:var(--ui-yellow)">Derek W.<div style="font-size:9px;color:rgba(255,255,255,0.3)">Inspection</div></div>
+            </div>
+            <div class="dash-pipe-col">
+              <div class="dash-pipe-head" style="color:var(--ui-purple)">Quote Sent</div>
+              <div class="dash-pipe-card" style="border-color:var(--ui-purple)">Angela R.<div style="font-size:9px;color:rgba(255,255,255,0.3)">Repipe Job</div></div>
+            </div>
+            <div class="dash-pipe-col">
+              <div class="dash-pipe-head" style="color:var(--ui-green)">Booked</div>
+              <div class="dash-pipe-card" style="border-color:var(--ui-green)">James K.<div style="font-size:9px;color:rgba(255,255,255,0.3)">Emergency Call</div></div>
+              <div class="dash-pipe-card" style="border-color:var(--ui-green)">Linda M.<div style="font-size:9px;color:rgba(255,255,255,0.3)">Install</div></div>
+            </div>
+          </div>
+          <div class="dash-activity">
+            <div class="dash-activity-head">Live Activity</div>
+            <div class="dash-activity-item">
+              <div class="activity-dot" style="background:var(--ui-green)"></div>
+              <div class="activity-text">Sandra T. booked an estimate for Monday 9am</div>
+              <div class="activity-time">2m ago</div>
+            </div>
+            <div class="dash-activity-item">
+              <div class="activity-dot" style="background:var(--red)"></div>
+              <div class="activity-text">Missed call from (337) 555-0192 — text-back sent</div>
+              <div class="activity-time">8m ago</div>
+            </div>
+            <div class="dash-activity-item">
+              <div class="activity-dot" style="background:var(--ui-yellow)"></div>
+              <div class="activity-text">New 5★ Google review from Sandra R.</div>
+              <div class="activity-time">14m ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURE 1: MISSED CALL TEXT-BACK ── -->
+<section class="feature-section" id="textback">
+  <div class="feature-inner">
+    <div class="feature-copy">
+      <div class="feature-tag">Feature 01</div>
+      <h2 class="feature-title">MISSED CALL.<br>INSTANT TEXT.<br>JOB SAVED.</h2>
+      <p class="feature-desc">When you're on a job and can't answer, your next customer doesn't wait around — they call your competitor. MultiplyOS sends them a text within seconds of the missed call, keeping the conversation alive until you can get back to them.</p>
+      <ul class="feature-bullets">
+        <li>Fires automatically within seconds of every missed call</li>
+        <li>Fully customizable message — your voice, your brand</li>
+        <li>Replies come straight into your MultiplyOS inbox</li>
+        <li>Never lose a lead to a competitor because you were busy</li>
+      </ul>
+    </div>
+    <div class="mockup-device">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="phone-statusbar">
+            <span>9:41</span>
+            <span>▐▐▐ ▲ 100%</span>
+          </div>
+          <div class="sms-mock">
+            <div class="sms-header">
+              <div class="sms-avatar">MX</div>
+              <div>
+                <div class="sms-contact-name">MultiplyOS</div>
+                <div class="sms-contact-sub">Your Business Number</div>
+              </div>
+            </div>
+            <div class="sms-body">
+              <div class="sms-notification">
+                <div class="sms-notif-icon">📞</div>
+                <div class="sms-notif-text">
+                  <strong>Missed call from (337) 555-0192</strong>
+                  Auto text-back triggered · 9:41 AM
+                </div>
+              </div>
+              <div class="bubble-wrap">
+                <div>
+                  <div class="bubble us">Hey! Sorry we missed your call — we're out on a job right now. What can we help you with? We'll get right back to you! 👍</div>
+                  <div class="bubble-meta right">Delivered · 9:41 AM</div>
+                  <div class="auto-badge">⚡ Sent automatically by MultiplyOS</div>
+                </div>
+                <div>
+                  <div class="bubble them">Hi — I need someone to look at my pipe under my sink that keeps leaking</div>
+                  <div class="bubble-meta">9:43 AM</div>
+                </div>
+                <div>
+                  <div class="bubble us">We can get someone out today! What's your address and we'll confirm a time window.</div>
+                  <div class="bubble-meta right">Delivered · 9:44 AM</div>
+                </div>
+              </div>
+              <div class="sms-input-bar">
+                <div class="sms-input-placeholder">Reply...</div>
+                <div class="sms-send-btn">↑</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURE 2: AUTOMATIONS ── -->
+<section class="feature-section" id="automations">
+  <div class="feature-inner reverse">
+    <div class="feature-copy">
+      <div class="feature-tag">Feature 02</div>
+      <h2 class="feature-title">FOLLOW-UPS<br>THAT NEVER<br>FORGET.</h2>
+      <p class="feature-desc">Most jobs are lost not because the customer went elsewhere — they just fell through the cracks. MultiplyOS runs automated email and text sequences that follow up for you on a schedule, so no lead goes cold and no appointment gets forgotten.</p>
+      <ul class="feature-bullets">
+        <li>Lead comes in → instant text or email fires automatically</li>
+        <li>No reply? Follow-up sequence kicks in on your schedule</li>
+        <li>Appointment reminders sent day-before and day-of</li>
+        <li>Post-job follow-up and review request — all hands-free</li>
+      </ul>
+    </div>
+    <div class="mockup-device">
+      <div class="mockup-screen">
+        <div class="topbar">
+          <div class="dot" style="background:#ff5f57"></div>
+          <div class="dot" style="background:#febc2e"></div>
+          <div class="dot" style="background:#28c840"></div>
+          <div class="bar-title">Automation Builder — New Lead Flow</div>
+        </div>
+        <div class="workflow-mock">
+          <div class="wf-title">New Lead Automation · Active</div>
+          <!-- Trigger -->
+          <div class="wf-node trigger">
+            <div class="wf-node-icon" style="background:rgba(194,59,46,0.15)">⚡</div>
+            <div class="wf-node-info">
+              <div class="wf-node-label" style="color:var(--red)">Trigger</div>
+              <div class="wf-node-name">New lead submitted</div>
+              <div class="wf-node-detail">Form, call, or chat widget</div>
+            </div>
+            <div class="wf-badge" style="background:rgba(194,59,46,0.15);color:var(--red)">Live</div>
+          </div>
+          <div class="wf-line"></div>
+          <!-- Step 1 -->
+          <div class="wf-node">
+            <div class="wf-node-icon" style="background:rgba(59,130,246,0.15)">💬</div>
+            <div class="wf-node-info">
+              <div class="wf-node-label" style="color:var(--ui-blue)">Immediately</div>
+              <div class="wf-node-name">Send intro text</div>
+              <div class="wf-node-detail">"Hey {name}, thanks for reaching out..."</div>
+            </div>
+          </div>
+          <div class="wf-line"></div>
+          <!-- Step 2 -->
+          <div class="wf-node">
+            <div class="wf-node-icon" style="background:rgba(245,158,11,0.15)">⏱</div>
+            <div class="wf-node-info">
+              <div class="wf-node-label" style="color:var(--ui-yellow)">Wait · 1 hour</div>
+              <div class="wf-node-name">Check if replied</div>
+            </div>
+          </div>
+          <div class="wf-line"></div>
+          <!-- Branch -->
+          <div class="wf-branch">
+            <div class="wf-branch-node" style="border-color:rgba(34,197,94,0.3)">
+              <div class="wf-branch-label" style="color:var(--ui-green)">If replied</div>
+              <div class="wf-branch-name" style="font-size:12px;color:var(--cream)">Move to pipeline →</div>
+            </div>
+            <div class="wf-branch-node" style="border-color:rgba(245,158,11,0.3)">
+              <div class="wf-branch-label" style="color:var(--ui-yellow)">If no reply</div>
+              <div class="wf-branch-name" style="font-size:12px;color:var(--cream)">Send follow-up email →</div>
+            </div>
+          </div>
+          <div class="wf-line"></div>
+          <!-- Final -->
+          <div class="wf-node" style="border-color:rgba(34,197,94,0.3)">
+            <div class="wf-node-icon" style="background:rgba(34,197,94,0.15)">⭐</div>
+            <div class="wf-node-info">
+              <div class="wf-node-label" style="color:var(--ui-green)">After job complete</div>
+              <div class="wf-node-name">Request Google review</div>
+              <div class="wf-node-detail">Automated text with review link</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURE 3: CHAT WIDGET ── -->
+<section class="feature-section" id="chat">
+  <div class="feature-inner">
+    <div class="feature-copy">
+      <div class="feature-tag">Feature 03</div>
+      <h2 class="feature-title">CAPTURE LEADS<br>THE SECOND<br>THEY LAND.</h2>
+      <p class="feature-desc">Most website visitors leave without ever calling. The MultiplyOS chat widget catches them the moment they have a question — right on your site, in real time. You respond from the mobile app, or let automations handle the first response.</p>
+      <ul class="feature-bullets">
+        <li>Branded chat bubble on every page of your website</li>
+        <li>Leads flow straight into your MultiplyOS inbox</li>
+        <li>Auto-greeting fires the moment they open the widget</li>
+        <li>Manage every conversation from your phone</li>
+      </ul>
+    </div>
+    <div class="mockup-device">
+      <div class="mockup-screen">
+        <div class="topbar">
+          <div class="dot" style="background:#ff5f57"></div>
+          <div class="dot" style="background:#febc2e"></div>
+          <div class="dot" style="background:#28c840"></div>
+          <div class="browser-url">multiplylocal.com</div>
+        </div>
+        <div class="browser-body" style="padding:0">
+          <div style="padding:12px">
+            <div class="fake-site-header">
+              <div class="fake-site-logo">MULTI<span class="x">×</span>PLY</div>
+              <div style="display:flex;gap:6px">
+                <div style="background:rgba(255,255,255,0.1);height:6px;width:30px;border-radius:2px"></div>
+                <div style="background:rgba(255,255,255,0.1);height:6px;width:30px;border-radius:2px"></div>
+                <div style="background:var(--red);height:6px;width:40px;border-radius:2px"></div>
+              </div>
+            </div>
+            <div class="fake-hero-block">
+              <div class="fake-hero-text">
+                <div class="fake-hero-h"></div>
+                <div class="fake-hero-p"></div>
+              </div>
+            </div>
+            <div class="fake-content-row">
+              <div class="fake-content-card"></div>
+              <div class="fake-content-card"></div>
+              <div class="fake-content-card"></div>
+            </div>
+          </div>
+          <!-- Chat window open -->
+          <div class="chat-window">
+            <div class="chat-win-header">
+              <div class="chat-win-avatar">MX</div>
+              <div>
+                <div class="chat-win-name">Multiply Support</div>
+                <div class="chat-win-status"><span class="status-dot"></span> Online now</div>
+              </div>
+            </div>
+            <div class="chat-win-body">
+              <div class="chat-win-bubble bot">Hey! 👋 How can we help you today?</div>
+              <div class="chat-win-bubble bot">We typically reply in under 2 minutes.</div>
+              <div class="chat-win-bubble user">Do you fix slab leaks?</div>
+              <div class="chat-win-bubble bot">Great question — yes, slab leaks are our specialty! Want to schedule a free assessment? 🔧</div>
+            </div>
+            <div class="chat-win-input">
+              <div class="chat-win-field">Type a message...</div>
+              <div class="chat-win-send">↑</div>
+            </div>
+          </div>
+          <!-- Bubble -->
+          <div class="chat-widget-bubble">💬</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURE 4: SALES PIPELINE ── -->
+<section class="feature-section" id="pipeline">
+  <div class="feature-inner reverse">
+    <div class="feature-copy">
+      <div class="feature-tag">Feature 04</div>
+      <h2 class="feature-title">SEE EVERY<br>LEAD. CLOSE<br>MORE JOBS.</h2>
+      <p class="feature-desc">Stop trying to track leads in your head or a notebook. MultiplyOS gives you a visual sales pipeline so you always know exactly who needs a follow-up, who has a quote out, and who's ready to book — in one glance.</p>
+      <ul class="feature-bullets">
+        <li>Drag-and-drop Kanban board for every lead</li>
+        <li>Leads auto-populate from your website, texts, and calls</li>
+        <li>See deal value, contact info, and next action at a glance</li>
+        <li>Trigger automations from any stage of the pipeline</li>
+      </ul>
+    </div>
+    <div class="mockup-device">
+      <div class="mockup-screen">
+        <div class="topbar">
+          <div class="dot" style="background:#ff5f57"></div>
+          <div class="dot" style="background:#febc2e"></div>
+          <div class="dot" style="background:#28c840"></div>
+          <div class="bar-title">Sales Pipeline — This Month</div>
+        </div>
+        <div class="pipeline-mock">
+          <div class="pipeline-topbar-inner">
+            <div class="pipeline-title">Active Leads</div>
+            <div class="pipeline-actions">
+              <div class="pipeline-btn">Filter</div>
+              <div class="pipeline-btn">+ Add Lead</div>
+            </div>
+          </div>
+          <div class="pipeline-board">
+            <div class="pipe-col">
+              <div class="pipe-col-head" style="color:var(--ui-blue)">New <span class="pipe-col-count">4</span></div>
+              <div class="pipe-cards">
+                <div class="pipe-card" style="border-left-color:var(--ui-blue)">
+                  <div class="pipe-card-name">Sandra Torres</div>
+                  <div class="pipe-card-biz">Pipe Repair</div>
+                  <div class="pipe-card-meta"><span class="pipe-card-val">$380</span><span class="pipe-card-time">2m ago</span></div>
+                </div>
+                <div class="pipe-card" style="border-left-color:var(--ui-blue)">
+                  <div class="pipe-card-name">Derek Broussard</div>
+                  <div class="pipe-card-biz">Water Heateration</div>
+                  <div class="pipe-card-meta"><span class="pipe-card-val">$2,400</span><span class="pipe-card-time">1h ago</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="pipe-col">
+              <div class="pipe-col-head" style="color:var(--ui-yellow)">Contacted <span class="pipe-col-count">3</span></div>
+              <div class="pipe-cards">
+                <div class="pipe-card" style="border-left-color:var(--ui-yellow)">
+                  <div class="pipe-card-name">Mike Fontenot</div>
+                  <div class="pipe-card-biz">System Inspection</div>
+                  <div class="pipe-card-meta"><span class="pipe-card-val">$129</span><span class="pipe-card-time">3h ago</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="pipe-col">
+              <div class="pipe-col-head" style="color:var(--ui-purple)">Quote Sent <span class="pipe-col-count">2</span></div>
+              <div class="pipe-cards">
+                <div class="pipe-card" style="border-left-color:var(--ui-purple)">
+                  <div class="pipe-card-name">Lisa Tran</div>
+                  <div class="pipe-card-biz">Repipe Job</div>
+                  <div class="pipe-card-meta"><span class="pipe-card-val">$4,800</span><span class="pipe-card-time">1d ago</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="pipe-col">
+              <div class="pipe-col-head" style="color:var(--ui-green)">Booked <span class="pipe-col-count">5</span></div>
+              <div class="pipe-cards">
+                <div class="pipe-card" style="border-left-color:var(--ui-green)">
+                  <div class="pipe-card-name">Carlos Ruiz</div>
+                  <div class="pipe-card-biz">Emergency Call Repair</div>
+                  <div class="pipe-card-meta"><span class="pipe-card-val">$620</span><span class="pipe-card-time">Today</span></div>
+                </div>
+                <div class="pipe-card" style="border-left-color:var(--ui-green)">
+                  <div class="pipe-card-name">Beth Guillory</div>
+                  <div class="pipe-card-biz">Remodel Rough-In</div>
+                  <div class="pipe-card-meta"><span class="pipe-card-val">$3,200</span><span class="pipe-card-time">Today</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="pipe-col">
+              <div class="pipe-col-head" style="color:rgba(255,255,255,0.3)">Won <span class="pipe-col-count">12</span></div>
+              <div class="pipe-cards">
+                <div class="pipe-card" style="border-left-color:rgba(255,255,255,0.15);opacity:0.6">
+                  <div class="pipe-card-name">Ray Fontenot</div>
+                  <div class="pipe-card-biz">Full Repipe</div>
+                  <div class="pipe-card-meta"><span class="pipe-card-val" style="color:rgba(255,255,255,0.4)">$5,100</span><span class="pipe-card-time">2d ago</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURE 5: MOBILE APP ── -->
+<section class="feature-section" id="app">
+  <div class="feature-inner">
+    <div class="feature-copy">
+      <div class="feature-tag">Feature 05</div>
+      <h2 class="feature-title">YOUR WHOLE<br>BUSINESS IN<br>YOUR POCKET.</h2>
+      <p class="feature-desc">While you're out on jobs, your business keeps running. The MultiplyOS mobile app gives you a real-time view of every lead, conversation, review, and booking — and lets you respond to anything in seconds from your phone.</p>
+      <ul class="feature-bullets">
+        <li>See new leads, missed calls, and messages the moment they happen</li>
+        <li>Reply to texts and chat messages from the app</li>
+        <li>View your pipeline, calendar, and performance at a glance</li>
+        <li>Available on iOS and Android</li>
+      </ul>
+    </div>
+    <div class="mockup-device">
+      <div class="app-phone">
+        <div class="app-screen">
+          <div class="app-statusbar">
+            <span>9:41</span>
+            <span>▐▐▐ 100%</span>
+          </div>
+          <div style="height:1px;background:rgba(0,0,0,0.3)"></div>
+          <div class="app-header">
+            <div>
+              <div class="app-greeting">Good morning,</div>
+              <div class="app-biz-name">MULTI<span class="x">×</span>PLY</div>
+            </div>
+            <div class="app-notif-badge">3</div>
+          </div>
+          <div class="app-stats-row">
+            <div class="app-stat">
+              <div class="app-stat-num" style="color:var(--red)">14</div>
+              <div class="app-stat-label">New Leads</div>
+            </div>
+            <div class="app-stat">
+              <div class="app-stat-num" style="color:var(--ui-green)">4.9</div>
+              <div class="app-stat-label">Avg Rating</div>
+            </div>
+            <div class="app-stat">
+              <div class="app-stat-num" style="color:var(--ui-blue)">7</div>
+              <div class="app-stat-label">Booked</div>
+            </div>
+            <div class="app-stat">
+              <div class="app-stat-num" style="color:var(--ui-yellow)">$12k</div>
+              <div class="app-stat-label">Pipeline</div>
+            </div>
+          </div>
+          <div class="app-section-label">Recent Activity</div>
+          <div class="app-feed">
+            <div class="app-feed-item">
+              <div class="app-feed-icon" style="background:rgba(194,59,46,0.15)">📞</div>
+              <div class="app-feed-text">
+                <div class="app-feed-name">Missed call — text sent</div>
+                <div class="app-feed-sub">(337) 555-0192 · Auto-replied</div>
+              </div>
+              <div class="app-feed-time">2m</div>
+            </div>
+            <div class="app-feed-item">
+              <div class="app-feed-icon" style="background:rgba(34,197,94,0.15)">⭐</div>
+              <div class="app-feed-text">
+                <div class="app-feed-name">New 5★ review</div>
+                <div class="app-feed-sub">Beth G. left a review</div>
+              </div>
+              <div class="app-feed-time">14m</div>
+            </div>
+            <div class="app-feed-item">
+              <div class="app-feed-icon" style="background:rgba(59,130,246,0.15)">📅</div>
+              <div class="app-feed-text">
+                <div class="app-feed-name">Appointment booked</div>
+                <div class="app-feed-sub">Sandra T. · Tomorrow 9am</div>
+              </div>
+              <div class="app-feed-time">1h</div>
+            </div>
+          </div>
+          <div class="app-section-label">Quick Actions</div>
+          <div class="app-quick-actions">
+            <div class="app-action"><div class="app-action-icon">💬</div><div class="app-action-label">Messages</div></div>
+            <div class="app-action"><div class="app-action-icon">📅</div><div class="app-action-label">Calendar</div></div>
+            <div class="app-action"><div class="app-action-icon">📊</div><div class="app-action-label">Pipeline</div></div>
+            <div class="app-action"><div class="app-action-icon">⭐</div><div class="app-action-label">Reviews</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURE 6: REVIEW AUTOMATION ── -->
+<section class="feature-section" id="reviews">
+  <div class="feature-inner reverse">
+    <div class="feature-copy">
+      <div class="feature-tag">Feature 06</div>
+      <h2 class="feature-title">MORE REVIEWS.<br>ZERO EFFORT.<br>EVERY JOB.</h2>
+      <p class="feature-desc">Happy customers almost never leave reviews on their own — they just move on. MultiplyOS automatically sends a review request text after every completed job, while the experience is still fresh. Your Google star rating climbs without you asking a single person.</p>
+      <ul class="feature-bullets">
+        <li>Auto-text fires after every completed job</li>
+        <li>Direct link to your Google Business Profile review page</li>
+        <li>One tap for the customer — maximum completion rate</li>
+        <li>More reviews = higher rankings = more customers</li>
+      </ul>
+    </div>
+    <div class="mockup-device" style="display:flex;flex-direction:column;gap:16px">
+      <!-- Phone with review request SMS -->
+      <div class="review-mock" style="padding:0">
+        <div class="review-sms-phone">
+          <div class="review-sms-screen">
+            <div class="review-sms-statusbar"><span>9:41</span><span>100%</span></div>
+            <div class="review-sms-header">
+              <div class="review-sms-contact">Broussard Plumbing Co.</div>
+            </div>
+            <div class="review-sms-bubbles">
+              <div class="review-bubble out">
+                Hey Beth — thanks so much for choosing us today! If you have 30 seconds, we'd really appreciate a Google review. It helps us a ton 🙏<br><br>
+                <span class="review-link">→ g.page/broussardplumbing/review</span>
+              </div>
+              <div class="review-auto-label">⚡ Sent by MultiplyOS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Google review result -->
+      <div class="google-review-card">
+        <div class="google-review-header">
+          <div class="google-logo"><span class="g-blue">G</span><span class="g-red-g">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red-g">e</span></div>
+          <div class="google-review-biz">Broussard Plumbing Co.</div>
+          <div class="new-badge">New</div>
+        </div>
+        <div class="google-stars-row">
+          <span class="google-star">★</span><span class="google-star">★</span><span class="google-star">★</span><span class="google-star">★</span><span class="google-star">★</span>
+        </div>
+        <div class="google-review-text">"Called about a slab leak and they had someone out within hours. Fixed it right the first time and the price was fair. Will absolutely use them again."</div>
+        <div class="google-reviewer">
+          <div class="google-avatar">SL</div>
+          <div>
+            <div class="google-reviewer-name">Beth G.</div>
+            <div class="google-reviewer-time">Just now</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<section class="cta-band noise">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <h2>GET MULTIPLY<span class="accent">OS</span><br>WITH EVERY<br>PLAN.</h2>
+    </div>
+    <div class="cta-right">
+      <p>Every Multiply Local plan comes with full MultiplyOS access — the dashboard, the mobile app, and all the automations. We set it all up for you. You just run your business.</p>
+      <div class="cta-actions">
+        <a href="book.html" class="btn-cream">Multiply My Business</a>
+        <span class="cta-sub">See what's included in each plan on our <a href="pricing.html" style="color:var(--cream);border-bottom:1px solid rgba(245,240,232,0.3)">pricing page →</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <span class="f-logo">MULTI<span class="x">×</span>PLY</span>
+        <p class="f-tagline">We help local businesses get found online, convert more leads, and grow — all on autopilot.</p>
+        <div class="f-contact">
+          <div><a href="mailto:hello@multiplylocal.com">hello@multiplylocal.com</a></div>
+          <div><a href="tel:+13375268824">(337) 526-8824</a></div>
+        </div>
+      </div>
+      <div class="f-col"><h4>MultiplyOS</h4><ul>
+        <li><a href="#textback">Missed Call Text-Back</a></li>
+        <li><a href="#automations">Automations</a></li>
+        <li><a href="#chat">Chat Widget</a></li>
+        <li><a href="#pipeline">Sales Pipeline</a></li>
+        <li><a href="#app">Mobile App</a></li>
+        <li><a href="#reviews">Review Automation</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Company</h4><ul>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="book.html">Multiply My Business</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Legal</h4><ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="privacy.html#sms">SMS Policy</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="f-copy">&copy; 2026 Multiply Local LLC — All Rights Reserved</span>
+      <span class="f-bible">Be fruitful and multiply. — Genesis 1:28</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open')}
+window.addEventListener('scroll',()=>document.getElementById('mobileNav').classList.remove('open'));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-80,behavior:'smooth'})}})});
+</script>
+<script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100"></script>
+</body>
+</html>

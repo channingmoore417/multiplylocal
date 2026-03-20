@@ -473,7 +473,7 @@
   @media (max-width: 1024px) {
     .site-header, .benefits-section, .diff-section, .proof-section, .pricing-section, .hiw-section, .cta-band, .site-footer { padding-left: 32px; padding-right: 32px; }
     .hero-inner { grid-template-columns: 1fr; gap: 60px; padding: 0 32px; }
-    .hero-right { order: 1; }
+    .hero-right { order: -1; }
     .cta-inner { grid-template-columns: 1fr; gap: 40px; padding: 80px 0; min-height: auto; }
     .cta-band::before { width: 100%; clip-path: none; opacity: 0.5; }
     .gmock-wrap { margin: 0; padding: 0; }
@@ -490,13 +490,11 @@
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
   }
   @media (max-width: 768px) {
-    :root { --gray: #999; --gray-muted: #666; --gray-light: #bbb; }
     .site-header { padding: 0 20px; }
     .header-nav, .header-cta { display: none; }
     .hamburger { display: flex; }
     .mobile-nav { padding: 24px 20px; }
     .hero-inner { padding: 0 20px; }
-    .hero-subhead { font-size: 17px; color: var(--gray-light); }
     .benefits-section, .diff-section, .proof-section, .pricing-section, .hiw-section { padding: 88px 20px; }
     .cta-band { padding: 0 20px; }
     .cta-inner { grid-template-columns: 1fr; gap: 40px; padding: 72px 0; min-height: auto; }
@@ -504,15 +502,9 @@
     .footer-top { grid-template-columns: 1fr; gap: 32px; }
     .benefit-row { grid-template-columns: 1fr; gap: 12px; }
     .benefit-number { font-size: 44px; }
-    .benefit-body { font-size: 15px; }
-    .diff-them { color: #888; }
-    .diff-us { font-size: 16px; }
-    .step-desc { font-size: 15px; color: var(--gray-light); }
     .testimonial-stack { flex-direction: column; }
     .steps { grid-template-columns: 1fr; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
-    .p-promise { font-size: 16px; }
-    .p-list li { font-size: 15px; color: var(--gray-light); }
   }
   @media (max-width: 480px) {
     .hero-ctas { flex-direction: column; align-items: flex-start; }
@@ -526,6 +518,7 @@
   <a href="index.html" class="header-logo">MULTI<span class="x">×</span>PLY</a>
   <nav><ul class="header-nav">
     <li><a href="#benefits">Why It Works</a></li>
+    <li><a href="multiplyos.html">MultiplyOS</a></li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="#how-it-works">Process</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -535,6 +528,7 @@
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="#benefits" onclick="toggleMobileNav()">Why It Works</a>
+  <a href="multiplyos.html" onclick="toggleMobileNav()">MultiplyOS</a>
   <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a>
   <a href="#how-it-works" onclick="toggleMobileNav()">Process</a>
   <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
@@ -600,7 +594,7 @@
               <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
             </div>
             <div class="gmock-bar-input">
-              <span class="gmock-bar-text">hvac company near me</span>
+              <span class="gmock-bar-text">best [business type] near me</span>
               <span class="gmock-bar-icon">🔍</span>
             </div>
           </div>
@@ -632,7 +626,7 @@
               <div class="gmock-result top">
                 <div class="gmock-rank">1</div>
                 <div class="gmock-result-inner">
-                  <div class="gmock-biz-name">Lake Charles HVAC Pros</div>
+                  <div class="gmock-biz-name">Your Business Name</div>
                   <div class="gmock-stars">
                     <span class="gmock-star-fill">★★★★★</span>
                     <span class="gmock-rating">4.9</span>
@@ -641,7 +635,7 @@
                   <div class="gmock-meta">
                     <span class="gmock-open">Open</span>
                     <span>·</span>
-                    <span>HVAC contractor</span>
+                    <span>Local service business</span>
                     <span>·</span>
                     <span>0.8 mi</span>
                   </div>
@@ -657,7 +651,7 @@
               <div class="gmock-result">
                 <div class="gmock-rank gray">2</div>
                 <div class="gmock-result-inner">
-                  <div class="gmock-biz-name" style="color:#1a0dab">Total Comfort Cooling</div>
+                  <div class="gmock-biz-name" style="color:#1a0dab">Competitor A</div>
                   <div class="gmock-stars">
                     <span class="gmock-star-fill">★★★★</span>
                     <span class="gmock-rating">4.1</span>
@@ -666,7 +660,7 @@
                   <div class="gmock-meta">
                     <span style="color:#d93025">Closed</span>
                     <span>·</span>
-                    <span>HVAC contractor</span>
+                    <span>Local service business</span>
                     <span>·</span>
                     <span>1.4 mi</span>
                   </div>
@@ -677,7 +671,7 @@
               <div class="gmock-result">
                 <div class="gmock-rank gray">3</div>
                 <div class="gmock-result-inner">
-                  <div class="gmock-biz-name" style="color:#1a0dab">Bayou Air &amp; Heat</div>
+                  <div class="gmock-biz-name" style="color:#1a0dab">Competitor B</div>
                   <div class="gmock-stars">
                     <span class="gmock-star-fill">★★★</span>
                     <span class="gmock-rating">3.8</span>
@@ -686,7 +680,7 @@
                   <div class="gmock-meta">
                     <span class="gmock-open">Open</span>
                     <span>·</span>
-                    <span>HVAC contractor</span>
+                    <span>Local service business</span>
                     <span>·</span>
                     <span>2.1 mi</span>
                   </div>
@@ -768,19 +762,19 @@
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-featured">
-        <p class="t-text">"We went from page 4 to ranking #1 for three of our main keywords in under 60 days. I didn't change anything on my end — they just handled it. The phone hasn't stopped ringing since."</p>
-        <div><div class="t-author-name">Marcus J.</div><div class="t-author-biz">HVAC Company — Lake Charles, LA</div></div>
+        <p class="t-text">"We went from page 4 to #1 for our top keywords in under 60 days. I didn't change a thing — they just handled it. The phone hasn't stopped ringing since."</p>
+        <div><div class="t-author-name">James R.</div><div class="t-author-biz">Plumbing Co. — Lake Charles, LA</div></div>
       </div>
       <div class="testimonial-stack">
         <div class="testimonial-small">
           <div class="t-stars">★★★★★</div>
-          <p class="t-text">"The missed call text-back paid for the whole plan in the first month. Three jobs I would've lost — booked instead."</p>
-          <div class="t-author-name">Sandra R.</div><div class="t-author-biz">Plumbing Co. — Beaumont, TX</div>
+          <p class="t-text">"The missed call text-back paid for the whole plan in the first month. Three jobs I would've lost — booked."</p>
+          <div class="t-author-name">Maria T.</div><div class="t-author-biz">Local Business — Beaumont, TX</div>
         </div>
         <div class="testimonial-small">
           <div class="t-stars">★★★★★</div>
-          <p class="t-text">"Site went live in a week. Looks better than anything I've paid $5,000 for. The automations just run in the background."</p>
-          <div class="t-author-name">Trey K.</div><div class="t-author-biz">Landscaping — Sulphur, LA</div>
+          <p class="t-text">"Site went live in a week and looks better than anything I've paid $5,000 for. The automations just run on their own."</p>
+          <div class="t-author-name">Chris B.</div><div class="t-author-biz">Service Business — Sulphur, LA</div>
         </div>
       </div>
     </div>
@@ -908,7 +902,7 @@
         <span class="f-logo">MULTI<span class="x">×</span>PLY</span>
         <p class="f-tagline">We help local businesses get found online, convert more leads, and grow — all on autopilot.</p>
         <div class="f-contact">
-          <div><a href="/cdn-cgi/l/email-protection#96fef3fafaf9d6fbe3fae2ffe6faeffbfde2b8f5f9fb"><span class="__cf_email__" data-cfemail="066e636a6a69466b736a726f766a7f6b6d722865696b">[email&#160;protected]</span></a></div>
+          <div><a href="mailto:hello@multiplylocal.com">hello@multiplylocal.com</a></div>
           <div><a href="tel:+13375268824">(337) 526-8824</a></div>
         </div>
       </div>
