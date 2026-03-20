@@ -153,34 +153,35 @@
 
     <div class="contact-form-wrap">
       <h2 class="form-title">SEND US A MESSAGE</h2>
-      <form onsubmit="handleSubmit(event)">
+      <form action="https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/82a0e45e-f184-44c4-be5f-d6952bafd168" method="POST">
+        <input type="hidden" name="form_name" value="Multiply Local — Contact Form">
         <div class="form-row">
           <div class="form-group">
-            <label>First Name</label>
-            <input type="text" name="first_name" placeholder="Marcus" required>
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" placeholder="Marcus" required>
           </div>
           <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" name="last_name" placeholder="Johnson" required>
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Johnson" required>
           </div>
         </div>
         <div class="form-group">
-          <label>Business Name</label>
-          <input type="text" name="business" placeholder="Lake Charles HVAC Pros" required>
+          <label for="biz_name">Business Name</label>
+          <input type="text" id="biz_name" name="biz_name" placeholder="Lake Charles HVAC Pros" required>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="marcus@yourbiz.com" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="marcus@yourbiz.com" required>
           </div>
           <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" name="phone" placeholder="(337) 526-8824">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(337) 526-8824">
           </div>
         </div>
         <div class="form-group">
-          <label>What plan are you interested in?</label>
-          <select name="plan">
+          <label for="plan">What plan are you interested in?</label>
+          <select id="plan" name="plan">
             <option value="">Select a plan...</option>
             <option value="starter">Starter — $297/mo</option>
             <option value="growth">Growth — $597/mo</option>
@@ -189,18 +190,18 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Message</label>
-          <textarea name="message" placeholder="Tell us about your business and what you're looking to accomplish..."></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your business and what you're looking to accomplish..."></textarea>
         </div>
         <div class="form-sms-note">
           By submitting this form you agree to be contacted by Multiply Local LLC via email, phone, and/or SMS text message regarding your inquiry. Message and data rates may apply. Reply STOP to opt out of text messages at any time. See our <a href="privacy.html" style="color:var(--red)">Privacy Policy</a> for details.
         </div>
         <!-- Honeypot — hidden from humans, bots will fill it -->
         <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
-          <label>Leave this blank</label>
-          <input type="text" name="website_url" tabindex="-1" autocomplete="off">
+          <label for="website_url">Leave this blank</label>
+          <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
         </div>
-        <button type="submit" class="btn-submit">Send Message</button>
+        <input type="submit" class="btn-submit" value="Send Message">
       </form>
     </div>
   </div>
@@ -245,59 +246,7 @@
 <script>
 function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open')}
 window.addEventListener('scroll',()=>document.getElementById('mobileNav').classList.remove('open'));
-
-var _formLoadTime = Date.now();
-
-async function handleSubmit(e){
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('.btn-submit');
-  const orig = btn.textContent;
-
-  // Honeypot check — if bot filled the hidden field, silently reject
-  if(form.website_url.value){
-    btn.textContent = 'Message Sent ×';
-    btn.style.background = 'var(--gray-muted)';
-    return;
-  }
-
-  // Timestamp check — reject if submitted in under 3 seconds
-  if(Date.now() - _formLoadTime < 3000){
-    btn.textContent = 'Message Sent ×';
-    btn.style.background = 'var(--gray-muted)';
-    return;
-  }
-
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-
-  const data = {
-    form_name: 'Multiply Local — Contact Form',
-    first_name: form.first_name.value,
-    last_name: form.last_name.value,
-    business: form.business.value,
-    email: form.email.value,
-    phone: form.phone.value,
-    plan: form.plan.value,
-    message: form.message.value,
-    submitted_at: new Date().toISOString()
-  };
-
-  try {
-    await fetch('https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/82a0e45e-f184-44c4-be5f-d6952bafd168', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
-    });
-    btn.textContent = 'Message Sent ×';
-    btn.style.background = 'var(--gray-muted)';
-  } catch(err) {
-    btn.textContent = orig;
-    btn.style.background = '';
-    btn.disabled = false;
-    alert('Something went wrong — please try again or email us directly.');
-  }
-}
 </script>
+<script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100"></script>
 </body>
 </html>
