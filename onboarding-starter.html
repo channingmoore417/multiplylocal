@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starter Onboarding — MULTI×PLY</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#1c1c1c;--black-light:#232323;--black-card:#272727;--red:#c23b2e;--red-dark:#9e2f25;--cream:#f5f0e8;--gray:#777;--gray-muted:#444;--gray-light:#999}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden;min-height:100vh}
+  a{text-decoration:none;color:inherit}
+  .page-wrap{max-width:760px;margin:0 auto;padding:60px 40px 100px}
+  .ob-header{text-align:center;margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .ob-logo{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.08em;color:var(--cream);display:block;margin-bottom:20px}
+  .ob-logo .x{color:var(--red)}
+  .ob-plan-badge{display:inline-block;background:rgba(194,59,46,0.12);border:1px solid rgba(194,59,46,0.3);color:var(--red);font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.35em;text-transform:uppercase;padding:6px 18px;border-radius:3px;margin-bottom:20px}
+  .ob-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,64px);letter-spacing:0.03em;color:var(--cream);line-height:0.95;margin-bottom:14px}
+  .ob-subtitle{font-size:16px;color:var(--gray-light);line-height:1.6;max-width:520px;margin:0 auto}
+
+  /* Progress bar */
+  .progress-wrap{margin-bottom:48px}
+  .progress-steps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:10px}
+  .progress-step{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative}
+  .progress-step:not(:last-child)::after{content:'';position:absolute;top:16px;left:calc(50% + 16px);right:calc(-50% + 16px);height:1px;background:rgba(255,255,255,0.1)}
+  .progress-step.done::after{background:var(--red)}
+  .step-dot{width:32px;height:32px;border-radius:50%;background:var(--black-card);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--gray);position:relative;z-index:1}
+  .progress-step.active .step-dot{background:var(--red);border-color:var(--red);color:var(--cream)}
+  .progress-step.done .step-dot{background:var(--red-dark);border-color:var(--red-dark);color:var(--cream)}
+  .step-label{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray-muted);text-align:center}
+  .progress-step.active .step-label{color:var(--cream)}
+
+  /* Form cards */
+  .form-card{background:var(--black-card);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:36px;margin-bottom:24px;position:relative;overflow:hidden}
+  .form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red)}
+  .form-card-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.04em;color:var(--cream);margin-bottom:6px}
+  .form-card-desc{font-size:14px;color:var(--gray);margin-bottom:28px;line-height:1.5}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0}
+  .form-group{margin-bottom:16px}
+  .form-group label{display:block;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gray);margin-bottom:8px}
+  .form-group input,.form-group select,.form-group textarea{width:100%;background:var(--black);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--cream);transition:border-color 0.2s;outline:none}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(194,59,46,0.5)}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:var(--gray-muted)}
+  .form-group select{appearance:none;cursor:pointer}
+  .form-group select option{background:var(--black-card)}
+  .form-group textarea{resize:vertical;min-height:100px}
+  .form-group .help{font-size:12px;color:var(--gray-muted);margin-top:6px;line-height:1.5}
+  .checkbox-group{display:flex;flex-wrap:wrap;gap:10px}
+  .checkbox-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-light);cursor:pointer}
+  .checkbox-item input{width:16px;height:16px;accent-color:var(--red);cursor:pointer}
+
+  /* Submit */
+  .submit-section{text-align:center;margin-top:32px}
+  .btn-submit{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.25em;text-transform:uppercase;background:var(--red);color:var(--cream);padding:18px 56px;border:none;border-radius:3px;cursor:pointer;transition:background 0.2s,transform 0.15s;font-size:14px}
+  .btn-submit:hover{background:#d44638;transform:translateY(-1px)}
+  .submit-note{font-size:13px;color:var(--gray-muted);margin-top:14px;line-height:1.6}
+
+  /* Success */
+  .success-state{display:none;text-align:center;padding:60px 20px}
+  .success-state.show{display:block}
+  .success-x{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--red);line-height:1;margin-bottom:20px}
+  .success-title{font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:0.04em;color:var(--cream);margin-bottom:16px}
+  .success-body{font-size:16px;color:var(--gray-light);line-height:1.7;max-width:460px;margin:0 auto}
+
+  @media(max-width:768px){
+    .page-wrap{padding:40px 20px 80px}
+    .form-row{grid-template-columns:1fr}
+    .progress-step .step-label{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="ob-header">
+    <span class="ob-logo">MULTI<span class="x">×</span>PLY</span>
+    <div class="ob-plan-badge">Starter Plan — $297/mo</div>
+    <h1 class="ob-title">LET'S BUILD<br>YOUR SYSTEM.</h1>
+    <p class="ob-subtitle">Fill out this form and your account manager will have everything they need to get your website and automations live within 5–7 business days.</p>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-steps">
+      <div class="progress-step active"><div class="step-dot">1</div><div class="step-label">Business</div></div>
+      <div class="progress-step"><div class="step-dot">2</div><div class="step-label">Website</div></div>
+      <div class="progress-step"><div class="step-dot">3</div><div class="step-label">Automations</div></div>
+      <div class="progress-step"><div class="step-dot">4</div><div class="step-label">Access</div></div>
+    </div>
+  </div>
+
+  <div id="onboardingForm">
+
+    <!-- SECTION 1: Business Info -->
+    <div class="form-card">
+      <div class="form-card-title">Your Business</div>
+      <div class="form-card-desc">Tell us about your business so we can build your website and platform correctly from day one.</div>
+      <div class="form-row">
+        <div class="form-group"><label>Business Name *</label><input type="text" name="biz_name" placeholder="Lake Charles HVAC Pros" required></div>
+        <div class="form-group"><label>Industry / Type *</label><input type="text" name="industry" placeholder="HVAC Contractor" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name *</label><input type="text" name="owner_name" placeholder="Marcus Johnson" required></div>
+        <div class="form-group"><label>Your Title</label><input type="text" name="owner_title" placeholder="Owner"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Email *</label><input type="email" name="email" placeholder="marcus@yourbiz.com" required></div>
+        <div class="form-group"><label>Phone *</label><input type="tel" name="phone" placeholder="(337) 526-8824" required></div>
+      </div>
+      <div class="form-group"><label>Business Address</label><input type="text" name="address" placeholder="123 Main St, Lake Charles, LA 70601"></div>
+      <div class="form-group"><label>Service Area (cities/zip codes you serve)</label><input type="text" name="service_area" placeholder="Lake Charles, Sulphur, Westlake, Moss Bluff..."></div>
+      <div class="form-group"><label>Business Hours</label><input type="text" name="hours" placeholder="Mon–Fri 7am–6pm, Sat 8am–2pm"></div>
+    </div>
+
+    <!-- SECTION 2: Website -->
+    <div class="form-card">
+      <div class="form-card-title">Your Website</div>
+      <div class="form-card-desc">Help us understand what pages you need and what you want your site to accomplish.</div>
+      <div class="form-group"><label>Existing website URL (if any)</label><input type="url" name="existing_url" placeholder="https://yourbusiness.com"></div>
+      <div class="form-group"><label>What pages do you need? *</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="pages" value="home" checked> Home</label>
+          <label class="checkbox-item"><input type="checkbox" name="pages" value="about"> About</label>
+          <label class="checkbox-item"><input type="checkbox" name="pages" value="services"> Services</label>
+          <label class="checkbox-item"><input type="checkbox" name="pages" value="contact"> Contact</label>
+          <label class="checkbox-item"><input type="checkbox" name="pages" value="reviews"> Reviews</label>
+          <label class="checkbox-item"><input type="checkbox" name="pages" value="gallery"> Gallery/Photos</label>
+        </div>
+      </div>
+      <div class="form-group"><label>List your main services (one per line)</label><textarea name="services" placeholder="AC Installation&#10;Heating Repair&#10;Emergency HVAC&#10;Preventative Maintenance"></textarea></div>
+      <div class="form-group"><label>What makes you different from competitors?</label><textarea name="differentiator" placeholder="Family-owned for 15 years, same-day service, 100% satisfaction guarantee..."></textarea></div>
+      <div class="form-group"><label>Do you have a logo?</label>
+        <select name="has_logo">
+          <option value="">Select...</option>
+          <option value="yes_send">Yes — I'll email it to my account manager</option>
+          <option value="yes_later">Yes — I'll send it later</option>
+          <option value="no">No — please use text-based logo</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Color preferences for your website (optional)</label><input type="text" name="colors" placeholder="Blue and white, or I'll leave it to you..."></div>
+      <div class="form-group"><label>3 competitor websites you want us to review</label><textarea name="competitors" placeholder="https://competitor1.com&#10;https://competitor2.com&#10;https://competitor3.com" style="min-height:80px"></textarea></div>
+    </div>
+
+    <!-- SECTION 3: Automations -->
+    <div class="form-card">
+      <div class="form-card-title">Automations Setup</div>
+      <div class="form-card-desc">We'll configure your missed call text-back, chat widget, and Google review requests. We just need a few details.</div>
+      <div class="form-group"><label>What should your missed call text-back say?</label><textarea name="textback_msg" placeholder="Hi! Sorry we missed your call — we're currently with a customer. Reply here or call us back at (337) 526-8824 and we'll get right with you!" style="min-height:80px"></textarea><div class="help">We'll refine this — just give us your starting point.</div></div>
+      <div class="form-group"><label>What name should appear in the chat widget?</label><input type="text" name="chat_name" placeholder="Lake Charles HVAC Pros" ></div>
+      <div class="form-group"><label>Google Business Profile URL</label><input type="url" name="gmb_url" placeholder="https://maps.google.com/..."><div class="help">We'll use this to send automated review requests after each job.</div></div>
+      <div class="form-group"><label>How should we identify when a job is complete? (so we trigger the review request)</label>
+        <select name="review_trigger">
+          <option value="">Select...</option>
+          <option value="manual">I'll manually trigger it from my dashboard</option>
+          <option value="invoice">When an invoice is marked paid</option>
+          <option value="tagged">When I tag a contact as "Job Complete"</option>
+          <option value="discuss">Let's discuss on onboarding call</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Platform Access -->
+    <div class="form-card">
+      <div class="form-card-title">Platform Access</div>
+      <div class="form-card-desc">We need a few final details to set up your MultiplyOS dashboard and mobile app.</div>
+      <div class="form-group"><label>Preferred login email for MultiplyOS *</label><input type="email" name="platform_email" placeholder="marcus@yourbiz.com" required></div>
+      <div class="form-group"><label>Business phone number to use for text automations *</label><input type="tel" name="sms_number" placeholder="(337) 526-8824" required><div class="help">We'll set up a dedicated local number for your automations if needed.</div></div>
+      <div class="form-group"><label>Domain name (if you have one)</label><input type="text" name="domain" placeholder="yourbusiness.com"><div class="help">If you need a domain, let us know and we'll help you get one.</div></div>
+      <div class="form-group"><label>Anything else we should know?</label><textarea name="notes" placeholder="Special requests, timeline concerns, or anything else..."></textarea></div>
+    </div>
+
+    <div class="submit-section">
+      <button type="button" class="btn-submit" onclick="submitForm()">Submit Onboarding Form</button>
+      <p class="submit-note">Your account manager will reach out within 1 business day to confirm receipt and schedule your kickoff call.</p>
+    </div>
+  </div>
+
+  <div class="success-state" id="successState">
+    <div class="success-x">×</div>
+    <div class="success-title">YOU'RE ALL SET.</div>
+    <p class="success-body">Your onboarding form has been received. Your account manager will reach out within 1 business day to confirm everything and schedule your kickoff call. Welcome to Multiply.</p>
+  </div>
+</div>
+
+<script>
+function submitForm(){
+  document.getElementById('onboardingForm').style.display='none';
+  document.getElementById('successState').classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

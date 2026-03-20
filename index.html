@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MULTI×PLY — We Multiply Your Customers</title>
+<meta name="description" content="Multiply Local helps local businesses get more customers through websites, SEO, and smart automations.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #1c1c1c;
+    --black-light: #232323;
+    --black-card: #272727;
+    --black-mid: #2e2e2e;
+    --red: #c23b2e;
+    --red-dark: #9e2f25;
+    --red-bright: #d44638;
+    --cream: #f5f0e8;
+    --white: #faf7f2;
+    --gray: #777;
+    --gray-dark: #555;
+    --gray-muted: #444;
+    --gray-light: #999;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--black); color: var(--cream); overflow-x: hidden; }
+  a { text-decoration: none; color: inherit; }
+
+  .noise::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); opacity: 0.4; pointer-events: none; z-index: 0; }
+
+  /* ── HEADER ── */
+  .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; background: rgba(28,28,28,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .header-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.08em; color: var(--cream); }
+  .header-logo .x { color: var(--red); }
+  .header-nav { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .header-nav a { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-light); transition: color 0.2s; }
+  .header-nav a:hover { color: var(--cream); }
+  .header-cta { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; background: var(--red); color: var(--cream); padding: 10px 24px; border-radius: 3px; transition: background 0.2s, transform 0.15s; white-space: nowrap; }
+  .header-cta:hover { background: var(--red-bright); transform: translateY(-1px); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 2px; }
+  .mobile-nav { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--black-light); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 28px 48px; z-index: 99; flex-direction: column; gap: 20px; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); }
+  .mobile-cta { background: var(--red); color: var(--cream) !important; padding: 12px 22px; border-radius: 3px; text-align: center; margin-top: 8px; }
+
+  /* ── HERO ── */
+  .hero { min-height: 100vh; padding-top: 68px; display: flex; align-items: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(194,59,46,0.07) 0%, transparent 55%), radial-gradient(ellipse at 10% 80%, rgba(194,59,46,0.04) 0%, transparent 40%); }
+  .hero-bg-text { position: absolute; bottom: -60px; left: -20px; font-family: 'Bebas Neue', sans-serif; font-size: clamp(120px,22vw,320px); letter-spacing: 0.04em; color: rgba(255,255,255,0.02); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1; }
+  .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 48px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .hero-eyebrow { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; animation: fadeUp 0.8s ease-out both; }
+  .hero-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px,7vw,96px); line-height: 0.92; letter-spacing: 0.03em; color: var(--cream); margin-bottom: 28px; animation: fadeUp 0.8s ease-out 0.1s both; }
+  .hero-headline .accent { color: var(--red); }
+  .hero-subhead { font-size: clamp(16px,1.8vw,20px); color: var(--gray-light); line-height: 1.6; max-width: 480px; margin-bottom: 40px; animation: fadeUp 0.8s ease-out 0.2s both; }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; animation: fadeUp 0.8s ease-out 0.3s both; }
+  .btn-primary { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--red); color: var(--cream); padding: 16px 34px; border-radius: 3px; transition: background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-primary:hover { background: var(--red-bright); transform: translateY(-2px); }
+  .btn-ghost { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cream); border: 1px solid rgba(245,240,232,0.25); padding: 15px 28px; border-radius: 3px; transition: border-color 0.2s, transform 0.15s; display: inline-block; }
+  .btn-ghost:hover { border-color: rgba(245,240,232,0.6); transform: translateY(-2px); }
+  .hero-trust { margin-top: 20px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--gray-muted); animation: fadeUp 0.8s ease-out 0.35s both; }
+  .hero-trust-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+
+  /* ── GOOGLE MOCK ── */
+  .hero-right { animation: fadeUp 0.8s ease-out 0.2s both; position: relative; }
+
+  .gmock-wrap {
+    position: relative;
+    /* Extra space on left and right for callout lines */
+    margin: 0 -32px 0 -20px;
+    padding: 0 32px 0 20px;
+  }
+
+  /* The mock Google results panel */
+  .gmock {
+    background: #fff;
+    border-radius: 12px;
+    overflow: visible;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+    position: relative;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Search bar */
+  .gmock-bar {
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid #e8eaed;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .gmock-bar-input {
+    flex: 1;
+    background: #f1f3f4;
+    border-radius: 24px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .gmock-bar-text { font-size: 13px; color: #202124; }
+  .gmock-bar-icon { color: #4285f4; font-size: 15px; }
+  .gmock-bar-logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+  .g-blue { color: #4285f4; }
+  .g-red { color: #ea4335; }
+  .g-yellow { color: #fbbc05; }
+  .g-green { color: #34a853; }
+
+  /* Map pack container */
+  .gmock-body { padding: 0; }
+
+  /* "3 results" label */
+  .gmock-label {
+    padding: 10px 16px 6px;
+    font-size: 11px;
+    color: #70757a;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Map placeholder */
+  .gmock-map {
+    margin: 0 16px 10px;
+    height: 90px;
+    background: #e8f0e9;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gmock-map-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 28px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 28px);
+  }
+  /* Fake roads */
+  .gmock-map-road-h { position: absolute; left: 0; right: 0; height: 5px; background: #fff; opacity: 0.7; }
+  .gmock-map-road-v { position: absolute; top: 0; bottom: 0; width: 5px; background: #fff; opacity: 0.7; }
+  /* Pin #1 — red, prominent */
+  .gmock-pin1 {
+    position: absolute;
+    top: 12px; left: 38%;
+    transform: translateX(-50%);
+  }
+  .gmock-pin1-dot {
+    width: 28px; height: 28px;
+    background: #ea4335;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    border: 2px solid #fff;
+  }
+  .gmock-pin1-inner {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 10px; height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    margin-top: -1px;
+  }
+  /* Pin 2 & 3 — gray, smaller */
+  .gmock-pin-sm {
+    position: absolute;
+    width: 20px; height: 20px;
+    background: #70757a;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+
+  /* Result rows */
+  .gmock-results { padding: 0 0 8px; }
+  .gmock-result {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e8eaed;
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .gmock-result:last-child { border-bottom: none; }
+  .gmock-result:hover { background: #f8f9fa; }
+  .gmock-result.top { background: #fef9f9; }
+
+  /* Rank badge */
+  .gmock-rank {
+    position: absolute;
+    top: 12px; left: 16px;
+    width: 20px; height: 20px;
+    background: #ea4335;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+  }
+  .gmock-rank.gray { background: #70757a; }
+
+  .gmock-result-inner { padding-left: 28px; }
+  .gmock-biz-name { font-size: 14px; font-weight: 600; color: #1a0dab; margin-bottom: 2px; }
+  .gmock-result.top .gmock-biz-name { color: #c23b2e; }
+  .gmock-stars { display: flex; align-items: center; gap: 4px; margin-bottom: 2px; }
+  .gmock-star-fill { color: #fbbc05; font-size: 12px; letter-spacing: 1px; }
+  .gmock-rating { font-size: 12px; color: #202124; font-weight: 600; }
+  .gmock-reviews { font-size: 12px; color: #70757a; }
+  .gmock-meta { font-size: 12px; color: #70757a; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+  .gmock-open { color: #188038; font-weight: 600; }
+  .gmock-actions { display: flex; gap: 8px; margin-top: 8px; }
+  .gmock-action-btn {
+    background: #f1f3f4;
+    border: none;
+    border-radius: 16px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #202124;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .gmock-action-btn.primary-action {
+    background: #1a73e8;
+    color: #fff;
+  }
+
+  /* ── CALLOUT LINES ── */
+  /* Each callout: an SVG line + label floating to the side */
+  .callout {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .callout-label {
+    position: absolute;
+    background: var(--red);
+    color: var(--cream);
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 3px;
+    white-space: nowrap;
+    line-height: 1.3;
+    pointer-events: none;
+  }
+  .callout-label small {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(245,240,232,0.7);
+    margin-top: 1px;
+  }
+
+  /* ── SHARED SECTION STYLES ── */
+  .section-label { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px,4.8vw,62px); letter-spacing: 0.04em; line-height: 1; margin-bottom: 22px; }
+
+  /* ── BENEFITS ── */
+  .benefits-section { padding: 130px 48px; position: relative; }
+  .benefits-inner { max-width: 1200px; margin: 0 auto; }
+  .benefits-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 80px; }
+  .benefits-intro-copy { font-size: 18px; color: var(--gray-light); line-height: 1.7; max-width: 460px; }
+  .benefits-intro-pull { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,3vw,40px); color: var(--cream); line-height: 1.2; letter-spacing: 0.03em; }
+  .benefits-intro-pull .red { color: var(--red); }
+  .benefit-rows { display: flex; flex-direction: column; }
+  .benefit-row { display: grid; grid-template-columns: 80px 1fr 1fr; gap: 40px; align-items: start; padding: 52px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+  .benefit-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .benefit-number { font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: rgba(194,59,46,0.15); line-height: 1; letter-spacing: 0.02em; margin-top: -8px; transition: color 0.25s; }
+  .benefit-row:hover .benefit-number { color: rgba(194,59,46,0.35); }
+  .benefit-heading { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,3vw,44px); letter-spacing: 0.03em; line-height: 1.05; color: var(--cream); margin-bottom: 10px; }
+  .benefit-tag { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+  .benefit-body { font-size: 16px; color: var(--gray-light); line-height: 1.7; }
+
+  /* ── DIFF ── */
+  .diff-section { padding: 130px 48px; background: var(--black-light); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .diff-inner { max-width: 1200px; margin: 0 auto; }
+  .diff-pull { text-align: center; margin-bottom: 80px; }
+  .diff-pull blockquote { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px,5vw,72px); letter-spacing: 0.04em; line-height: 1.05; color: var(--cream); max-width: 860px; margin: 0 auto 20px; }
+  .diff-pull blockquote .x { color: var(--red); }
+  .diff-pull cite { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gray); font-style: normal; }
+  .diff-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: rgba(255,255,255,0.04); border-radius: 6px; overflow: hidden; }
+  .diff-card { background: var(--black); padding: 36px 32px; position: relative; }
+  .diff-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background 0.2s; }
+  .diff-card:hover::before { background: var(--red); }
+  .diff-vs { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+  .diff-them { font-size: 13px; color: var(--gray-muted); line-height: 1.6; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.05); font-style: italic; text-decoration: line-through; text-decoration-color: rgba(194,59,46,0.4); }
+  .diff-us { font-size: 15px; color: var(--cream); line-height: 1.6; font-weight: 500; }
+
+  /* ── TESTIMONIALS ── */
+  .proof-section { padding: 130px 48px; position: relative; }
+  .proof-inner { max-width: 1200px; margin: 0 auto; }
+  .proof-header { margin-bottom: 64px; }
+  .testimonials-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+  .testimonial-featured { background: var(--black-card); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 48px; position: relative; overflow: hidden; }
+  .testimonial-featured::before { content: '"'; position: absolute; top: -20px; right: 32px; font-family: 'Bebas Neue', sans-serif; font-size: 220px; color: rgba(194,59,46,0.07); line-height: 1; pointer-events: none; }
+  .testimonial-featured .t-text { font-size: 22px; color: var(--cream); line-height: 1.6; margin-bottom: 32px; font-style: italic; position: relative; z-index: 1; }
+  .testimonial-featured .t-author-name { font-weight: 600; font-size: 15px; color: var(--cream); }
+  .testimonial-featured .t-author-biz { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-top: 4px; }
+  .testimonial-stack { display: flex; flex-direction: column; gap: 24px; }
+  .testimonial-small { background: var(--black-card); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 28px; flex: 1; }
+  .testimonial-small .t-stars { color: var(--red); font-size: 11px; letter-spacing: 2px; margin-bottom: 12px; }
+  .testimonial-small .t-text { font-size: 14px; color: var(--cream); line-height: 1.6; margin-bottom: 20px; font-style: italic; }
+  .testimonial-small .t-author-name { font-weight: 600; font-size: 13px; color: var(--cream); }
+  .testimonial-small .t-author-biz { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-top: 3px; }
+
+  /* ── PRICING ── */
+  .pricing-section { padding: 130px 48px; background: var(--black-light); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .pricing-inner { max-width: 1200px; margin: 0 auto; }
+  .pricing-header { margin-bottom: 64px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; align-items: start; }
+  .pricing-card { background: var(--black); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 40px 36px; position: relative; transition: transform 0.2s; }
+  .pricing-card:hover { transform: translateY(-4px); }
+  .pricing-card.featured { background: var(--black-card); border-color: rgba(194,59,46,0.35); }
+  .pricing-badge { position: absolute; top: -11px; left: 36px; background: var(--red); color: var(--cream); font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; padding: 4px 14px; border-radius: 3px; white-space: nowrap; }
+  .pricing-stripe { position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: 6px 6px 0 0; background: rgba(255,255,255,0.05); }
+  .pricing-card.featured .pricing-stripe { background: var(--red); }
+  .p-plan { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .p-price { font-family: 'Bebas Neue', sans-serif; font-size: 72px; letter-spacing: 0.02em; color: var(--cream); line-height: 1; }
+  .p-price sup { font-size: 28px; vertical-align: top; margin-top: 14px; display: inline-block; color: var(--gray); }
+  .p-per { font-size: 13px; color: var(--gray); margin-top: 2px; margin-bottom: 8px; }
+  .p-setup { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-muted); margin-bottom: 28px; text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
+  .p-divider { height: 1px; background: rgba(255,255,255,0.06); margin-bottom: 28px; }
+  .p-promise { font-size: 15px; color: var(--cream); line-height: 1.6; margin-bottom: 28px; font-style: italic; }
+  .p-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+  .p-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--gray-light); line-height: 1.5; }
+  .p-list li::before { content: '×'; color: var(--red); font-family: 'Bebas Neue', sans-serif; font-size: 16px; flex-shrink: 0; }
+  .p-list li.dim { color: var(--gray-muted); }
+  .p-list li.dim::before { color: var(--gray-muted); }
+  .p-cta { display: block; text-align: center; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; padding: 14px; border-radius: 3px; transition: all 0.2s; }
+  .p-cta.outline { border: 1px solid rgba(245,240,232,0.18); color: var(--cream); }
+  .p-cta.outline:hover { border-color: rgba(245,240,232,0.5); }
+  .p-cta.solid { background: var(--red); color: var(--cream); }
+  .p-cta.solid:hover { background: var(--red-bright); }
+
+  /* ── HOW IT WORKS ── */
+  .hiw-section { padding: 130px 48px; }
+  .hiw-inner { max-width: 1200px; margin: 0 auto; }
+  .hiw-header { margin-bottom: 72px; }
+  .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+  .steps::before { content: ''; position: absolute; top: 27px; left: calc(12.5% + 4px); right: calc(12.5% + 4px); height: 1px; background: linear-gradient(90deg, rgba(194,59,46,0.15), rgba(194,59,46,0.4), rgba(194,59,46,0.4), rgba(194,59,46,0.15)); }
+  .step { padding: 0 28px; text-align: center; }
+  .step-num { width: 54px; height: 54px; border-radius: 50%; background: var(--black-card); border: 1px solid rgba(194,59,46,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--red); position: relative; z-index: 1; }
+  .step-title { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); margin-bottom: 12px; }
+  .step-desc { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    padding: 0 48px;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  /* Full-bleed red diagonal slash — left half */
+  .cta-band::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 52%;
+    background: var(--red-dark);
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+    z-index: 0;
+  }
+  /* Giant × watermark on the red side */
+  .cta-band::after {
+    content: '×';
+    position: absolute;
+    left: 2%;
+    top: 50%;
+    transform: translateY(-52%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 520px;
+    color: rgba(0,0,0,0.12);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    min-height: 420px;
+    padding: 100px 0;
+  }
+  .cta-left {}
+  .cta-left h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 6.5vw, 96px);
+    letter-spacing: 0.03em;
+    color: var(--cream);
+    line-height: 0.92;
+    margin-bottom: 0;
+  }
+  .cta-right {}
+  .cta-right p {
+    font-size: 18px;
+    color: var(--gray-light);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 440px;
+  }
+  .cta-right-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .btn-cream {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    background: var(--cream);
+    color: var(--black);
+    padding: 24px 56px;
+    border-radius: 3px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-cream:hover { background: #fff; transform: translateY(-2px); }
+  .cta-sub {
+    font-size: 13px;
+    color: var(--gray-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cta-sub::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 1px;
+    background: var(--gray-muted);
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer { background: var(--black-light); border-top: 1px solid rgba(255,255,255,0.05); padding: 88px 48px 44px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
+  .f-logo { font-family: 'Bebas Neue', sans-serif; font-size: 34px; letter-spacing: 0.08em; color: var(--cream); display: block; margin-bottom: 16px; }
+  .f-logo .x { color: var(--red); }
+  .f-tagline { font-size: 14px; color: var(--gray); line-height: 1.65; margin-bottom: 28px; max-width: 280px; }
+  .f-contact { font-size: 13px; color: var(--gray-muted); line-height: 2.1; }
+  .f-contact a { color: var(--gray-muted); transition: color 0.2s; }
+  .f-contact a:hover { color: var(--cream); }
+  .f-col h4 { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 22px; }
+  .f-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .f-col ul li a { font-size: 14px; color: var(--gray-muted); transition: color 0.2s; }
+  .f-col ul li a:hover { color: var(--cream); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; gap: 16px; }
+  .f-copy { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-muted); }
+  .f-bible { font-size: 12px; color: var(--gray-muted); font-style: italic; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .site-header, .benefits-section, .diff-section, .proof-section, .pricing-section, .hiw-section, .cta-band, .site-footer { padding-left: 32px; padding-right: 32px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 60px; padding: 0 32px; }
+    .hero-right { order: -1; }
+    .cta-inner { grid-template-columns: 1fr; gap: 40px; padding: 80px 0; min-height: auto; }
+    .cta-band::before { width: 100%; clip-path: none; opacity: 0.5; }
+    .gmock-wrap { margin: 0; padding: 0; }
+    .callout { display: none; }
+    .benefits-intro { grid-template-columns: 1fr; gap: 32px; }
+    .benefit-row { grid-template-columns: 60px 1fr; }
+    .benefit-body { grid-column: 2; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-stack { flex-direction: row; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .steps::before { display: none; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 768px) {
+    .site-header { padding: 0 20px; }
+    .header-nav, .header-cta { display: none; }
+    .hamburger { display: flex; }
+    .mobile-nav { padding: 24px 20px; }
+    .hero-inner { padding: 0 20px; }
+    .benefits-section, .diff-section, .proof-section, .pricing-section, .hiw-section { padding: 88px 20px; }
+    .cta-band { padding: 0 20px; }
+    .cta-inner { grid-template-columns: 1fr; gap: 40px; padding: 72px 0; min-height: auto; }
+    .site-footer { padding: 64px 20px 36px; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .benefit-row { grid-template-columns: 1fr; gap: 12px; }
+    .benefit-number { font-size: 44px; }
+    .testimonial-stack { flex-direction: column; }
+    .steps { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .hero-ctas { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="header-logo">MULTI<span class="x">×</span>PLY</a>
+  <nav><ul class="header-nav">
+    <li><a href="#benefits">Why It Works</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="#how-it-works">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></nav>
+  <a href="book.html" class="header-cta">Multiply My Business</a>
+  <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#benefits" onclick="toggleMobileNav()">Why It Works</a>
+  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a>
+  <a href="#how-it-works" onclick="toggleMobileNav()">Process</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+  <a href="book.html" class="mobile-cta">Multiply My Business</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero noise">
+  <div class="hero-bg-text" aria-hidden="true">MULTI×PLY</div>
+
+  <div class="hero-inner">
+    <!-- LEFT: copy -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">Local Marketing for Local Businesses</div>
+      <h1 class="hero-headline">
+        WE MULTIPLY<br>
+        YOUR <span class="accent">CUSTOMERS.</span>
+      </h1>
+      <p class="hero-subhead">Your phone should be ringing more. Your calendar should be fuller. Your Google reviews should keep climbing. We build the system that makes all of that happen.</p>
+      <div class="hero-ctas">
+        <a href="book.html" class="btn-primary">Multiply My Customers</a>
+        <a href="pricing.html" class="btn-ghost">See Pricing</a>
+      </div>
+      <div class="hero-trust">
+        <span class="hero-trust-dot"></span>
+        No long-term contracts. Cancel anytime. Results guaranteed or we work for free.
+      </div>
+    </div>
+
+    <!-- RIGHT: Google local pack mock -->
+    <div class="hero-right">
+      <div class="gmock-wrap" id="gmockWrap">
+
+        <!-- Callout: #1 Ranking -->
+        <div class="callout" id="c-rank" style="top:188px; right:-10px;">
+          <div class="callout-label" style="right:0">
+            Ranked #1
+            <small>We get you here &amp; keep you here</small>
+          </div>
+        </div>
+
+        <!-- Callout: 5 stars -->
+        <div class="callout" id="c-stars" style="top:254px; right:-10px;">
+          <div class="callout-label" style="right:0">
+            5-Star Reviews
+            <small>Automated after every job</small>
+          </div>
+        </div>
+
+        <!-- Callout: Call button -->
+        <div class="callout" id="c-call" style="top:308px; right:-10px;">
+          <div class="callout-label" style="right:0">
+            Instant Call Button
+            <small>Missed call? We text back in seconds</small>
+          </div>
+        </div>
+
+        <!-- The mock Google result -->
+        <div class="gmock">
+          <!-- Search bar -->
+          <div class="gmock-bar">
+            <div class="gmock-bar-logo">
+              <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+            </div>
+            <div class="gmock-bar-input">
+              <span class="gmock-bar-text">hvac company near me</span>
+              <span class="gmock-bar-icon">🔍</span>
+            </div>
+          </div>
+
+          <div class="gmock-body">
+            <div class="gmock-label">Local businesses · Based on your location</div>
+
+            <!-- Map -->
+            <div class="gmock-map">
+              <div class="gmock-map-bg"></div>
+              <div class="gmock-map-road-h" style="top:42px"></div>
+              <div class="gmock-map-road-h" style="top:68px"></div>
+              <div class="gmock-map-road-v" style="left:30%"></div>
+              <div class="gmock-map-road-v" style="left:65%"></div>
+              <!-- Pin 1 (your client) -->
+              <div class="gmock-pin1" style="top:10px; left:36%">
+                <div class="gmock-pin1-dot"><div class="gmock-pin1-inner"></div></div>
+              </div>
+              <!-- Pin 2 -->
+              <div class="gmock-pin-sm" style="top:28px; left:62%"></div>
+              <!-- Pin 3 -->
+              <div class="gmock-pin-sm" style="top:44px; left:20%"></div>
+            </div>
+
+            <!-- Result rows -->
+            <div class="gmock-results">
+
+              <!-- #1 — Your client -->
+              <div class="gmock-result top">
+                <div class="gmock-rank">1</div>
+                <div class="gmock-result-inner">
+                  <div class="gmock-biz-name">Lake Charles HVAC Pros</div>
+                  <div class="gmock-stars">
+                    <span class="gmock-star-fill">★★★★★</span>
+                    <span class="gmock-rating">4.9</span>
+                    <span class="gmock-reviews">(127 reviews)</span>
+                  </div>
+                  <div class="gmock-meta">
+                    <span class="gmock-open">Open</span>
+                    <span>·</span>
+                    <span>HVAC contractor</span>
+                    <span>·</span>
+                    <span>0.8 mi</span>
+                  </div>
+                  <div class="gmock-actions">
+                    <button class="gmock-action-btn primary-action">📞 Call</button>
+                    <button class="gmock-action-btn">🌐 Website</button>
+                    <button class="gmock-action-btn">📍 Directions</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- #2 -->
+              <div class="gmock-result">
+                <div class="gmock-rank gray">2</div>
+                <div class="gmock-result-inner">
+                  <div class="gmock-biz-name" style="color:#1a0dab">Total Comfort Cooling</div>
+                  <div class="gmock-stars">
+                    <span class="gmock-star-fill">★★★★</span>
+                    <span class="gmock-rating">4.1</span>
+                    <span class="gmock-reviews">(31 reviews)</span>
+                  </div>
+                  <div class="gmock-meta">
+                    <span style="color:#d93025">Closed</span>
+                    <span>·</span>
+                    <span>HVAC contractor</span>
+                    <span>·</span>
+                    <span>1.4 mi</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- #3 -->
+              <div class="gmock-result">
+                <div class="gmock-rank gray">3</div>
+                <div class="gmock-result-inner">
+                  <div class="gmock-biz-name" style="color:#1a0dab">Bayou Air &amp; Heat</div>
+                  <div class="gmock-stars">
+                    <span class="gmock-star-fill">★★★</span>
+                    <span class="gmock-rating">3.8</span>
+                    <span class="gmock-reviews">(14 reviews)</span>
+                  </div>
+                  <div class="gmock-meta">
+                    <span class="gmock-open">Open</span>
+                    <span>·</span>
+                    <span>HVAC contractor</span>
+                    <span>·</span>
+                    <span>2.1 mi</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- end .gmock -->
+
+      </div>
+      <!-- end .gmock-wrap -->
+    </div>
+    <!-- end .hero-right -->
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits-section" id="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-intro">
+      <div>
+        <div class="section-label">Why Multiply</div>
+        <h2 class="section-title" style="color:var(--cream)">YOUR COMPETITORS<br>ARE WINNING ONLINE.<br>LET'S CHANGE THAT.</h2>
+      </div>
+      <div>
+        <p class="benefits-intro-copy">Most local business owners are great at their craft — but the internet is a different game. We handle the whole game so you can stay focused on what you do best.</p>
+        <br><br>
+        <p class="benefits-intro-pull">We build the machine.<br>You <span class="red">watch the numbers</span> climb.</p>
+      </div>
+    </div>
+    <div class="benefit-rows">
+      <div class="benefit-row">
+        <div class="benefit-number">01</div>
+        <div><div class="benefit-tag">More Customers Finding You</div><h3 class="benefit-heading">YOUR PHONE RINGS<br>WHILE YOU SLEEP.</h3></div>
+        <div class="benefit-body">When someone in your area searches for what you do, your business shows up first. Not page 3. Not buried under ads. First. We build and maintain the SEO engine that keeps you at the top — so new customers find you every single day, even when you're not working.</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-number">02</div>
+        <div><div class="benefit-tag">Zero Leads Lost</div><h3 class="benefit-heading">EVERY MISSED CALL<br>BECOMES A CHANCE.</h3></div>
+        <div class="benefit-body">You're busy. You can't always answer. But when a potential customer calls and nobody picks up, they move on to your competitor — unless you have a system. We set up instant text-back automations so every missed call gets a follow-up within seconds. Jobs that used to fall through the cracks get booked instead.</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-number">03</div>
+        <div><div class="benefit-tag">A Reputation That Sells</div><h3 class="benefit-heading">YOUR REVIEWS DO<br>THE SELLING FOR YOU.</h3></div>
+        <div class="benefit-body">People trust Google reviews more than any ad you could run. We automate review requests after every job so your 5-star rating keeps climbing — without you having to ask a single customer. A business with 80 reviews beats a competitor with 8. We make sure that competitor isn't you.</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-number">04</div>
+        <div><div class="benefit-tag">A Business That Runs Itself</div><h3 class="benefit-heading">YOUR CALENDAR<br>BOOKS ITSELF.</h3></div>
+        <div class="benefit-body">Customers book appointments straight from your website. Reminders go out automatically. Follow-ups happen without you sending a single text. Invoices get paid faster. Your whole front office runs on autopilot — and you manage it all from a single mobile app while you're out in the field.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFF -->
+<section class="diff-section">
+  <div class="diff-inner">
+    <div class="diff-pull">
+      <blockquote>WE DON'T DO MARKETING.<br>WE BUILD <span class="x">×</span> GROWTH MACHINES.</blockquote>
+      <cite>Here's what that looks like in practice</cite>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card"><div class="diff-vs">The Old Way</div><div class="diff-them">Pay for a website, never hear from the agency again. Rankings stay flat.</div><div class="diff-us">We do ongoing SEO every month — because rankings take work to earn and work to keep.</div></div>
+      <div class="diff-card"><div class="diff-vs">The Old Way</div><div class="diff-them">Chase leads manually. Miss calls. Forget follow-ups. Lose the job.</div><div class="diff-us">Leads get an automatic text within seconds. Follow-ups run on schedule. No leads fall through.</div></div>
+      <div class="diff-card"><div class="diff-vs">The Old Way</div><div class="diff-them">Pay five different tools. Log into five different dashboards. Waste two hours a week.</div><div class="diff-us">One dashboard. One mobile app. Website, leads, reviews, bookings, payments — all in one place.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="proof-section">
+  <div class="proof-inner">
+    <div class="proof-header">
+      <div class="section-label">Results</div>
+      <h2 class="section-title" style="color:var(--cream)">REAL BUSINESSES.<br>REAL GROWTH.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-featured">
+        <p class="t-text">"We went from page 4 to ranking #1 for three of our main keywords in under 60 days. I didn't change anything on my end — they just handled it. The phone hasn't stopped ringing since."</p>
+        <div><div class="t-author-name">Marcus J.</div><div class="t-author-biz">HVAC Company — Lake Charles, LA</div></div>
+      </div>
+      <div class="testimonial-stack">
+        <div class="testimonial-small">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">"The missed call text-back paid for the whole plan in the first month. Three jobs I would've lost — booked instead."</p>
+          <div class="t-author-name">Sandra R.</div><div class="t-author-biz">Plumbing Co. — Beaumont, TX</div>
+        </div>
+        <div class="testimonial-small">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">"Site went live in a week. Looks better than anything I've paid $5,000 for. The automations just run in the background."</p>
+          <div class="t-author-name">Trey K.</div><div class="t-author-biz">Landscaping — Sulphur, LA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <div class="section-label">Plans</div>
+      <h2 class="section-title" style="color:var(--cream)">START WHERE YOU ARE.<br>GROW FROM THERE.</h2>
+      <p style="font-size:16px;color:var(--gray-light);max-width:520px;line-height:1.7;margin-top:4px">Every plan includes a dedicated account manager, a one-time setup fee, and a flat monthly rate. No long-term contracts. No surprises.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Starter -->
+      <div class="pricing-card">
+        <div class="pricing-stripe"></div>
+        <div class="p-plan">Starter</div>
+        <div class="p-price"><sup>$</sup>297</div>
+        <div class="p-per">/month</div>
+        <div class="p-setup">+ $1,000 one-time setup</div>
+        <div class="p-divider"></div>
+        <p class="p-promise">A professional website, review automation, and lead capture tools — everything you need to stop losing customers online.</p>
+        <ul class="p-list">
+          <li>Professional website (5 pages)</li>
+          <li>Missed call text-back</li>
+          <li>Chat widget</li>
+          <li>Google review automation</li>
+          <li>Mobile app &amp; dashboard</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="book.html" class="p-cta outline">Start Multiplying</a>
+      </div>
+
+      <!-- Growth -->
+      <div class="pricing-card featured">
+        <div class="pricing-stripe"></div>
+        <div class="pricing-badge">Most Popular</div>
+        <div class="p-plan">Growth</div>
+        <div class="p-price"><sup>$</sup>597</div>
+        <div class="p-per">/month</div>
+        <div class="p-setup">+ $2,000 one-time setup</div>
+        <div class="p-divider"></div>
+        <p class="p-promise">Everything in Starter plus ongoing local SEO to rank #1, automated follow-ups, and a calendar that fills itself.</p>
+        <ul class="p-list">
+          <li>Everything in Starter</li>
+          <li>Ongoing local SEO (10 keywords)</li>
+          <li>Email &amp; text automations</li>
+          <li>Sales pipeline</li>
+          <li>Appointment booking system</li>
+          <li>Monthly performance report</li>
+        </ul>
+        <a href="book.html" class="p-cta solid">Start Multiplying</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="pricing-card">
+        <div class="pricing-stripe"></div>
+        <div class="p-plan">Pro</div>
+        <div class="p-price"><sup>$</sup>997</div>
+        <div class="p-per">/month</div>
+        <div class="p-setup">+ $3,000 one-time setup</div>
+        <div class="p-divider"></div>
+        <p class="p-promise">The full growth engine — unlimited SEO, ad management, payment processing, and priority support from your dedicated team.</p>
+        <ul class="p-list">
+          <li>Everything in Growth</li>
+          <li>Unlimited SEO keywords</li>
+          <li>Google &amp; Facebook ad management</li>
+          <li>Payment processing</li>
+          <li>Priority support</li>
+          <li>Quarterly strategy call</li>
+        </ul>
+        <a href="book.html" class="p-cta outline">Start Multiplying</a>
+      </div>
+
+    </div>
+
+    <!-- Bottom nudge -->
+    <div style="margin-top:48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.05)">
+      <p style="font-size:14px;color:var(--gray-muted);max-width:480px;line-height:1.6">Not sure which plan is right for you? Book a free call and we'll tell you exactly what your business needs — no upsell, no pressure.</p>
+      <a href="pricing.html" style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gray);border-bottom:1px solid rgba(119,119,119,0.25);padding-bottom:3px;white-space:nowrap">See full plan details →</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="hiw-section" id="how-it-works">
+  <div class="hiw-inner">
+    <div class="hiw-header">
+      <div class="section-label">Process</div>
+      <h2 class="section-title" style="color:var(--cream)">YOU'LL BE LIVE AND<br>GROWING IN DAYS.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div class="step-title">Book a Strategy Call</div><div class="step-desc">Tell us about your business and goals. We'll show you exactly what's holding you back — no charge, no pitch.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-title">We Build Everything</div><div class="step-desc">Website, automations, SEO foundation, review system — all built and configured in days, not weeks.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title">You Go Live</div><div class="step-desc">Your system launches. Leads start coming in. Missed calls get followed up. Reviews start building.</div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-title">We Keep Multiplying</div><div class="step-desc">Monthly SEO work, optimization, and reporting keep compounding your results. We grow with you.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band noise">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <h2>READY TO STOP<br>LOSING<br><span style="color:var(--red)">CUSTOMERS?</span></h2>
+    </div>
+    <div class="cta-right">
+      <p>Book a free 30-minute strategy call. We'll audit your online presence, show you exactly where you're losing business, and lay out what it would take to fix it.</p>
+      <div class="cta-right-actions">
+        <a href="book.html" class="btn-cream">Let's Multiply</a>
+        <span class="cta-sub">No pitch. No pressure. Just answers.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <span class="f-logo">MULTI<span class="x">×</span>PLY</span>
+        <p class="f-tagline">We help local businesses get found online, convert more leads, and grow — all on autopilot.</p>
+        <div class="f-contact">
+          <div><a href="/cdn-cgi/l/email-protection#96fef3fafaf9d6fbe3fae2ffe6faeffbfde2b8f5f9fb"><span class="__cf_email__" data-cfemail="066e636a6a69466b736a726f766a7f6b6d722865696b">[email&#160;protected]</span></a></div>
+          <div><a href="tel:+13375268824">(337) 526-8824</a></div>
+        </div>
+      </div>
+      <div class="f-col"><h4>Services</h4><ul>
+        <li><a href="#benefits">Website Design</a></li>
+        <li><a href="#benefits">Local SEO</a></li>
+        <li><a href="#benefits">Lead Automations</a></li>
+        <li><a href="#benefits">Review Management</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Company</h4><ul>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="book.html">Multiply My Business</a></li>
+      </ul></div>
+      <div class="f-col"><h4>Legal</h4><ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="privacy.html#sms">SMS Policy</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="f-copy">&copy; 2026 Multiply Local LLC — All Rights Reserved</span>
+      <span class="f-bible">Be fruitful and multiply. — Genesis 1:28</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+window.addEventListener('scroll', () => document.getElementById('mobileNav').classList.remove('open'));
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 80, behavior: 'smooth' }); }
+  });
+});
+
+// Position callout labels with connector lines using SVG overlaid on the mock
+(function() {
+  const wrap = document.getElementById('gmockWrap');
+  if (!wrap) return;
+  if (window.innerWidth < 1024) return;
+
+  // We'll draw SVG connector lines from the result rows out to the label badges
+  // by injecting a positioned SVG over the mock
+  const mock = wrap.querySelector('.gmock');
+  if (!mock) return;
+
+  // After layout settles, compute positions
+  setTimeout(() => {
+    const wrapRect = wrap.getBoundingClientRect();
+    const mockRect = mock.getBoundingClientRect();
+
+    // Row rects relative to wrap
+    const rows = mock.querySelectorAll('.gmock-result');
+    if (rows.length < 1) return;
+
+    const row1 = rows[0].getBoundingClientRect();
+    const rankEl = rows[0].querySelector('.gmock-rank');
+    const starsEl = rows[0].querySelector('.gmock-stars');
+    const actionsEl = rows[0].querySelector('.gmock-actions');
+
+    // Points inside the mock card (relative to wrap)
+    const rankY = rankEl ? rankEl.getBoundingClientRect().top - wrapRect.top + rankEl.offsetHeight / 2 : 0;
+    const starsY = starsEl ? starsEl.getBoundingClientRect().top - wrapRect.top + starsEl.offsetHeight / 2 : 0;
+    const actionsY = actionsEl ? actionsEl.getBoundingClientRect().top - wrapRect.top + actionsEl.offsetHeight / 2 : 0;
+
+    const mockRight = mockRect.right - wrapRect.left;
+    const wrapW = wrapRect.width;
+
+    // Update callout positions
+    const cRank = document.getElementById('c-rank');
+    const cStars = document.getElementById('c-stars');
+    const cCall = document.getElementById('c-call');
+
+    if (cRank) cRank.style.top = (rankY - 14) + 'px';
+    if (cStars) cStars.style.top = (starsY - 14) + 'px';
+    if (cCall) cCall.style.top = (actionsY - 14) + 'px';
+
+    // Draw SVG connector lines
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5;overflow:visible';
+
+    const drawLine = (y, color) => {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', mockRight);
+      line.setAttribute('y1', y);
+      line.setAttribute('x2', wrapW - 2);
+      line.setAttribute('y2', y);
+      line.setAttribute('stroke', color);
+      line.setAttribute('stroke-width', '1');
+      line.setAttribute('stroke-dasharray', '3 3');
+      line.setAttribute('opacity', '0.5');
+      svg.appendChild(line);
+
+      const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      dot.setAttribute('cx', mockRight);
+      dot.setAttribute('cy', y);
+      dot.setAttribute('r', '3');
+      dot.setAttribute('fill', color);
