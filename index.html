@@ -1012,3 +1012,16 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       dot.setAttribute('cy', y);
       dot.setAttribute('r', '3');
       dot.setAttribute('fill', color);
+      svg.appendChild(dot);
+    };
+
+    drawLine(rankY, '#c23b2e');
+    drawLine(starsY, '#c23b2e');
+    drawLine(actionsY, '#c23b2e');
+
+    wrap.appendChild(svg);
+  }, 500);
+})();
+</script>
+</body>
+</html>
