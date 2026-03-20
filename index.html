@@ -473,7 +473,7 @@
   @media (max-width: 1024px) {
     .site-header, .benefits-section, .diff-section, .proof-section, .pricing-section, .hiw-section, .cta-band, .site-footer { padding-left: 32px; padding-right: 32px; }
     .hero-inner { grid-template-columns: 1fr; gap: 60px; padding: 0 32px; }
-    .hero-right { order: -1; }
+    .hero-right { order: 1; }
     .cta-inner { grid-template-columns: 1fr; gap: 40px; padding: 80px 0; min-height: auto; }
     .cta-band::before { width: 100%; clip-path: none; opacity: 0.5; }
     .gmock-wrap { margin: 0; padding: 0; }
@@ -490,11 +490,13 @@
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
   }
   @media (max-width: 768px) {
+    :root { --gray: #999; --gray-muted: #666; --gray-light: #bbb; }
     .site-header { padding: 0 20px; }
     .header-nav, .header-cta { display: none; }
     .hamburger { display: flex; }
     .mobile-nav { padding: 24px 20px; }
     .hero-inner { padding: 0 20px; }
+    .hero-subhead { font-size: 17px; color: var(--gray-light); }
     .benefits-section, .diff-section, .proof-section, .pricing-section, .hiw-section { padding: 88px 20px; }
     .cta-band { padding: 0 20px; }
     .cta-inner { grid-template-columns: 1fr; gap: 40px; padding: 72px 0; min-height: auto; }
@@ -502,9 +504,15 @@
     .footer-top { grid-template-columns: 1fr; gap: 32px; }
     .benefit-row { grid-template-columns: 1fr; gap: 12px; }
     .benefit-number { font-size: 44px; }
+    .benefit-body { font-size: 15px; }
+    .diff-them { color: #888; }
+    .diff-us { font-size: 16px; }
+    .step-desc { font-size: 15px; color: var(--gray-light); }
     .testimonial-stack { flex-direction: column; }
     .steps { grid-template-columns: 1fr; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .p-promise { font-size: 16px; }
+    .p-list li { font-size: 15px; color: var(--gray-light); }
   }
   @media (max-width: 480px) {
     .hero-ctas { flex-direction: column; align-items: flex-start; }
@@ -929,7 +937,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function toggleMobileNav() {
   document.getElementById('mobileNav').classList.toggle('open');
 }
