@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — MULTI×PLY</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#1c1c1c;--black-light:#232323;--black-card:#272727;--red:#c23b2e;--red-dark:#9e2f25;--red-bright:#d44638;--cream:#f5f0e8;--gray:#777;--gray-muted:#444;--gray-light:#999}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--cream);min-height:100vh;display:flex;flex-direction:column}
+  a{text-decoration:none;color:inherit}
+
+  .site-header{padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .header-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.08em;color:var(--cream)}
+  .header-logo .x{color:var(--red)}
+
+  /* MAIN */
+  .ty-section{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 48px;position:relative;overflow:hidden;text-align:center}
+  .ty-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(194,59,46,0.07) 0%,transparent 55%)}
+
+  /* Big × watermark */
+  .ty-section::after{content:'×';position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);font-family:'Bebas Neue',sans-serif;font-size:clamp(400px,55vw,700px);color:rgba(194,59,46,0.04);line-height:1;pointer-events:none;white-space:nowrap}
+
+  .ty-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+
+  .ty-check{
+    width:72px;height:72px;
+    border-radius:50%;
+    background:rgba(194,59,46,0.12);
+    border:1px solid rgba(194,59,46,0.3);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 32px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:36px;
+    color:var(--red);
+    animation:popIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275) both;
+  }
+  @keyframes popIn{from{opacity:0;transform:scale(0.6)}to{opacity:1;transform:scale(1)}}
+
+  .ty-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:var(--red);margin-bottom:16px;animation:fadeUp 0.6s ease-out 0.2s both}
+  .ty-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,8vw,100px);line-height:0.9;letter-spacing:0.03em;color:var(--cream);margin-bottom:20px;animation:fadeUp 0.6s ease-out 0.28s both}
+  .ty-title .accent{color:var(--red)}
+  .ty-desc{font-size:18px;color:var(--gray-light);line-height:1.7;margin-bottom:16px;animation:fadeUp 0.6s ease-out 0.34s both}
+
+  /* What happens next */
+  .ty-next{
+    background:var(--black-card);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:8px;
+    padding:32px 36px;
+    margin:40px 0;
+    text-align:left;
+    animation:fadeUp 0.6s ease-out 0.4s both;
+  }
+  .ty-next-title{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.35em;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+  .ty-steps{list-style:none;display:flex;flex-direction:column;gap:16px}
+  .ty-step{display:flex;gap:16px;align-items:flex-start;font-size:15px;color:var(--cream);line-height:1.5}
+  .ty-step-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(194,59,46,0.5);line-height:1;flex-shrink:0;min-width:24px}
+
+  /* CTA */
+  .ty-cta-wrap{animation:fadeUp 0.6s ease-out 0.48s both}
+  .ty-cta-label{font-size:15px;color:var(--gray-light);margin-bottom:20px;line-height:1.6}
+  .btn-book{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    font-family:'Oswald',sans-serif;
+    font-size:14px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    background:var(--red);
+    color:var(--cream);
+    padding:20px 48px;
+    border-radius:3px;
+    transition:background 0.2s,transform 0.15s;
+    margin-bottom:16px;
+  }
+  .btn-book:hover{background:var(--red-bright);transform:translateY(-2px)}
+  .btn-book-arrow{font-size:18px;transition:transform 0.2s}
+  .btn-book:hover .btn-book-arrow{transform:translateX(4px)}
+
+  .ty-skip{font-size:13px;color:var(--gray-muted);margin-top:8px}
+  .ty-skip a{color:var(--gray);border-bottom:1px solid rgba(119,119,119,0.3);padding-bottom:1px}
+  .ty-skip a:hover{color:var(--cream)}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+  .site-footer-sm{padding:28px 48px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .f-copy{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray-muted)}
+  .f-bible{font-size:12px;color:var(--gray-muted);font-style:italic}
+
+  @media(max-width:768px){
+    .site-header{padding:0 20px}
+    .ty-section{padding:48px 20px}
+    .ty-next{padding:24px 20px}
+    .site-footer-sm{padding:24px 20px;flex-direction:column;align-items:flex-start}
+    .btn-book{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="header-logo">MULTI<span class="x">×</span>PLY</a>
+  <a href="index.html" style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gray-muted)">← Back to Home</a>
+</header>
+
+<section class="ty-section">
+  <div class="ty-inner">
+
+    <div class="ty-check">×</div>
+    <div class="ty-eyebrow">You're in the system</div>
+    <h1 class="ty-title">WE'VE GOT<br>YOUR <span class="accent">INFO.</span></h1>
+    <p class="ty-desc">Your account manager will review your business before the call so you get a real audit — not a generic pitch. Now pick the time that works best for you.</p>
+
+    <div class="ty-next">
+      <div class="ty-next-title">What Happens Next</div>
+      <ul class="ty-steps">
+        <li class="ty-step"><div class="ty-step-num">01</div><div>We research your business, your rankings, your reviews, and your competitors before the call.</div></li>
+        <li class="ty-step"><div class="ty-step-num">02</div><div>You'll get a confirmation email and a reminder before your call time.</div></li>
+        <li class="ty-step"><div class="ty-step-num">03</div><div>We show up with a real audit and a real plan — tailored to your business, not a template.</div></li>
+      </ul>
+    </div>
+
+    <div class="ty-cta-wrap">
+      <p class="ty-cta-label">One more step — pick a time that works for you:</p>
+      <a href="#" id="booking-btn" class="btn-book">
+        Pick My Call Time
+        <span class="btn-book-arrow">→</span>
+      </a>
+      <br>
+      <span class="ty-skip">Not ready to book yet? <a href="index.html">Go back to the site</a> — we'll follow up.</span>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer-sm">
+  <span class="f-copy">&copy; 2026 Multiply Local LLC — All Rights Reserved</span>
+  <span class="f-bible">Be fruitful and multiply. — Genesis 1:28</span>
+</footer>
+
+<script>
+(function(){
+  const p = new URLSearchParams(window.location.search);
+  const firstName = p.get('first_name') || '';
+  const lastName  = p.get('last_name')  || '';
+  const email     = p.get('email')      || '';
+  const phone     = (p.get('phone')     || '').replace(/\D/g,'');
+
+  // Personalise the headline if we have a name
+  if(firstName){
+    document.querySelector('.ty-eyebrow').textContent = "You're in the system, " + firstName;
+  }
+
+  // Build pre-filled GHL booking URL
+  const base = 'https://api.leadconnectorhq.com/widget/booking/vi7CsC1AbMZIkfKJ0I1u';
+  const params = new URLSearchParams();
+  if(firstName) params.set('firstName', firstName);
+  if(lastName)  params.set('lastName',  lastName);
+  if(email)     params.set('email',     email);
+  if(phone)     params.set('phone',     phone);
+
+  const bookingUrl = params.toString() ? base + '?' + params.toString() : base;
+  const btn = document.getElementById('booking-btn');
+  btn.href = bookingUrl;
+  btn.target = '_blank';
+})();
+</script>
+
+<!-- GHL External Tracking -->
+<script
+  src="https://link.msgsndr.com/js/external-tracking.js"
+  data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100">
+</script>
+
+</body>
+</html>
