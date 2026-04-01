@@ -278,14 +278,10 @@
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify(data)
-    }).then(function() {
-      document.getElementById('onboardingForm').style.display = 'none';
-      document.getElementById('successState').classList.add('show');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }).catch(function() {
-      btn.disabled = false; btn.textContent = 'Submit Onboarding Form';
-      alert('Something went wrong. Please try again.');
     });
+    document.getElementById('onboardingForm').style.display = 'none';
+    document.getElementById('successState').classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
 <script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100"></script>
