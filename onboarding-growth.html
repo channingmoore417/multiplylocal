@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="/favicon.png">
-<title>Starter Onboarding — MULTI×PLY</title>
+<title>Growth Onboarding — MULTI×PLY</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{--black:#1c1c1c;--black-light:#232323;--black-card:#272727;--red:#c23b2e;--red-dark:#9e2f25;--cream:#f5f0e8;--gray:#777;--gray-muted:#444;--gray-light:#999}
@@ -19,7 +19,6 @@
   .ob-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,64px);letter-spacing:0.03em;color:var(--cream);line-height:0.95;margin-bottom:14px}
   .ob-subtitle{font-size:16px;color:var(--gray-light);line-height:1.6;max-width:520px;margin:0 auto}
 
-  /* Progress bar */
   .progress-wrap{margin-bottom:48px}
   .progress-steps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:10px}
   .progress-step{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative}
@@ -31,7 +30,6 @@
   .step-label{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray-muted);text-align:center}
   .progress-step.active .step-label{color:var(--cream)}
 
-  /* Form cards */
   .form-card{background:var(--black-card);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:36px;margin-bottom:24px;position:relative;overflow:hidden}
   .form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red)}
   .form-card-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.04em;color:var(--cream);margin-bottom:6px}
@@ -50,13 +48,21 @@
   .checkbox-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-light);cursor:pointer}
   .checkbox-item input{width:16px;height:16px;accent-color:var(--red);cursor:pointer}
 
-  /* Submit */
+  .radio-group{display:flex;gap:20px}
+  .radio-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-light);cursor:pointer}
+  .radio-item input{width:16px;height:16px;accent-color:var(--red);cursor:pointer;flex-shrink:0}
+
+  .teammate-row{background:var(--black);border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:16px;margin-bottom:12px;position:relative}
+  .teammate-remove{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--gray);cursor:pointer;font-size:20px;line-height:1;padding:0}
+  .teammate-remove:hover{color:var(--red)}
+  .btn-add-teammate{background:transparent;border:1px dashed rgba(245,240,232,0.18);color:var(--gray-light);font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:12px 20px;border-radius:3px;cursor:pointer;width:100%;margin-top:4px;transition:border-color 0.2s,color 0.2s}
+  .btn-add-teammate:hover{border-color:var(--red);color:var(--cream)}
+
   .submit-section{text-align:center;margin-top:32px}
-  .btn-submit{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.25em;text-transform:uppercase;background:var(--red);color:var(--cream);padding:18px 56px;border:none;border-radius:3px;cursor:pointer;transition:background 0.2s,transform 0.15s;font-size:14px}
+  .btn-submit{font-family:'Oswald',sans-serif;letter-spacing:0.25em;text-transform:uppercase;background:var(--red);color:var(--cream);padding:18px 56px;border:none;border-radius:3px;cursor:pointer;transition:background 0.2s,transform 0.15s;font-size:14px}
   .btn-submit:hover{background:#d44638;transform:translateY(-1px)}
   .submit-note{font-size:13px;color:var(--gray-muted);margin-top:14px;line-height:1.6}
 
-  /* Success */
   .success-state{display:none;text-align:center;padding:60px 20px}
   .success-state.show{display:block}
   .success-x{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--red);line-height:1;margin-bottom:20px}
@@ -77,9 +83,9 @@
     <div class="ob-plan-badge">Growth Plan — $597/mo</div>
     <h1 class="ob-title">LET'S BUILD<br>YOUR GROWTH ENGINE.</h1>
     <p class="ob-subtitle">Fill out this form and your account manager will have everything they need to get your website and automations live within 5–7 business days.</p>
+    <div style="position:relative;padding-bottom:56.25%;height:0;margin-top:32px;border-radius:6px;overflow:hidden;"><iframe src="https://www.loom.com/embed/31c782c12da64e729b0e1695b425eee9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
   </div>
 
-  <!-- Progress -->
   <div class="progress-wrap">
     <div class="progress-steps">
       <div class="progress-step active"><div class="step-dot">1</div><div class="step-label">Business</div></div>
@@ -113,43 +119,53 @@
       <div class="form-group"><label>Business Hours</label><input type="text" id="hours" name="hours" placeholder="Mon–Fri 7am–6pm, Sat 8am–2pm"></div>
     </div>
 
-    <!-- SECTION 2: Website -->
+    <!-- SECTION 2: A2P / Business Verification -->
     <div class="form-card">
-      <div class="form-card-title">Your Website</div>
-      <div class="form-card-desc">Help us understand what pages you need and what you want your site to accomplish.</div>
-      <div class="form-group"><label>Existing website URL (if any)</label><input type="url" id="existing_url" name="existing_url" placeholder="https://yourbusiness.com"></div>
-      <div class="form-group"><label>What pages do you need? *</label>
-        <div class="checkbox-group">
-          <label class="checkbox-item"><input type="checkbox" id="pages_home" name="pages" value="home" checked> Home</label>
-          <label class="checkbox-item"><input type="checkbox" id="pages_about" name="pages" value="about"> About</label>
-          <label class="checkbox-item"><input type="checkbox" id="pages_services" name="pages" value="services"> Services</label>
-          <label class="checkbox-item"><input type="checkbox" id="pages_contact" name="pages" value="contact"> Contact</label>
-          <label class="checkbox-item"><input type="checkbox" id="pages_reviews" name="pages" value="reviews"> Reviews</label>
-          <label class="checkbox-item"><input type="checkbox" id="pages_gallery" name="pages" value="gallery"> Gallery/Photos</label>
+      <div class="form-card-title">Business Verification</div>
+      <div class="form-card-desc">Required for A2P 10DLC registration — the carrier compliance process that allows your business to legally send text messages at scale. This information is kept strictly confidential.</div>
+      <div class="form-group"><label>Legal Business Name *</label><input type="text" id="legal_biz_name" name="legal_biz_name" placeholder="Lake Charles HVAC Pros LLC" required><div class="help">Exactly as registered with the IRS / state — may differ from your DBA or trade name.</div></div>
+      <div class="form-row">
+        <div class="form-group"><label>EIN / Tax ID *</label><input type="text" id="ein" name="ein" placeholder="XX-XXXXXXX" required><div class="help">Your federal Employer Identification Number.</div></div>
+        <div class="form-group"><label>Business Structure *</label>
+          <select id="biz_structure" name="biz_structure" required>
+            <option value="">Select...</option>
+            <option value="llc">LLC</option>
+            <option value="sole_prop">Sole Proprietorship</option>
+            <option value="s_corp">S-Corp</option>
+            <option value="c_corp">C-Corp</option>
+            <option value="partnership">Partnership</option>
+            <option value="nonprofit">Nonprofit</option>
+          </select>
         </div>
       </div>
+      <div class="form-group"><label>State of Business Registration *</label><input type="text" id="biz_state" name="biz_state" placeholder="Louisiana" required></div>
+    </div>
+
+    <!-- SECTION 3: Website -->
+    <div class="form-card">
+      <div class="form-card-title">Your Website</div>
+      <div class="form-card-desc">Help us understand your business and what you want your site to accomplish.</div>
+      <div class="form-group"><label>Existing website URL (if any)</label><input type="url" id="existing_url" name="existing_url" placeholder="https://yourbusiness.com"></div>
       <div class="form-group"><label>List your main services (one per line)</label><textarea id="services" name="services" placeholder="AC Installation&#10;Heating Repair&#10;Emergency HVAC&#10;Preventative Maintenance"></textarea></div>
       <div class="form-group"><label>What makes you different from competitors?</label><textarea id="differentiator" name="differentiator" placeholder="Family-owned for 15 years, same-day service, 100% satisfaction guarantee..."></textarea></div>
       <div class="form-group"><label>Do you have a logo?</label>
-        <select id="has_logo" name="has_logo">
-          <option value="">Select...</option>
-          <option value="yes_send">Yes — I'll email it to my account manager</option>
-          <option value="yes_later">Yes — I'll send it later</option>
-          <option value="no">No — please use text-based logo</option>
-        </select>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="has_logo" value="yes"> Yes</label>
+          <label class="radio-item"><input type="radio" name="has_logo" value="no"> No</label>
+        </div>
+        <div class="help">If yes, your account manager will send you a Google Drive link to upload it.</div>
       </div>
-      <div class="form-group"><label>Color preferences for your website (optional)</label><input type="text" id="colors" name="colors" placeholder="Blue and white, or I'll leave it to you..."></div>
-      <div class="form-group"><label>3 competitor websites you want us to review</label><textarea id="competitors" name="competitors" placeholder="https://competitor1.com&#10;https://competitor2.com&#10;https://competitor3.com" style="min-height:80px"></textarea></div>
+      <div class="form-group"><label>Color preferences for your website</label><input type="text" id="colors" name="colors" placeholder="Blue and white, or I'll leave it to you..."></div>
     </div>
 
-    <!-- SECTION 3: Automations -->
+    <!-- SECTION 4: Automations -->
     <div class="form-card">
       <div class="form-card-title">Automations Setup</div>
       <div class="form-card-desc">We'll configure your missed call text-back, chat widget, and Google review requests. We just need a few details.</div>
       <div class="form-group"><label>What should your missed call text-back say?</label><textarea id="textback_msg" name="textback_msg" placeholder="Hi! Sorry we missed your call — we're currently with a customer. Reply here or call us back at (337) 526-8824 and we'll get right with you!" style="min-height:80px"></textarea><div class="help">We'll refine this — just give us your starting point.</div></div>
-      <div class="form-group"><label>What name should appear in the chat widget?</label><input type="text" id="chat_name" name="chat_name" placeholder="Lake Charles HVAC Pros" ></div>
+      <div class="form-group"><label>What name should appear in the chat widget?</label><input type="text" id="chat_name" name="chat_name" placeholder="Lake Charles HVAC Pros"></div>
       <div class="form-group"><label>Google Business Profile URL</label><input type="url" id="gmb_url" name="gmb_url" placeholder="https://maps.google.com/..."><div class="help">We'll use this to send automated review requests after each job.</div></div>
-      <div class="form-group"><label>How should we identify when a job is complete? (so we trigger the review request)</label>
+      <div class="form-group"><label>How should we identify when a job is complete?</label>
         <select id="review_trigger" name="review_trigger">
           <option value="">Select...</option>
           <option value="manual">I'll manually trigger it from my dashboard</option>
@@ -160,8 +176,7 @@
       </div>
     </div>
 
-
-    <!-- SECTION: SEO (Growth only) -->
+    <!-- SECTION 5: Local SEO -->
     <div class="form-card">
       <div class="form-card-title">Local SEO Setup</div>
       <div class="form-card-desc">We'll use this to kick off your keyword research and Google Business Profile optimization.</div>
@@ -177,10 +192,9 @@
           <option value="no_exists">I don't have one yet</option>
         </select>
       </div>
-      <div class="form-group"><label>Main competitors ranking in your area (if you know them)</label><textarea id="seo_competitors" name="seo_competitors" placeholder="Total Comfort Cooling&#10;Bayou Air & Heat" style="min-height:80px"></textarea></div>
     </div>
 
-    <!-- SECTION: Email & Text Automations -->
+    <!-- SECTION 6: Email & Text Automations -->
     <div class="form-card">
       <div class="form-card-title">Email &amp; Text Automations</div>
       <div class="form-card-desc">We'll build your lead follow-up sequences and appointment automations. Tell us how your sales process works.</div>
@@ -206,14 +220,30 @@
       </div>
     </div>
 
-    <!-- SECTION 4: Platform Access -->
+    <!-- SECTION 7: Platform Access -->
     <div class="form-card">
       <div class="form-card-title">Platform Access</div>
-      <div class="form-card-desc">We need a few final details to set up your MultiplyOS dashboard and mobile app.</div>
+      <div class="form-card-desc">We need a few final details to set up your MultiplyOS dashboard, mobile app, and team member accounts.</div>
       <div class="form-group"><label>Preferred login email for MultiplyOS *</label><input type="email" id="platform_email" name="platform_email" placeholder="marcus@yourbiz.com" required></div>
       <div class="form-group"><label>Business phone number to use for text automations *</label><input type="tel" id="sms_number" name="sms_number" placeholder="(337) 526-8824" required><div class="help">We'll set up a dedicated local number for your automations if needed.</div></div>
       <div class="form-group"><label>Domain name (if you have one)</label><input type="text" id="domain" name="domain" placeholder="yourbusiness.com"><div class="help">If you need a domain, let us know and we'll help you get one.</div></div>
-      <div class="form-group"><label>Anything else we should know?</label><textarea id="notes" name="notes" placeholder="Special requests, timeline concerns, or anything else..."></textarea></div>
+
+      <div class="form-group" style="margin-top:8px">
+        <label>Team Members Needing MultiplyOS Access</label>
+        <div class="help" style="margin-bottom:12px">Add anyone on your team who should have a login. Leave blank if it's just you.</div>
+        <div id="teammates">
+          <div class="teammate-row" id="teammate_1">
+            <div class="form-row">
+              <div class="form-group" style="margin-bottom:0"><label>Full Name</label><input type="text" name="teammate_name_1" placeholder="Jane Smith"></div>
+              <div class="form-group" style="margin-bottom:0"><label>Email</label><input type="email" name="teammate_email_1" placeholder="jane@yourbiz.com"></div>
+            </div>
+            <div class="form-group" style="margin-bottom:0;margin-top:12px"><label>Phone</label><input type="tel" name="teammate_phone_1" placeholder="(337) 555-1234"></div>
+          </div>
+        </div>
+        <button type="button" class="btn-add-teammate" onclick="addTeammate()">+ Add Another Teammate</button>
+      </div>
+
+      <div class="form-group" style="margin-top:16px"><label>Anything else we should know?</label><textarea id="notes" name="notes" placeholder="Special requests, timeline concerns, or anything else..."></textarea></div>
     </div>
 
     <div class="submit-section">
@@ -230,11 +260,39 @@
 </div>
 
 <script>
-function submitForm(){
-  document.getElementById('onboardingForm').style.display='none';
-  document.getElementById('successState').classList.add('show');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+  let teammateCount = 1;
+  function addTeammate() {
+    teammateCount++;
+    const container = document.getElementById('teammates');
+    const row = document.createElement('div');
+    row.className = 'teammate-row';
+    row.id = 'teammate_' + teammateCount;
+    row.innerHTML = '<button type="button" class="teammate-remove" onclick="removeTeammate(' + teammateCount + ')" title="Remove">×</button>' +
+      '<div class="form-row">' +
+        '<div class="form-group" style="margin-bottom:0"><label>Full Name</label><input type="text" name="teammate_name_' + teammateCount + '" placeholder="Jane Smith"></div>' +
+        '<div class="form-group" style="margin-bottom:0"><label>Email</label><input type="email" name="teammate_email_' + teammateCount + '" placeholder="jane@yourbiz.com"></div>' +
+      '</div>' +
+      '<div class="form-group" style="margin-bottom:0;margin-top:12px"><label>Phone</label><input type="tel" name="teammate_phone_' + teammateCount + '" placeholder="(337) 555-1234"></div>';
+    container.appendChild(row);
+  }
+  function removeTeammate(id) {
+    const el = document.getElementById('teammate_' + id);
+    if (el) el.remove();
+  }
+  function submitForm() {
+    const required = document.querySelectorAll('#onboardingForm [required]');
+    for (let i = 0; i < required.length; i++) {
+      if (!required[i].value.trim()) {
+        required[i].focus();
+        required[i].style.borderColor = '#c23b2e';
+        setTimeout(function(el){ el.style.borderColor = ''; }, 2000, required[i]);
+        return;
+      }
+    }
+    document.getElementById('onboardingForm').style.display = 'none';
+    document.getElementById('successState').classList.add('show');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 </script>
 <script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100"></script>
 <script
