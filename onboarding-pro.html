@@ -328,8 +328,8 @@
     if (el) el.remove();
   }
   function submitForm() {
-    const required = document.querySelectorAll('#onboardingForm [required]');
-    for (let i = 0; i < required.length; i++) {
+    var required = document.querySelectorAll('#onboardingForm [required]');
+    for (var i = 0; i < required.length; i++) {
       if (!required[i].value.trim()) {
         required[i].focus();
         required[i].style.borderColor = '#c23b2e';
@@ -337,9 +337,40 @@
         return;
       }
     }
-    document.getElementById('onboardingForm').style.display = 'none';
-    document.getElementById('successState').classList.add('show');
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    var data = { form_source: 'Pro Onboarding' };
+    document.querySelectorAll('#onboardingForm input:not([type=checkbox]):not([type=radio]), #onboardingForm select, #onboardingForm textarea').forEach(function(el) {
+      if (el.name) data[el.name] = el.value;
+    });
+    var logoEl = document.querySelector('#onboardingForm input[name=has_logo]:checked');
+    if (logoEl) data.has_logo = logoEl.value;
+    var checked = {};
+    document.querySelectorAll('#onboardingForm input[type=checkbox]:checked').forEach(function(cb) {
+      if (!checked[cb.name]) checked[cb.name] = [];
+      checked[cb.name].push(cb.value);
+    });
+    Object.keys(checked).forEach(function(k) { data[k] = checked[k].join(', '); });
+    var teammates = [];
+    document.querySelectorAll('#teammates .teammate-row').forEach(function(row) {
+      var n = row.querySelector('input[name^=teammate_name]');
+      var e = row.querySelector('input[name^=teammate_email]');
+      var p = row.querySelector('input[name^=teammate_phone]');
+      if ((n && n.value) || (e && e.value)) teammates.push({ name: n ? n.value : '', email: e ? e.value : '', phone: p ? p.value : '' });
+    });
+    if (teammates.length) data.teammates = JSON.stringify(teammates);
+    var btn = document.querySelector('.btn-submit');
+    btn.disabled = true; btn.textContent = 'Submitting...';
+    fetch('https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/a53c3bf5-9c17-4277-819f-375d5469de00', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function() {
+      document.getElementById('onboardingForm').style.display = 'none';
+      document.getElementById('successState').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }).catch(function() {
+      btn.disabled = false; btn.textContent = 'Submit Onboarding Form';
+      alert('Something went wrong. Please try again.');
+    });
   }
 </script>
 <script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100"></script>
