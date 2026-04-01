@@ -270,11 +270,12 @@
       if ((n && n.value) || (e && e.value)) teammates.push({ name: n ? n.value : '', email: e ? e.value : '', phone: p ? p.value : '' });
     });
     if (teammates.length) data.teammates = JSON.stringify(teammates);
+    var APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
     var btn = document.querySelector('.btn-submit');
     btn.disabled = true; btn.textContent = 'Submitting...';
-    fetch('https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/a53c3bf5-9c17-4277-819f-375d5469de00', {
+    fetch(APPS_SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify(data)
     }).then(function() {
       document.getElementById('onboardingForm').style.display = 'none';
