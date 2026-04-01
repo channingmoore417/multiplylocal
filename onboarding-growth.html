@@ -309,7 +309,7 @@
       if ((n && n.value) || (e && e.value)) teammates.push({ name: n ? n.value : '', email: e ? e.value : '', phone: p ? p.value : '' });
     });
     if (teammates.length) data.teammates = JSON.stringify(teammates);
-    var APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+    var APPS_SCRIPT_URL = 'https://script.google.com/a/macros/multiplylocal.com/s/AKfycbwfWHx8Awb76JRvxP6yYeyJmAO2CT9MkeNICjb09sMXwEFacVyF4wzd29xzP809VOsuWQ/exec';
     var btn = document.querySelector('.btn-submit');
     btn.disabled = true; btn.textContent = 'Submitting...';
     fetch(APPS_SCRIPT_URL, {
