@@ -275,6 +275,7 @@
     btn.disabled = true; btn.textContent = 'Submitting...';
     fetch(APPS_SCRIPT_URL, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify(data)
     }).then(function() {
