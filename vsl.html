@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch the Video | Multiply Local</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #1C1C1C;
+      --black-2: #141414;
+      --cream: #F5F0E8;
+      --red: #C23B2E;
+      --red-dark: #a03025;
+      --white: #ffffff;
+      --gray: #6b6b6b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(245,240,232,0.08);
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--red); }
+
+    /* ── GREETING BANNER ── */
+    .greeting-bar {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 14px 24px;
+      background: rgba(194,59,46,0.1);
+      border-bottom: 1px solid rgba(194,59,46,0.2);
+    }
+
+    .greeting-bar p {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    /* ── VIDEO SECTION ── */
+    .video-section {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 16px;
+    }
+
+    .section-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .video-section h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-align: center;
+      color: var(--cream);
+      margin-bottom: 32px;
+    }
+
+    .video-section h1 em {
+      color: var(--red);
+      font-style: normal;
+    }
+
+    .video-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(245,240,232,0.08), 0 40px 100px rgba(0,0,0,0.6);
+    }
+
+    .video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── WATCH PROMPT ── */
+    .watch-prompt {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 600px;
+      margin: 28px auto 0;
+      padding: 0 24px;
+    }
+
+    .watch-prompt p {
+      font-size: 15px;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.6;
+    }
+
+    .watch-prompt strong {
+      color: var(--cream);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(245,240,232,0.08);
+    }
+
+    .divider-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.3);
+      white-space: nowrap;
+    }
+
+    /* ── WHAT YOU JUST LEARNED ── */
+    .bullets-section {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 32px auto 0;
+      padding: 0 24px;
+    }
+
+    .bullets-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: 0.03em;
+      color: var(--cream);
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .bullet-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(245,240,232,0.03);
+      border: 1px solid rgba(245,240,232,0.07);
+      border-radius: 6px;
+      padding: 18px 20px;
+      transition: border-color 0.2s;
+    }
+
+    .bullet-item:hover {
+      border-color: rgba(194,59,46,0.25);
+    }
+
+    .bullet-check {
+      width: 24px;
+      height: 24px;
+      background: rgba(194,59,46,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .bullet-check svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--red);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bullet-text {
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba(245,240,232,0.75);
+    }
+
+    .bullet-text strong {
+      color: var(--cream);
+      font-weight: 600;
+    }
+
+    /* ── OFFER BOX ── */
+    .offer-section {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 48px auto 0;
+      padding: 0 24px;
+    }
+
+    .offer-box {
+      background: rgba(194,59,46,0.06);
+      border: 1px solid rgba(194,59,46,0.2);
+      border-radius: 8px;
+      padding: 36px 32px;
+      text-align: center;
+    }
+
+    .offer-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .offer-box h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(30px, 5vw, 52px);
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .offer-box h2 em {
+      color: var(--red);
+      font-style: normal;
+    }
+
+    .offer-box p {
+      font-size: 15px;
+      color: rgba(245,240,232,0.6);
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto 20px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .price-original {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: rgba(245,240,232,0.25);
+      text-decoration: line-through;
+    }
+
+    .price-waived {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--red);
+      background: rgba(194,59,46,0.12);
+      border: 1px solid rgba(194,59,46,0.3);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    .price-current {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+
+    .price-label {
+      font-size: 13px;
+      color: rgba(245,240,232,0.4);
+      margin-bottom: 28px;
+    }
+
+    /* ── CALENDAR SECTION ── */
+    .calendar-section {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 48px auto 0;
+      padding: 0 24px;
+    }
+
+    .calendar-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 5vw, 54px);
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .calendar-section h2 em {
+      color: var(--red);
+      font-style: normal;
+    }
+
+    .calendar-sub {
+      font-size: 15px;
+      color: rgba(245,240,232,0.5);
+      text-align: center;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .calendar-embed {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(245,240,232,0.08);
+      background: #fff;
+      min-height: 700px;
+    }
+
+    .calendar-embed iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      display: block;
+    }
+
+    /* ── REASSURANCE ── */
+    .reassurance {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .reassurance-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(245,240,232,0.5);
+    }
+
+    .reassurance-item svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--red);
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 48px 24px 28px;
+      font-size: 11px;
+      color: rgba(245,240,232,0.2);
+      line-height: 1.7;
+      margin-top: 64px;
+    }
+
+    footer em {
+      font-style: italic;
+      color: rgba(245,240,232,0.28);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in { animation: fadeUp 0.7s ease both; }
+    .fade-in-2 { animation: fadeUp 0.7s 0.15s ease both; }
+    .fade-in-3 { animation: fadeUp 0.7s 0.3s ease both; }
+
+    @media (max-width: 600px) {
+      .offer-box { padding: 28px 20px; }
+      .price-current { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <a href="https://multiplylocal.com" class="logo">MULTI<span>×</span>PLY LOCAL</a>
+  </header>
+
+  <!-- PERSONALIZED GREETING -->
+  <div class="greeting-bar" id="greetingBar" style="display:none;">
+    <p id="greetingText"></p>
+  </div>
+
+  <!-- VIDEO SECTION -->
+  <section class="video-section">
+    <p class="section-eyebrow fade-in">You're In — Watch This Now</p>
+    <h1 class="fade-in-2">Your Website Should Be<br /><em>Working For You</em></h1>
+
+    <div class="video-embed fade-in-3">
+      <iframe src="https://www.loom.com/embed/b21a8ee3e92a4613a21ad08a211c0989" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+  </section>
+
+  <!-- CALENDAR — immediately below video -->
+  <section class="calendar-section" id="calendar" style="margin-top: 40px;">
+    <h2>Pick a Time That<br /><em>Works For You</em></h2>
+    <p class="calendar-sub">15 minutes. No pressure. We'll look at your current online presence and show you exactly what we'd build for your business.</p>
+
+    <div class="calendar-embed">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/booking/vi7CsC1AbMZIkfKJ0I1u"
+        title="Book a Strategy Call with Multiply Local"
+        scrolling="yes"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- REASSURANCE (below calendar) -->
+  <div class="reassurance" style="margin-bottom: 0;">
+    <div class="reassurance-item">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      No pressure sales call — just a conversation about your business
+    </div>
+    <div class="reassurance-item">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Cancel or reschedule anytime, no questions asked
+    </div>
+    <div class="reassurance-item">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Built by a local business owner who gets it — not a faceless agency
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-label">Here's What You Just Learned</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- BULLET SUMMARY -->
+  <section class="bullets-section">
+    <h2>Why Most Home Service Websites Don't Generate Calls</h2>
+    <div class="bullet-list">
+      <div class="bullet-item">
+        <div class="bullet-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="bullet-text"><strong>Your website should drive calls — not just exist.</strong> We put your phone number and quote request front and center so every visitor has a reason to act immediately.</div>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="bullet-text"><strong>Custom-built to your brand, your colors, your business.</strong> Plumber, HVAC, power washing, lawn care — we build it to look like you, not a generic template.</div>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="bullet-text"><strong>Miss Call Text Back never lets a lead go cold.</strong> When you're on a job, our system texts any missed caller automatically so they don't move on to your competitor.</div>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="bullet-text"><strong>Automatic review requests build your Google reputation.</strong> After every job, we send a review ask. 4–5 stars go straight to Google. Anything less gives you a chance to fix it first.</div>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="bullet-text"><strong>MultiplyOS runs the whole thing from your phone.</strong> Text, call, invoice, follow up — manage your business from the job site, your truck, anywhere.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER BOX -->
+  <section class="offer-section">
+    <div class="offer-box">
+      <div class="offer-eyebrow">Limited Launch Offer</div>
+      <h2>Get Your Website<br /><em>Free To Start</em></h2>
+      <p>No setup fees. No contracts. Just a custom, call-driving website live in days — not months.</p>
+
+      <div class="price-row">
+        <span class="price-original">$500 Setup</span>
+        <span class="price-waived">Waived</span>
+      </div>
+      <div class="price-current">$97<span style="font-size:22px;font-family:'DM Sans';font-weight:400;color:rgba(245,240,232,0.4)">/mo</span></div>
+      <p class="price-label">Hosting, maintenance &amp; support — first 10 businesses only</p>
+
+      <a href="#calendar" style="display:inline-block;background:var(--red);color:white;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.08em;padding:16px 40px;border-radius:4px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#a03025'" onmouseout="this.style.background='#C23B2E'">
+        → Book My Free Strategy Call
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Amplify Marketing SEO LLC, operating as Multiply Local &nbsp;|&nbsp; Lake Charles, LA</p>
+    <p><a href="https://multiplylocal.com/privacy" style="color:inherit;">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://multiplylocal.com/terms" style="color:inherit;">Terms of Service</a></p>
+    <p style="margin-top:10px;"><em>"Be fruitful and multiply." — Genesis 1:28</em></p>
+  </footer>
+
+  <script>
+    // Personalize greeting if name was passed from opt-in
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    if (name) {
+      const bar = document.getElementById('greetingBar');
+      const text = document.getElementById('greetingText');
+      const firstName = name.split(' ')[0];
+      text.textContent = `🎉 You're in, ${firstName}! Watch the video below — then book your free call.`;
+      bar.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
