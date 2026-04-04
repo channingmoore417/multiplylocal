@@ -266,32 +266,21 @@
   .section-label { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
   .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px,4.8vw,62px); letter-spacing: 0.04em; line-height: 1; margin-bottom: 22px; }
 
-  /* ── CREAM SECTION BASE ── */
-  .cream-section { background: var(--cream); }
-  .cream-section .section-label { color: var(--red); }
-  .cream-section .section-title { color: var(--black) !important; }
-
   /* ── BENEFITS ── */
   .benefits-section { padding: 130px 48px; position: relative; }
   .benefits-inner { max-width: 1200px; margin: 0 auto; }
   .benefits-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 80px; }
-  .benefits-intro-copy { font-size: 18px; color: var(--gray); line-height: 1.7; max-width: 460px; }
-  .cream-section .benefits-intro-copy { color: var(--gray-dark); }
+  .benefits-intro-copy { font-size: 18px; color: var(--gray-light); line-height: 1.7; max-width: 460px; }
   .benefits-intro-pull { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,3vw,40px); color: var(--cream); line-height: 1.2; letter-spacing: 0.03em; }
-  .cream-section .benefits-intro-pull { color: var(--black); }
   .benefits-intro-pull .red { color: var(--red); }
   .benefit-rows { display: flex; flex-direction: column; }
   .benefit-row { display: grid; grid-template-columns: 80px 1fr 1fr; gap: 40px; align-items: start; padding: 52px 0; border-top: 1px solid rgba(255,255,255,0.05); }
-  .cream-section .benefit-row { border-top-color: rgba(0,0,0,0.08); }
   .benefit-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.05); }
-  .cream-section .benefit-row:last-child { border-bottom-color: rgba(0,0,0,0.08); }
   .benefit-number { font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: rgba(194,59,46,0.15); line-height: 1; letter-spacing: 0.02em; margin-top: -8px; transition: color 0.25s; }
   .benefit-row:hover .benefit-number { color: rgba(194,59,46,0.35); }
   .benefit-heading { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,3vw,44px); letter-spacing: 0.03em; line-height: 1.05; color: var(--cream); margin-bottom: 10px; }
-  .cream-section .benefit-heading { color: var(--black); }
   .benefit-tag { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
   .benefit-body { font-size: 16px; color: var(--gray-light); line-height: 1.7; }
-  .cream-section .benefit-body { color: var(--gray-dark); }
 
   /* ── DIFF ── */
   .diff-section { padding: 130px 48px; background: var(--black-light); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
@@ -314,21 +303,15 @@
   .proof-header { margin-bottom: 64px; }
   .testimonials-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
   .testimonial-featured { background: var(--black-card); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 48px; position: relative; overflow: hidden; }
-  .cream-section .testimonial-featured { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
   .testimonial-featured::before { content: '"'; position: absolute; top: -20px; right: 32px; font-family: 'Bebas Neue', sans-serif; font-size: 220px; color: rgba(194,59,46,0.07); line-height: 1; pointer-events: none; }
   .testimonial-featured .t-text { font-size: 22px; color: var(--cream); line-height: 1.6; margin-bottom: 32px; font-style: italic; position: relative; z-index: 1; }
-  .cream-section .testimonial-featured .t-text { color: var(--black); }
   .testimonial-featured .t-author-name { font-weight: 600; font-size: 15px; color: var(--cream); }
-  .cream-section .testimonial-featured .t-author-name { color: var(--black); }
   .testimonial-featured .t-author-biz { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-top: 4px; }
   .testimonial-stack { display: flex; flex-direction: column; gap: 24px; }
   .testimonial-small { background: var(--black-card); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 28px; flex: 1; }
-  .cream-section .testimonial-small { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
   .testimonial-small .t-stars { color: var(--red); font-size: 11px; letter-spacing: 2px; margin-bottom: 12px; }
   .testimonial-small .t-text { font-size: 14px; color: var(--cream); line-height: 1.6; margin-bottom: 20px; font-style: italic; }
-  .cream-section .testimonial-small .t-text { color: var(--black); }
   .testimonial-small .t-author-name { font-weight: 600; font-size: 13px; color: var(--cream); }
-  .cream-section .testimonial-small .t-author-name { color: var(--black); }
   .testimonial-small .t-author-biz { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-top: 3px; }
 
   /* ── PRICING ── */
@@ -368,11 +351,8 @@
   .steps::before { content: ''; position: absolute; top: 27px; left: calc(12.5% + 4px); right: calc(12.5% + 4px); height: 1px; background: linear-gradient(90deg, rgba(194,59,46,0.15), rgba(194,59,46,0.4), rgba(194,59,46,0.4), rgba(194,59,46,0.15)); }
   .step { padding: 0 28px; text-align: center; }
   .step-num { width: 54px; height: 54px; border-radius: 50%; background: var(--black-card); border: 1px solid rgba(194,59,46,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--red); position: relative; z-index: 1; }
-  .cream-section .step-num { background: #fff; border-color: rgba(194,59,46,0.3); }
   .step-title { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); margin-bottom: 12px; }
-  .cream-section .step-title { color: var(--black); }
   .step-desc { font-size: 14px; color: var(--gray); line-height: 1.65; }
-  .cream-section .step-desc { color: var(--gray-dark); }
 
   /* ── CTA BAND ── */
   .cta-band {
@@ -721,7 +701,7 @@
 </section>
 
 <!-- BENEFITS -->
-<section class="benefits-section cream-section" id="benefits">
+<section class="benefits-section" id="benefits">
   <div class="benefits-inner">
     <div class="benefits-intro">
       <div>
@@ -775,7 +755,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="proof-section cream-section">
+<section class="proof-section">
   <div class="proof-inner">
     <div class="proof-header">
       <div class="section-label">Results</div>
@@ -884,7 +864,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="hiw-section cream-section" id="how-it-works">
+<section class="hiw-section" id="how-it-works">
   <div class="hiw-inner">
     <div class="hiw-header">
       <div class="section-label">Process</div>
