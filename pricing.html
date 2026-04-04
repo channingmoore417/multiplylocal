@@ -40,12 +40,6 @@
   .page-title .accent{color:var(--red)}
   .page-subtitle{font-size:18px;color:var(--gray-light);line-height:1.6;max-width:560px}
 
-  /* PROMO BANNER */
-  .promo-banner{background:rgba(194,59,46,0.1);border:1px solid rgba(194,59,46,0.25);border-radius:6px;padding:16px 24px;display:flex;align-items:center;gap:16px;max-width:1200px;margin:0 auto;margin-top:40px}
-  .promo-dot{width:8px;height:8px;background:var(--red);border-radius:50%;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.3)}}
-  .promo-text{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream)}
-  .promo-text span{color:var(--red)}
 
   /* PRICING GRID */
   .pricing-section{padding:80px 48px 120px}
@@ -65,8 +59,7 @@
   .p-per{font-size:13px;color:var(--gray);margin-top:2px;margin-bottom:6px}
   .p-setup-wrap{margin-bottom:28px}
   .p-setup-label{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gray-muted);margin-bottom:3px}
-  .p-setup-fee{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.15em;color:var(--gray-muted);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}
-  .p-setup-free{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-left:10px}
+  .p-setup-amount{font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:0.15em;color:var(--cream)}
 
   .p-divider{height:1px;background:rgba(255,255,255,0.06);margin-bottom:28px}
   .p-promise{font-size:15px;color:var(--cream);line-height:1.6;margin-bottom:28px;font-style:italic}
@@ -195,10 +188,6 @@
     <h1 class="page-title">SIMPLE PLANS.<br><span class="accent">SERIOUS</span> RESULTS.</h1>
     <p class="page-subtitle">No long-term contracts. No hidden fees. Every plan includes a dedicated account manager and everything your business needs to grow online.</p>
   </div>
-  <div class="promo-banner">
-    <div class="promo-dot"></div>
-    <div class="promo-text">Limited Time — <span>Setup fees waived</span> on all plans. Get started for just your first month's rate.</div>
-  </div>
 </section>
 
 <!-- PRICING CARDS -->
@@ -213,9 +202,8 @@
         <div class="p-price"><sup>$</sup>97</div>
         <div class="p-per">/month</div>
         <div class="p-setup-wrap">
-          <div class="p-setup-label">One-time setup</div>
-          <span class="p-setup-fee">$1,000</span>
-          <span class="p-setup-free">Waived</span>
+          <div class="p-setup-label">One-time setup fee</div>
+          <span class="p-setup-amount">$1,000</span>
         </div>
         <div class="p-divider"></div>
         <p class="p-promise">Get started with a sleek, mobile-friendly website designed to capture leads and improve your online presence.</p>
@@ -241,9 +229,8 @@
         <div class="p-price"><sup>$</sup>297</div>
         <div class="p-per">/month</div>
         <div class="p-setup-wrap">
-          <div class="p-setup-label">One-time setup</div>
-          <span class="p-setup-fee">$2,000</span>
-          <span class="p-setup-free">Waived</span>
+          <div class="p-setup-label">One-time setup fee</div>
+          <span class="p-setup-amount">$2,000</span>
         </div>
         <div class="p-divider"></div>
         <p class="p-promise">A professional web presence and the tools to stop losing customers online — up and running in days.</p>
@@ -269,9 +256,8 @@
         <div class="p-price"><sup>$</sup>597</div>
         <div class="p-per">/month</div>
         <div class="p-setup-wrap">
-          <div class="p-setup-label">One-time setup</div>
-          <span class="p-setup-fee">$3,000</span>
-          <span class="p-setup-free">Waived</span>
+          <div class="p-setup-label">One-time setup fee</div>
+          <span class="p-setup-amount">$3,000</span>
         </div>
         <div class="p-divider"></div>
         <p class="p-promise">Everything in Growth, plus the SEO engine, automations, and booking system that turn your website into a lead machine.</p>
@@ -352,10 +338,10 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        <span class="faq-q-text">Are the setup fees really waived?</span>
+        <span class="faq-q-text">What does the setup fee cover?</span>
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-a">Yes — for a limited time we're waiving all setup fees across every plan. You pay your first month's rate and we get to work building your system. No upfront costs beyond your monthly subscription.</div>
+      <div class="faq-a">The one-time setup fee covers the buildout of your website, automations, integrations, and everything needed to get your system live. It's a one-time cost — after that, you only pay your monthly rate.</div>
     </div>
 
     <div class="faq-item">
