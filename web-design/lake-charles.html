@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Web Design Lake Charles, LA | Multiply Local</title>
   <meta name="description" content="Custom web design in Lake Charles, LA built for local businesses. No templates. Mobile-first. SEO-ready. Get a custom site for $0 down — just a low monthly fee." />
-  <link rel="canonical" href="https://multiplylocal.com/web-design-lake-charles" />
+  <link rel="canonical" href="https://multiplylocal.com/web-design/lake-charles" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Multiply Local","url":"https://multiplylocal.com","telephone":"(337) 570-2028","address":{"@type":"PostalAddress","streetAddress":"113 Williamsburg St","addressLocality":"Lake Charles","addressRegion":"LA","postalCode":"70605","addressCountry":"US"},"areaServed":["Lake Charles","Sulphur","Westlake","Calcasieu Parish","Southwest Louisiana"],"openingHours":"Mo-Fr 09:00-17:00"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does web design cost in Lake Charles?","acceptedAnswer":{"@type":"Answer","text":"At Multiply Local, we build your custom website with no upfront cost. You pay a low monthly fee starting at $97/month. No large setup cost on the site build itself — just one flat monthly rate."}},{"@type":"Question","name":"How long does it take to build a website in Lake Charles?","acceptedAnswer":{"@type":"Answer","text":"Most websites go live within 7–14 business days after onboarding. We move fast."}},{"@type":"Question","name":"Will my website rank on Google?","acceptedAnswer":{"@type":"Answer","text":"Every site we build includes on-page SEO — proper headings, meta tags, local schema markup, and speed optimization baked in from day one."}},{"@type":"Question","name":"Do you work with home service businesses in Lake Charles?","acceptedAnswer":{"@type":"Answer","text":"Yes. Plumbers, HVAC companies, roofers, electricians, landscapers — local home service businesses across Southwest Louisiana are our specialty."}}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/global-nav.css" />
   <style>
     :root {
       --black:   #1C1C1C;
@@ -31,7 +32,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 7rem 6vw 5rem;
+      padding: calc(68px + 4rem) 6vw 5rem;
       gap: 4rem;
       position: relative;
       overflow: hidden;
@@ -749,6 +750,8 @@
 </head>
 <body>
 
+<div id="global-header"></div>
+
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-left">
@@ -1120,6 +1123,10 @@
     });
   });
 </script>
+
+<div id="global-footer"></div>
+<script src="/global-header.js"></script>
+<script src="/global-footer.js"></script>
 
 </body>
 </html>
