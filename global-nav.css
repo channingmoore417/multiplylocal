@@ -14,6 +14,14 @@
 .mobile-nav a{font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:#f5f0e8;text-decoration:none}
 .mobile-cta{background:#c23b2e;color:#f5f0e8!important;padding:12px 22px;border-radius:3px;text-align:center;margin-top:8px}
 
+/* SERVICES DROPDOWN */
+.nav-dropdown{position:relative}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#232323;border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:10px 0;min-width:160px;margin-top:16px;box-shadow:0 8px 24px rgba(0,0,0,0.4);z-index:101}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:10px;height:10px;background:#232323;border-left:1px solid rgba(255,255,255,0.08);border-top:1px solid rgba(255,255,255,0.08)}
+.nav-dropdown-menu a{display:block;padding:8px 20px;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#999;text-decoration:none;transition:color 0.15s,background 0.15s;white-space:nowrap}
+.nav-dropdown-menu a:hover{color:#f5f0e8;background:rgba(255,255,255,0.04)}
+.nav-dropdown:hover .nav-dropdown-menu{display:block}
+
 /* FOOTER */
 .site-footer{background:#232323;border-top:1px solid rgba(255,255,255,0.05);padding:88px 48px 44px}
 .footer-inner{max-width:1200px;margin:0 auto}
