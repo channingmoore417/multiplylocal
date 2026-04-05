@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're In — Next Steps | Multiply Local</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #1C1C1C;
+      --cream: #F5F0E8;
+      --cream-dark: #EDE8DF;
+      --red: #C23B2E;
+      --red-dark: #A8332A;
+      --white: #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--black);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--cream);
+      letter-spacing: 2px;
+    }
+    .logo span { color: var(--red); }
+    .header-tag {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.5;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--black);
+      padding: 64px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: var(--cream);
+      clip-path: ellipse(60% 100% at 50% 100%);
+    }
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 8vw, 90px);
+      color: var(--cream);
+      line-height: 1;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero p {
+      color: rgba(245,240,232,0.7);
+      font-size: 18px;
+      max-width: 560px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+
+    /* ── STEP CARDS ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .step-card {
+      background: var(--white);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(28,28,28,0.08);
+      box-shadow: 0 2px 16px rgba(28,28,28,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .step-card:hover {
+      box-shadow: 0 6px 32px rgba(28,28,28,0.12);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 28px 32px;
+      border-bottom: 1px solid rgba(28,28,28,0.06);
+    }
+    .step-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--red);
+      line-height: 1;
+      flex-shrink: 0;
+      opacity: 0.18;
+    }
+    .step-title-wrap {}
+    .step-tag {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 4px;
+    }
+    .step-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 1px;
+      color: var(--black);
+      line-height: 1.1;
+    }
+
+    .step-body {
+      padding: 28px 32px;
+    }
+    .step-body p {
+      color: #444;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .step-body p:last-child { margin-bottom: 0; }
+
+    /* Video embed */
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 20px;
+      border: 2px solid rgba(28,28,28,0.08);
+    }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    /* Upload button */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 3px;
+      margin-top: 20px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+    }
+    .btn-primary svg {
+      width: 16px; height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Assets checklist */
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .asset-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--cream);
+      border-radius: 3px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--black);
+      font-weight: 500;
+    }
+    .asset-item .check {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .asset-item .check svg { width: 10px; height: 10px; }
+
+    /* Domain accordion */
+    .domain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .domain-block {
+      border: 1px solid rgba(28,28,28,0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .domain-toggle {
+      width: 100%;
+      background: var(--cream-dark);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--black);
+      text-align: left;
+      transition: background 0.15s;
+    }
+    .domain-toggle:hover { background: #E5DFD5; }
+    .domain-toggle .arrow {
+      width: 18px; height: 18px;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .domain-toggle.open .arrow { transform: rotate(180deg); }
+    .domain-content {
+      display: none;
+      padding: 20px;
+      background: var(--white);
+    }
+    .domain-content.open { display: block; }
+    .domain-content ol {
+      padding-left: 20px;
+      color: #444;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .domain-content ol li { margin-bottom: 6px; }
+    .domain-content .note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #666;
+      font-style: italic;
+      background: var(--cream);
+      border-left: 3px solid var(--red);
+      padding: 10px 14px;
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      text-align: center;
+      margin: 48px 0 40px;
+      position: relative;
+    }
+    .divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      height: 1px;
+      background: rgba(28,28,28,0.1);
+    }
+    .divider-label {
+      position: relative;
+      background: var(--cream);
+      padding: 0 20px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.35);
+    }
+
+    /* ── QUESTIONS BOX ── */
+    .questions-box {
+      background: var(--black);
+      border-radius: 4px;
+      padding: 40px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .questions-box h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--cream);
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .questions-box p {
+      color: rgba(245,240,232,0.6);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+    .questions-box a.btn-outline {
+      display: inline-block;
+      border: 2px solid var(--red);
+      color: var(--cream);
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+    .questions-box a.btn-outline:hover { background: var(--red); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      padding: 32px 40px;
+      text-align: center;
+    }
+    footer .foot-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--cream);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    footer .foot-logo span { color: var(--red); }
+    footer p {
+      font-size: 12px;
+      color: rgba(245,240,232,0.35);
+      letter-spacing: 1px;
+    }
+    footer em {
+      display: block;
+      font-style: italic;
+      font-size: 12px;
+      color: rgba(245,240,232,0.25);
+      margin-top: 10px;
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 16px 20px; }
+      .hero { padding: 48px 20px 72px; }
+      main { padding: 40px 16px 60px; }
+      .step-header { padding: 20px; gap: 14px; }
+      .step-body { padding: 20px; }
+      .questions-box { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">MULTI<span>×</span>PLY LOCAL</div>
+  <div class="header-tag">Client Onboarding</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">You're officially in</div>
+    <h1>Let's Get <em>Moving.</em></h1>
+    <p>Your onboarding form is submitted. Here's exactly what we need from you to kick things off — follow each step below and we'll handle the rest.</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <div class="section-label">Your Next Steps</div>
+  <div class="steps">
+
+    <!-- STEP 1 — Google Business Profile -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number">01</div>
+        <div class="step-title-wrap">
+          <div class="step-tag">Step 1</div>
+          <div class="step-title">Grant Access to Your Google Business Profile</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>We need manager access to your Google Business Profile so we can optimize your listing, manage reviews, and get you ranking in the local map pack. Watch the short video below for step-by-step instructions — it only takes about 2 minutes.</p>
+        <p>You'll be inviting <strong>channing@multiplylocal.com</strong> as a Manager on your profile.</p>
+        <div class="video-wrap">
+          <iframe src="https://www.loom.com/embed/cafa8c3acb9b44f5b66ec99d2fd77d1c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 — Upload Assets -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number">02</div>
+        <div class="step-title-wrap">
+          <div class="step-tag">Step 2</div>
+          <div class="step-title">Upload Your Logo, Photos & Brand Assets</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>Use the link below to upload everything we'll need to build your site and marketing materials. Don't worry about getting it perfect — send us what you have and we'll make it work.</p>
+
+        <div class="asset-grid">
+          <div class="asset-item">
+            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Logo files (PNG, SVG, AI, EPS)
+          </div>
+          <div class="asset-item">
+            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Photos of your work / team
+          </div>
+          <div class="asset-item">
+            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Before &amp; after images
+          </div>
+          <div class="asset-item">
+            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Services list &amp; descriptions
+          </div>
+          <div class="asset-item">
+            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Service areas / locations
+          </div>
+          <div class="asset-item">
+            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Any existing copy or content
+          </div>
+          <div class="asset-item">
+            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Certifications / badges
+          </div>
+          <div class="asset-item">
+            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Brand colors / preferences
+          </div>
+        </div>
+
+        <a class="btn-primary" href="https://drive.google.com/drive/folders/1PhpGJld_yhbIQ60JlM6uqz27cOV5f8fg?usp=drive_link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 10V2M8 10L5 7M8 10L11 7" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12h12" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Upload Files to Google Drive
+        </a>
+      </div>
+    </div>
+
+    <!-- STEP 3 — Domain Access -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number">03</div>
+        <div class="step-title-wrap">
+          <div class="step-tag">Step 3</div>
+          <div class="step-title">Give Us Access to Your Domain</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>We need to connect your domain to your new website. Select your domain registrar below for specific instructions. If you're not sure who your registrar is, check the email you used to originally purchase your domain — or just send us the login and we'll take care of it.</p>
+        <p>We're looking for the ability to update your <strong>DNS records</strong> or add us as a user with domain management access.</p>
+
+        <div class="domain-list">
+
+          <!-- Google Domains / Squarespace Domains -->
+          <div class="domain-block">
+            <button class="domain-toggle" onclick="toggleDomain(this)">
+              <span>Google Domains / Squarespace Domains</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#1C1C1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="domain-content">
+              <ol>
+                <li>Go to <strong>domains.google.com</strong> (or <strong>domains.squarespace.com</strong>) and sign in.</li>
+                <li>Click on your domain name.</li>
+                <li>Select <strong>DNS</strong> from the left menu.</li>
+                <li>Under <strong>Custom Records</strong>, you can share your login credentials with us securely, or:</li>
+                <li>Go to <strong>Registration settings</strong> → <strong>Domain permissions</strong> and invite <strong>channing@multiplylocal.com</strong> as an editor.</li>
+              </ol>
+              <div class="note">💡 Note: Google Domains was acquired by Squarespace in 2023. Your domain may have been migrated — log in at squarespace.com to check.</div>
+            </div>
+          </div>
+
+          <!-- GoDaddy -->
+          <div class="domain-block">
+            <button class="domain-toggle" onclick="toggleDomain(this)">
+              <span>GoDaddy</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#1C1C1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="domain-content">
+              <ol>
+                <li>Sign in at <strong>godaddy.com</strong> and go to your <strong>Account Settings</strong>.</li>
+                <li>Click <strong>Delegate Access</strong> from the left menu.</li>
+                <li>Click <strong>Invite to Access</strong>.</li>
+                <li>Enter <strong>channing@multiplylocal.com</strong> and select <strong>Products &amp; Domains</strong> access level.</li>
+                <li>Click <strong>Invite</strong> — we'll accept the invite from our end.</li>
+              </ol>
+              <div class="note">💡 Alternatively, you can share your DNS login credentials with us directly if delegated access isn't available on your plan.</div>
+            </div>
+          </div>
+
+          <!-- Namecheap -->
+          <div class="domain-block">
+            <button class="domain-toggle" onclick="toggleDomain(this)">
+              <span>Namecheap</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#1C1C1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="domain-content">
+              <ol>
+                <li>Log into <strong>namecheap.com</strong> and go to the <strong>Domain List</strong> in your dashboard.</li>
+                <li>Click <strong>Manage</strong> next to your domain.</li>
+                <li>Select the <strong>Advanced DNS</strong> tab.</li>
+                <li>From here, share your Namecheap login credentials with us securely OR:</li>
+                <li>Go to <strong>Account → Sharing &amp; Access</strong> to grant domain-level access to <strong>channing@multiplylocal.com</strong>.</li>
+              </ol>
+              <div class="note">💡 Most Namecheap accounts don't have delegation by default — the easiest path is sharing credentials or transferring DNS management to Cloudflare (we can assist).</div>
+            </div>
+          </div>
+
+          <!-- Cloudflare -->
+          <div class="domain-block">
+            <button class="domain-toggle" onclick="toggleDomain(this)">
+              <span>Cloudflare</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#1C1C1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="domain-content">
+              <ol>
+                <li>Log into <strong>cloudflare.com</strong> and select your account.</li>
+                <li>Go to <strong>Manage Account → Members</strong>.</li>
+                <li>Click <strong>Invite Member</strong> and enter <strong>channing@multiplylocal.com</strong>.</li>
+                <li>Set the role to <strong>Administrator</strong> or <strong>DNS Manager</strong>.</li>
+                <li>Click <strong>Send Invite</strong> — we'll accept from our side.</li>
+              </ol>
+              <div class="note">💡 Cloudflare is our preferred DNS manager — if your domain is registered elsewhere, we can walk you through pointing it to Cloudflare for faster, more reliable performance.</div>
+            </div>
+          </div>
+
+          <!-- Wix -->
+          <div class="domain-block">
+            <button class="domain-toggle" onclick="toggleDomain(this)">
+              <span>Wix</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#1C1C1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="domain-content">
+              <ol>
+                <li>Log into <strong>wix.com</strong> and go to your site's dashboard.</li>
+                <li>Click <strong>Domains</strong> from the left menu.</li>
+                <li>Select your domain, then click <strong>Manage DNS Records</strong>.</li>
+                <li>To add us as a collaborator, go to <strong>Settings → Roles &amp; Permissions</strong> and invite <strong>channing@multiplylocal.com</strong> with <strong>Admin</strong> access.</li>
+              </ol>
+              <div class="note">💡 If your site was built on Wix, let us know — we may recommend pointing your domain to a new host rather than editing DNS inside Wix directly.</div>
+            </div>
+          </div>
+
+          <!-- Network Solutions -->
+          <div class="domain-block">
+            <button class="domain-toggle" onclick="toggleDomain(this)">
+              <span>Network Solutions</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#1C1C1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="domain-content">
+              <ol>
+                <li>Sign in at <strong>networksolutions.com</strong>.</li>
+                <li>Go to <strong>My Account → Manage Account</strong>.</li>
+                <li>Click <strong>Delegate Access</strong>.</li>
+                <li>Enter <strong>channing@multiplylocal.com</strong> and grant domain management permissions.</li>
+                <li>Alternatively, contact Network Solutions support to add a secondary contact with DNS access.</li>
+              </ol>
+              <div class="note">💡 Network Solutions has a more complex interface — feel free to just send us a screenshot of your login page and we can guide you through it on our kickoff call.</div>
+            </div>
+          </div>
+
+          <!-- Other / Not Sure -->
+          <div class="domain-block">
+            <button class="domain-toggle" onclick="toggleDomain(this)">
+              <span>Other / Not Sure Who My Registrar Is</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#1C1C1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="domain-content">
+              <ol>
+                <li>Go to <strong>who.is</strong> or <strong>lookup.icann.org</strong> and search your domain name.</li>
+                <li>Look for the <strong>Registrar</strong> field — that's who you purchased your domain through.</li>
+                <li>Log into that platform using the email you used to buy the domain.</li>
+                <li>If you're still stuck, just text or email us and we'll figure it out together.</li>
+              </ol>
+              <div class="note">💡 No stress — we deal with this all the time. Reach out and we'll walk you through it on a quick call.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /steps -->
+
+  <!-- DIVIDER -->
+  <div class="divider"><span class="divider-label">What Happens Next</span></div>
+
+  <!-- TIMELINE -->
+  <div style="display:flex;flex-direction:column;gap:0;">
+
+    <div style="display:flex;gap:20px;align-items:flex-start;padding-bottom:28px;position:relative;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="width:2px;flex:1;background:rgba(194,59,46,0.2);min-height:40px;"></div>
+      </div>
+      <div style="padding-top:6px;">
+        <div style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:4px;">Done</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--black);margin-bottom:4px;">Onboarding Form Submitted</div>
+        <div style="font-size:14px;color:#555;">We've received your info and are reviewing it now.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;align-items:flex-start;padding-bottom:28px;position:relative;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--cream);">2</span>
+        </div>
+        <div style="width:2px;flex:1;background:rgba(28,28,28,0.1);min-height:40px;"></div>
+      </div>
+      <div style="padding-top:6px;">
+        <div style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:4px;">Up Next</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--black);margin-bottom:4px;">Complete Steps 1–3 Above</div>
+        <div style="font-size:14px;color:#555;">The faster you complete these, the faster we can start building.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;align-items:flex-start;padding-bottom:28px;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--cream);">3</span>
+        </div>
+        <div style="width:2px;flex:1;background:rgba(28,28,28,0.1);min-height:40px;"></div>
+      </div>
+      <div style="padding-top:6px;">
+        <div style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:4px;">Coming Soon</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--black);margin-bottom:4px;">Kickoff &amp; Strategy Call</div>
+        <div style="font-size:14px;color:#555;">We'll review everything, align on the plan, and walk you through what's coming.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;align-items:flex-start;">
+      <div style="flex-shrink:0;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--cream);">4</span>
+        </div>
+      </div>
+      <div style="padding-top:6px;">
+        <div style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:4px;">The Goal</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--black);margin-bottom:4px;">We Start Multiplying Your Customers</div>
+        <div style="font-size:14px;color:#555;">Your site goes live, your profile is optimized, and leads start coming in.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- QUESTIONS BOX -->
+  <div class="questions-box">
+    <h3>Have Questions?</h3>
+    <p>Text or email us anytime — we're here to make this easy.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+      <a href="sms:3375702028" class="btn-outline">Text Us: (337) 570-2028</a>
+      <a href="mailto:channing@multiplylocal.com" class="btn-outline" style="border-color:rgba(245,240,232,0.25);">channing@multiplylocal.com</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">MULTI<span>×</span>PLY LOCAL</div>
+  <p>&copy; 2025 Amplify Marketing SEO LLC (operating as Multiply Local). All rights reserved.</p>
+  <em>"Be fruitful and multiply." — Genesis 1:28</em>
+</footer>
+
+<script>
+  function toggleDomain(btn) {
+    const content = btn.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    // close all
+    document.querySelectorAll('.domain-content').forEach(el => el.classList.remove('open'));
+    document.querySelectorAll('.domain-toggle').forEach(el => el.classList.remove('open'));
+    // open clicked if it was closed
+    if (!isOpen) {
+      content.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>
