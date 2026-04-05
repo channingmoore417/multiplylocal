@@ -161,26 +161,7 @@
 </head>
 <body>
 
-<header class="site-header">
-  <a href="index.html" class="header-logo">MULTI<span class="x">×</span>PLY</a>
-  <nav><ul class="header-nav">
-    <li><a href="index.html#benefits">Why It Works</a></li>
-    <li><a href="multiplyos.html">MultiplyOS</a></li>
-    <li><a href="pricing.html" class="active">Pricing</a></li>
-    <li><a href="index.html#how-it-works">Process</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul></nav>
-  <a href="book.html" class="header-cta">Multiply My Business</a>
-  <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-<nav class="mobile-nav" id="mobileNav">
-  <a href="index.html#benefits" onclick="toggleMobileNav()">Why It Works</a>
-  <a href="multiplyos.html" onclick="toggleMobileNav()">MultiplyOS</a>
-  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a>
-  <a href="index.html#how-it-works" onclick="toggleMobileNav()">Process</a>
-  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
-  <a href="book.html" class="mobile-cta">Multiply My Business</a>
-</nav>
+<div id="global-header"></div>
 
 <!-- PAGE HERO -->
 <section class="page-hero noise">
@@ -413,47 +394,11 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <span class="f-logo">MULTI<span class="x">×</span>PLY</span>
-        <p class="f-tagline">We help local businesses get found online, convert more leads, and grow — all on autopilot.</p>
-        <div class="f-contact">
-          <div><a href="tel:+13375268824">(337) 526-8824</a></div>
-          <div>113 Williamsburg Street, Lake Charles, LA 70605</div>
-          <div style="margin-top:8px;font-size:11px;color:var(--gray-muted)">Multiply Local is a service provided by Amplify Marketing SEO LLC.</div>
-        </div>
-      </div>
-      <div class="f-col"><h4>Services</h4><ul>
-        <li><a href="index.html#benefits">Website Design</a></li>
-        <li><a href="index.html#benefits">Local SEO</a></li>
-        <li><a href="index.html#benefits">Lead Automations</a></li>
-        <li><a href="index.html#benefits">Review Management</a></li>
-      </ul></div>
-      <div class="f-col"><h4>Company</h4><ul>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="index.html#how-it-works">How It Works</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="book.html">Multiply My Business</a></li>
-      </ul></div>
-      <div class="f-col"><h4>Legal</h4><ul>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Use</a></li>
-        <li><a href="privacy.html#sms">SMS Policy</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span class="f-copy">&copy; 2026 Multiply Local LLC — All Rights Reserved</span>
-      <span class="f-bible">Be fruitful and multiply. — Genesis 1:28</span>
-    </div>
-  </div>
-</footer>
+<div id="global-footer"></div>
+<script src="/global-header.js"></script>
+<script src="/global-footer.js"></script>
 
 <script>
-function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open')}
-window.addEventListener('scroll',()=>document.getElementById('mobileNav').classList.remove('open'));
 function toggleFaq(btn){btn.closest('.faq-item').classList.toggle('open')}
 </script>
 <script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100"></script>
