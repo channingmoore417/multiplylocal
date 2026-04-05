@@ -1,3 +1,8 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/onboarding-starter", "destination": "/onboarding", "permanent": true },
+    { "source": "/onboarding-growth", "destination": "/onboarding", "permanent": true },
+    { "source": "/onboarding-pro", "destination": "/onboarding", "permanent": true }
+  ]
 }
