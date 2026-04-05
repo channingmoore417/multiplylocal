@@ -12,8 +12,8 @@
           '</div>' +
         '</div>' +
         '<div class="f-col"><h4>Services</h4><ul>' +
-          '<li><a href="/index.html#benefits">Website Design</a></li>' +
-          '<li><a href="/index.html#benefits">Local SEO</a></li>' +
+          '<li><a href="/web-design/lake-charles.html">Web Design</a></li>' +
+          '<li><a href="/seo/lake-charles.html">Local SEO</a></li>' +
           '<li><a href="/index.html#benefits">Lead Automations</a></li>' +
           '<li><a href="/index.html#benefits">Review Management</a></li>' +
         '</ul></div>' +
