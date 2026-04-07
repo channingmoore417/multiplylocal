@@ -557,7 +557,7 @@
         alt="Video preview"
         style="filter: blur(4px) brightness(0.6); transform: scale(1.04);"
       />
-      <a href="#leadForm" class="video-overlay" onclick="document.getElementById('name').focus()" style="text-decoration:none; cursor:pointer;">
+      <a href="#" class="video-overlay" onclick="event.preventDefault();document.getElementById('formModal').classList.add('open')" style="text-decoration:none; cursor:pointer;">
         <!-- Red play button -->
         <div class="play-btn">
           <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
