@@ -574,8 +574,11 @@
   </div>
 
   <!-- ARROW -->
-  <!-- CTA BUTTON -->
+  <!-- PRICING + CTA -->
   <div class="cta-wrap">
+    <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.5);margin-bottom:8px;">Starting At</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,10vw,88px);color:var(--cream);line-height:1;letter-spacing:0.02em;"><span style="font-size:36px;vertical-align:top;margin-top:12px;display:inline-block;color:rgba(245,240,232,0.5);">$</span>97<span style="font-family:'DM Sans',sans-serif;font-size:16px;color:rgba(245,240,232,0.45);margin-left:4px;">/mo</span></div>
+    <div style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.15em;color:rgba(245,240,232,0.4);margin-top:6px;margin-bottom:24px;"><span style="text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px;">$1,000 setup fee</span></div>
     <button class="btn-cta" onclick="document.getElementById('formModal').classList.add('open')">
       → Claim Your Free Website
     </button>
@@ -658,6 +661,8 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
+      if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+
       const data = {
         business_name: document.getElementById('modalBiz').value,
         name: document.getElementById('modalName').value,
@@ -706,6 +711,23 @@
   src="https://link.msgsndr.com/js/external-tracking.js"
   data-tracking-id="tk_c68144302ad74a2392de5d6b92effcc0">
 </script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1276653241236782');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1276653241236782&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
 </body>
 </html>
