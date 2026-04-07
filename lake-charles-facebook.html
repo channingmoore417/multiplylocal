@@ -592,6 +592,10 @@
 
       <form id="leadFormModal" action="https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/966d4f6e-6f23-49d8-ad6e-a5e914ced7b6" method="POST" onsubmit="handleSubmit(event)">
         <div class="form-group">
+          <label for="modalBiz">Business Name</label>
+          <input type="text" id="modalBiz" name="business_name" placeholder="Lake Charles HVAC Pros" required />
+        </div>
+        <div class="form-group">
           <label for="modalName">First Name</label>
           <input type="text" id="modalName" name="name" placeholder="John" required autocomplete="given-name" />
         </div>
@@ -655,6 +659,7 @@
       btn.disabled = true;
 
       const data = {
+        business_name: document.getElementById('modalBiz').value,
         name: document.getElementById('modalName').value,
         email: document.getElementById('modalEmail').value,
         phone: document.getElementById('modalPhone').value,

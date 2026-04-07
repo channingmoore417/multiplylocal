@@ -124,11 +124,8 @@
     </div>
 
     <div class="ty-cta-wrap">
-      <p class="ty-cta-label">One more step — pick a time that works for you:</p>
-      <a href="#" id="booking-btn" class="btn-book">
-        Pick My Call Time
-        <span class="btn-book-arrow">→</span>
-      </a>
+      <p class="ty-cta-label">Pick a time that works for you:</p>
+      <div id="booking-embed" style="min-height:500px;border-radius:6px;overflow:hidden;margin-top:16px;"></div>
       <br>
       <span class="ty-skip">Not ready to book yet? <a href="index.html">Go back to the site</a> — we'll follow up.</span>
     </div>
@@ -140,29 +137,34 @@
 
 <script>
 (function(){
-  const p = new URLSearchParams(window.location.search);
-  const firstName = p.get('first_name') || '';
-  const lastName  = p.get('last_name')  || '';
-  const email     = p.get('email')      || '';
-  const phone     = (p.get('phone')     || '').replace(/\D/g,'');
+  var p = new URLSearchParams(window.location.search);
+  var firstName = p.get('first_name') || '';
+  var lastName  = p.get('last_name')  || '';
+  var email     = p.get('email')      || '';
+  var phone     = (p.get('phone')     || '').replace(/\D/g,'');
 
   // Personalise the headline if we have a name
   if(firstName){
     document.querySelector('.ty-eyebrow').textContent = "You're in the system, " + firstName;
   }
 
-  // Build pre-filled GHL booking URL
-  const base = 'https://api.leadconnectorhq.com/widget/booking/vi7CsC1AbMZIkfKJ0I1u';
-  const params = new URLSearchParams();
-  if(firstName) params.set('firstName', firstName);
-  if(lastName)  params.set('lastName',  lastName);
+  // Embed GHL booking widget as iframe with pre-filled data
+  var base = 'https://api.leadconnectorhq.com/widget/booking/vi7CsC1AbMZIkfKJ0I1u';
+  var params = new URLSearchParams();
+  if(firstName) params.set('first_name', firstName);
+  if(lastName)  params.set('last_name',  lastName);
   if(email)     params.set('email',     email);
   if(phone)     params.set('phone',     phone);
 
-  const bookingUrl = params.toString() ? base + '?' + params.toString() : base;
-  const btn = document.getElementById('booking-btn');
-  btn.href = bookingUrl;
-  btn.target = '_blank';
+  var bookingUrl = params.toString() ? base + '?' + params.toString() : base;
+  var embed = document.getElementById('booking-embed');
+  var iframe = document.createElement('iframe');
+  iframe.src = bookingUrl;
+  iframe.style.width = '100%';
+  iframe.style.minHeight = '700px';
+  iframe.style.border = 'none';
+  iframe.style.borderRadius = '6px';
+  embed.appendChild(iframe);
 })();
 </script>
 
