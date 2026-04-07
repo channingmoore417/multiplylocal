@@ -319,7 +319,7 @@
   .pricing-section { padding: 130px 48px; background: var(--black-light); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
   .pricing-inner { max-width: 1200px; margin: 0 auto; }
   .pricing-header { margin-bottom: 64px; }
-  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; justify-items: center; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; align-items: start; }
   .pricing-card { background: var(--black); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 40px 36px; position: relative; transition: transform 0.2s; }
   .pricing-card:hover { transform: translateY(-4px); }
   .pricing-card.featured { background: var(--black-card); border-color: rgba(194,59,46,0.35); }
@@ -773,15 +773,65 @@
     </div>
     <div class="pricing-grid">
 
-      <div class="pricing-card featured" style="max-width:460px;margin:0 auto">
+      <!-- Starter -->
+      <div class="pricing-card">
         <div class="pricing-stripe"></div>
-        <div class="p-plan">Starting At</div>
-        <div class="p-price"><sup>$</sup>97</div>
+        <div class="p-plan">Starter</div>
+        <div class="p-price"><sup>$</sup>297</div>
         <div class="p-per">/month</div>
         <div class="p-setup">+ $1,000 one-time setup</div>
         <div class="p-divider"></div>
-        <p class="p-promise">Everything your business needs to get found online, capture leads, and grow — all in one system.</p>
-        <a href="pricing.html" class="p-cta solid">See All Plans</a>
+        <p class="p-promise">A professional website, review automation, and lead capture tools — everything you need to stop losing customers online.</p>
+        <ul class="p-list">
+          <li>Professional website (5 pages)</li>
+          <li>Missed call text-back</li>
+          <li>Chat widget</li>
+          <li>Google review automation</li>
+          <li>Mobile app &amp; dashboard</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="book.html" class="p-cta outline">Start Multiplying</a>
+      </div>
+
+      <!-- Growth -->
+      <div class="pricing-card featured">
+        <div class="pricing-stripe"></div>
+        <div class="pricing-badge">Most Popular</div>
+        <div class="p-plan">Growth</div>
+        <div class="p-price"><sup>$</sup>597</div>
+        <div class="p-per">/month</div>
+        <div class="p-setup">+ $2,000 one-time setup</div>
+        <div class="p-divider"></div>
+        <p class="p-promise">Everything in Starter plus ongoing local SEO to rank #1, automated follow-ups, and a calendar that fills itself.</p>
+        <ul class="p-list">
+          <li>Everything in Starter</li>
+          <li>Ongoing local SEO (10 keywords)</li>
+          <li>Email &amp; text automations</li>
+          <li>Sales pipeline</li>
+          <li>Appointment booking system</li>
+          <li>Monthly performance report</li>
+        </ul>
+        <a href="book.html" class="p-cta solid">Start Multiplying</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="pricing-card">
+        <div class="pricing-stripe"></div>
+        <div class="p-plan">Pro</div>
+        <div class="p-price"><sup>$</sup>997</div>
+        <div class="p-per">/month</div>
+        <div class="p-setup">+ $3,000 one-time setup</div>
+        <div class="p-divider"></div>
+        <p class="p-promise">The full growth engine — unlimited SEO, ad management, payment processing, and priority support from your dedicated team.</p>
+        <ul class="p-list">
+          <li>Everything in Growth</li>
+          <li>Unlimited SEO keywords</li>
+          <li>Google &amp; Facebook ad management</li>
+          <li>Payment processing</li>
+          <li>Priority support</li>
+          <li>Quarterly strategy call</li>
+        </ul>
+        <a href="book.html" class="p-cta outline">Start Multiplying</a>
       </div>
 
     </div>
