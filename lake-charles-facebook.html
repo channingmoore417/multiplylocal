@@ -230,13 +230,9 @@
       opacity: 0.35;
     }
 
-    /* ── FORM SECTION ── */
+    /* ── FORM SECTION - now hidden, replaced by CTA ── */
     .form-section {
-      position: relative;
-      z-index: 2;
-      max-width: 520px;
-      margin: 0 auto;
-      padding: 32px 24px 64px;
+      display: none;
     }
 
     .form-card {
@@ -352,6 +348,103 @@
       text-align: center;
       margin-top: 14px;
       line-height: 1.5;
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-wrap {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 24px 20px;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 20px 48px;
+      background: var(--red);
+      color: white;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.06em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 6px rgba(194,59,46,0.18), 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .btn-cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .btn-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 8px rgba(194,59,46,0.14), 0 12px 40px rgba(0,0,0,0.5);
+    }
+
+    .btn-cta:active { transform: translateY(0); }
+
+    .cta-sub {
+      font-size: 13px;
+      color: rgba(245,240,232,0.4);
+      margin-top: 14px;
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #1e1e1e;
+      border: 1px solid rgba(245,240,232,0.1);
+      border-radius: 8px;
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 460px;
+      position: relative;
+      animation: fadeUp 0.3s ease;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: rgba(245,240,232,0.4);
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.15s;
+    }
+
+    .modal-close:hover { color: var(--cream); }
+
+    @media (max-width: 600px) {
+      .btn-cta { font-size: 22px; padding: 18px 36px; }
+      .modal-card { padding: 28px 20px; }
     }
 
     /* ── SOCIAL PROOF STRIP ── */
@@ -481,31 +574,34 @@
   </div>
 
   <!-- ARROW -->
-  <div class="arrow-down">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="#F5F0E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+  <!-- CTA BUTTON -->
+  <div class="cta-wrap">
+    <button class="btn-cta" onclick="document.getElementById('formModal').classList.add('open')">
+      → Claim Your Free Website
+    </button>
+    <p class="cta-sub">Only 10 spots available for SWLA businesses</p>
   </div>
 
-  <!-- LEAD CAPTURE FORM -->
-  <section class="form-section">
-    <div class="form-card" id="leadForm">
+  <!-- FORM MODAL -->
+  <div class="modal-overlay" id="formModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="document.getElementById('formModal').classList.remove('open')">&times;</button>
       <div class="form-heading">Watch &amp; Claim Yours</div>
       <div class="form-title">See How to Claim<br/>Your Free Website</div>
       <p class="form-subtitle">Enter your info to watch — only 10 spots available for SWLA businesses.</p>
 
-      <form id="leadForm" action="https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/82a0e45e-f184-44c4-be5f-d6952bafd168" method="POST" onsubmit="handleSubmit(event)">
+      <form id="leadFormModal" action="https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/966d4f6e-6f23-49d8-ad6e-a5e914ced7b6" method="POST" onsubmit="handleSubmit(event)">
         <div class="form-group">
-          <label for="name">First Name</label>
-          <input type="text" id="name" name="name" placeholder="John" required autocomplete="given-name" />
+          <label for="modalName">First Name</label>
+          <input type="text" id="modalName" name="name" placeholder="John" required autocomplete="given-name" />
         </div>
         <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email" />
+          <label for="modalEmail">Email Address</label>
+          <input type="email" id="modalEmail" name="email" placeholder="john@example.com" required autocomplete="email" />
         </div>
         <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="(337) 555-0100" required autocomplete="tel" />
+          <label for="modalPhone">Phone Number</label>
+          <input type="tel" id="modalPhone" name="phone" placeholder="(337) 555-0100" required autocomplete="tel" />
         </div>
 
         <input type="hidden" name="source" value="fb-ad-optin" />
@@ -519,7 +615,7 @@
         </p>
       </form>
     </div>
-  </section>
+  </div>
 
   <!-- SOCIAL PROOF -->
   <div class="proof-strip">
@@ -558,7 +654,7 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      const form = document.getElementById('leadForm');
+      const form = document.getElementById('leadFormModal');
       const data = {
         name: form.name.value,
         email: form.email.value,
@@ -585,8 +681,13 @@
       });
     }
 
+    // Close modal on backdrop click
+    document.getElementById('formModal').addEventListener('click', function(e) {
+      if (e.target === this) this.classList.remove('open');
+    });
+
     // Phone number auto-format
-    document.getElementById('phone').addEventListener('input', function(e) {
+    document.getElementById('modalPhone').addEventListener('input', function(e) {
       let val = e.target.value.replace(/\D/g, '');
       if (val.length >= 6) {
         val = '(' + val.substring(0,3) + ') ' + val.substring(3,6) + '-' + val.substring(6,10);
