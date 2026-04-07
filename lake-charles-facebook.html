@@ -654,15 +654,15 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      const form = document.getElementById('leadFormModal');
       const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
+        name: document.getElementById('modalName').value,
+        email: document.getElementById('modalEmail').value,
+        phone: document.getElementById('modalPhone').value,
         source: 'fb-ad-optin'
       };
+      const formAction = document.getElementById('leadFormModal').action;
 
-      fetch(form.action, {
+      fetch(formAction, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -697,6 +697,10 @@
       e.target.value = val;
     });
   </script>
+<script
+  src="https://link.msgsndr.com/js/external-tracking.js"
+  data-tracking-id="tk_c68144302ad74a2392de5d6b92effcc0">
+</script>
 
 </body>
 </html>
