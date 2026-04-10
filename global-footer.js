@@ -20,6 +20,7 @@
         '<div class="f-col"><h4>Company</h4><ul>' +
           '<li><a href="/pricing.html">Pricing</a></li>' +
           '<li><a href="/index.html#how-it-works">How It Works</a></li>' +
+          '<li><a href="/blog.html">Blog</a></li>' +
           '<li><a href="/contact.html">Contact</a></li>' +
           '<li><a href="/book.html">Multiply My Business</a></li>' +
         '</ul></div>' +

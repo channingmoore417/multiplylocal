@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Local Marketing Insights | Multiply Local</title>
+  <meta name="description" content="Local SEO tips, web design insights, and marketing strategies to help local service businesses get found, get calls, and grow." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black:  #1C1C1C;
+      --cream:  #F5F0E8;
+      --red:    #C23B2E;
+      --red-dk: #9e2f24;
+      --dim:    rgba(28,28,28,0.55);
+      --border: rgba(28,28,28,0.1);
+      --card-shadow: 0 2px 24px rgba(28,28,28,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--black); overflow-x: hidden; }
+
+    /* ── HERO ── */
+    .blog-hero {
+      background: var(--black);
+      padding: 5rem 6vw 0;
+      overflow: hidden;
+      min-height: 480px;
+    }
+    .blog-hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: stretch;
+      gap: 4rem;
+      min-height: 480px;
+    }
+    .blog-hero-left {
+      padding-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .learning-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--red);
+      padding: 0.4rem 1rem;
+      width: fit-content;
+      margin-bottom: 1.5rem;
+    }
+    .blog-h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: 0.92;
+      color: var(--cream);
+      margin-bottom: 1.25rem;
+    }
+    .blog-desc {
+      font-size: 1.0625rem;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.65;
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .blog-hero-right {
+      position: relative;
+      align-self: stretch;
+      flex-shrink: 0;
+      display: flex;
+      align-items: flex-end;
+    }
+    .blog-hero-photo {
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+    }
+    .blog-hero-photo img {
+      width: 320px;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      mask-image:
+        linear-gradient(to top, transparent 0%, black 18%),
+        linear-gradient(to right, transparent 0%, black 20%);
+      -webkit-mask-image:
+        linear-gradient(to top, transparent 0%, black 18%),
+        linear-gradient(to right, transparent 0%, black 20%);
+      mask-composite: intersect;
+      -webkit-mask-composite: source-in;
+      filter: grayscale(8%);
+    }
+    .hero-phone {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .hero-phone:hover { color: var(--cream); }
+
+    /* ── CATEGORY NAV ── */
+    .cat-nav {
+      background: var(--black);
+      border-top: 1px solid rgba(245,240,232,0.06);
+    }
+    .cat-nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 6vw;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .cat-nav-inner::-webkit-scrollbar { display: none; }
+    .cat-tab {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .cat-tab:hover { color: var(--cream); }
+    .cat-tab.active { color: var(--cream); border-bottom-color: var(--red); }
+
+    /* ── MAIN LAYOUT ── */
+    .blog-main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 6vw;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* ── FEATURED POST ── */
+    .featured-post {
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s cubic-bezier(.22,1,.36,1);
+    }
+    .featured-post:hover { transform: translateY(-4px); }
+    .featured-post:hover .featured-img-bg { transform: scale(1.04); }
+    .featured-img {
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+    }
+    .featured-img-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #2a1a1a 0%, #1C1C1C 40%, #2d1a1a 100%);
+      transition: transform .5s cubic-bezier(.22,1,.36,1);
+    }
+    .featured-img-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(194,59,46,0.06) 30px, rgba(194,59,46,0.06) 31px);
+    }
+    .featured-img-label {
+      position: absolute;
+      top: 1.5rem; left: 1.5rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      color: rgba(245,240,232,0.08);
+      line-height: 1;
+    }
+    .featured-badge {
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--red);
+      color: var(--cream);
+      padding: 0.35rem 0.8rem;
+    }
+    .featured-content {
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .post-cat {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .post-date {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.35);
+    }
+    .post-read {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.35);
+    }
+    .featured-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.8rem, 2.5vw, 2.75rem);
+      line-height: 0.95;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .featured-content p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: rgba(245,240,232,0.6);
+      margin-bottom: 1.75rem;
+      flex: 1;
+    }
+    .read-more {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap .2s;
+    }
+    .read-more:hover { gap: 0.85rem; }
+    .read-more::after { content: '→'; }
+
+    /* ── POST GRID ── */
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.4);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      margin-bottom: 3rem;
+    }
+    .post-card {
+      background: var(--cream);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s cubic-bezier(.22,1,.36,1);
+    }
+    .post-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s cubic-bezier(.22,1,.36,1);
+    }
+    .post-card:hover { transform: translateY(-3px); box-shadow: var(--card-shadow); }
+    .post-card:hover::before { transform: scaleX(1); }
+    .card-cat {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .post-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.3rem, 1.8vw, 1.75rem);
+      line-height: 0.95;
+      color: var(--black);
+    }
+    .post-card p {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--dim);
+      flex: 1;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .card-date { font-size: 0.75rem; color: rgba(28,28,28,0.35); font-family: 'DM Sans', sans-serif; }
+    .card-read-more {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-decoration: none;
+      transition: letter-spacing .2s;
+    }
+    .card-read-more:hover { letter-spacing: 0.2em; }
+
+    /* ── LOAD MORE ── */
+    .load-more-wrap { text-align: center; margin-top: 2rem; }
+    .btn-outline-dark {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: transparent;
+      border: 2px solid rgba(28,28,28,0.25);
+      padding: 0.9rem 2.5rem;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      display: inline-block;
+    }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(28,28,28,0.04); }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 2rem; }
+
+    .sidebar-cta {
+      background: var(--black);
+      padding: 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sidebar-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+    }
+    .sidebar-cta-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.85rem;
+    }
+    .sidebar-cta h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      line-height: 0.95;
+      color: var(--cream);
+      margin-bottom: 0.85rem;
+    }
+    .sidebar-cta p {
+      font-size: 0.9rem;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .btn-red {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--red);
+      border: 2px solid var(--red);
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      display: inline-block;
+      white-space: nowrap;
+      transition: background .2s, transform .15s;
+    }
+    .btn-red:hover { background: var(--red-dk); border-color: var(--red-dk); transform: translateY(-2px); }
+    .sidebar-cta .btn-red { display: block; text-align: center; width: 100%; }
+    .sidebar-phone {
+      display: block;
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+      text-decoration: none;
+      margin-top: 0.85rem;
+      transition: color .2s;
+    }
+    .sidebar-phone:hover { color: var(--cream); }
+
+    /* Sidebar: popular posts */
+    .sidebar-widget {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 2rem;
+    }
+    .widget-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.4);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .widget-title::before {
+      content: '';
+      width: 18px; height: 2px;
+      background: var(--red);
+      display: block;
+      flex-shrink: 0;
+    }
+    .popular-post {
+      display: flex;
+      gap: 0.85rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: transform .2s;
+    }
+    .popular-post:last-child { border-bottom: none; padding-bottom: 0; }
+    .popular-post:hover { transform: translateX(4px); }
+    .pop-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: rgba(28,28,28,0.1);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 24px;
+    }
+    .pop-text h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+    .pop-text span {
+      font-size: 0.72rem;
+      color: rgba(28,28,28,0.35);
+    }
+
+    /* Sidebar: categories */
+    .cat-list { display: flex; flex-direction: column; gap: 2px; }
+    .cat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .cat-item:last-child { border-bottom: none; }
+    .cat-item:hover .cat-name { color: var(--red); }
+    .cat-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--black);
+      transition: color .2s;
+    }
+    .cat-count {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      color: rgba(28,28,28,0.2);
+    }
+
+    /* ── INLINE CTA BAND ── */
+    .inline-cta {
+      background: var(--red);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+    .inline-cta h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+      line-height: 0.95;
+      color: var(--cream);
+    }
+    .inline-cta p {
+      font-size: 0.9375rem;
+      color: rgba(245,240,232,0.8);
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+    .btn-cream {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--cream);
+      border: 2px solid var(--cream);
+      padding: 0.9rem 1.75rem;
+      text-decoration: none;
+      white-space: nowrap;
+      display: inline-block;
+      transition: background .2s, transform .15s;
+    }
+    .btn-cream:hover { background: white; transform: translateY(-2px); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .blog-main { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+    @media (max-width: 768px) {
+      .blog-hero-inner { grid-template-columns: 1fr; }
+      .blog-hero-right { display: none; }
+      .featured-post { grid-template-columns: 1fr; }
+      .featured-img { min-height: 220px; }
+      .post-grid { grid-template-columns: 1fr; }
+      .blog-main { padding: 2.5rem 1.5rem; }
+      .inline-cta { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="blog-hero-left">
+      <div class="learning-pill">Learning Center</div>
+      <h1 class="blog-h1">Learn How to Grow<br>Your Local Business</h1>
+      <p class="blog-desc">Local SEO tips, web design breakdowns, and marketing strategies to help local service businesses get found on Google and grow.</p>
+      <div class="hero-ctas">
+        <a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a>
+        <a href="tel:3375702028" class="hero-phone">📞 (337) 570-2028</a>
+      </div>
+    </div>
+    <div class="blog-hero-right">
+      <div class="blog-hero-photo">
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69d87e41982fd67a35051e5b.png" alt="Channing Moore — Founder, Multiply Local" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY NAV -->
+<nav class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#" class="cat-tab active">All Posts</a>
+    <a href="#" class="cat-tab">Local SEO</a>
+    <a href="#" class="cat-tab">Web Design</a>
+    <a href="#" class="cat-tab">Google Business</a>
+    <a href="#" class="cat-tab">Lead Generation</a>
+    <a href="#" class="cat-tab">Home Services</a>
+    <a href="#" class="cat-tab">Case Studies</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="blog-main">
+  <div class="blog-content">
+
+    <!-- FEATURED -->
+    <div class="section-title">Featured Post</div>
+    <article class="featured-post reveal">
+      <div class="featured-img">
+        <div class="featured-img-bg"></div>
+        <div class="featured-img-pattern"></div>
+        <div class="featured-img-label">SEO</div>
+        <div class="featured-badge">Featured</div>
+      </div>
+      <div class="featured-content">
+        <div>
+          <div class="post-meta">
+            <span class="post-cat">Local SEO</span>
+            <span class="post-date">Apr 3, 2026</span>
+            <span class="post-read">8 min read</span>
+          </div>
+          <h2>Why 90% of Local Contractors Are Invisible on Google (And How to Fix It)</h2>
+          <p>Most local service businesses have the same problem: great work, solid word-of-mouth — but when someone searches Google for what they offer, they're nowhere to be found. Here's what's actually going on and exactly how to change it.</p>
+        </div>
+        <a href="/blog/why-90-percent-contractors-invisible-google" class="read-more">Read the Full Post</a>
+      </div>
+    </article>
+
+    <!-- INLINE CTA -->
+    <div class="inline-cta reveal d1">
+      <div>
+        <h3>Ready to Stop Being Invisible on Google?</h3>
+        <p>Get a custom website + local SEO strategy built for your business.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem;">
+        <a href="https://multiplylocal.com/book" class="btn-cream">Start Multiplying →</a>
+        <a href="tel:3375702028" style="font-family:'Oswald',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,240,232,.7);text-decoration:none;">(337) 570-2028</a>
+      </div>
+    </div>
+
+    <!-- POST GRID -->
+    <div class="section-title">Latest Posts</div>
+    <div class="post-grid">
+
+      <article class="post-card reveal d1">
+        <div class="card-cat">Web Design</div>
+        <h3>5 Things Your Website Is Costing You Right Now</h3>
+        <p>A slow, template-built, or mobile-broken website isn't just embarrassing — it's actively sending your customers to a competitor. Here are the five most expensive mistakes we see on local business sites.</p>
+        <div class="card-footer">
+          <span class="card-date">Mar 28, 2026</span>
+          <a href="/blog/5-things-your-website-is-costing-you" class="card-read-more">Read More →</a>
+        </div>
+      </article>
+
+      <article class="post-card reveal d2">
+        <div class="card-cat">Google Business</div>
+        <h3>The Google Business Profile Checklist for Home Service Companies</h3>
+        <p>Your Google Business Profile is your most powerful free marketing tool — and most businesses are leaving 80% of it on the table. This checklist covers every field that actually moves the needle.</p>
+        <div class="card-footer">
+          <span class="card-date">Mar 21, 2026</span>
+          <a href="/blog/google-business-profile-checklist-home-service" class="card-read-more">Read More →</a>
+        </div>
+      </article>
+
+      <article class="post-card reveal d3">
+        <div class="card-cat">Local SEO</div>
+        <h3>How to Rank #1 in the Google Map Pack Without Paying for Ads</h3>
+        <p>The map pack — those three business listings that appear above organic results — gets the majority of local clicks. Here's the exact strategy we use to rank local businesses there organically.</p>
+        <div class="card-footer">
+          <span class="card-date">Mar 14, 2026</span>
+          <a href="/blog/how-to-rank-number-1-google-map-pack" class="card-read-more">Read More →</a>
+        </div>
+      </article>
+
+      <article class="post-card reveal d4">
+        <div class="card-cat">Lead Generation</div>
+        <h3>Why Most HVAC Companies Get Zero Leads From Their Website</h3>
+        <p>Having a website and having a website that generates leads are two completely different things. We break down the conversion gaps we see most often — and how to close them without rebuilding from scratch.</p>
+        <div class="card-footer">
+          <span class="card-date">Mar 7, 2026</span>
+          <a href="/blog/why-most-hvac-companies-get-zero-leads" class="card-read-more">Read More →</a>
+        </div>
+      </article>
+
+      <article class="post-card reveal d1">
+        <div class="card-cat">Case Study</div>
+        <h3>From Page 4 to #1: How a Sulphur Plumber Tripled His Inbound Calls in 90 Days</h3>
+        <p>A step-by-step look at exactly what we did — from GBP optimization to citation building to a new site — and the results it produced in one of the most competitive local service categories in Calcasieu Parish.</p>
+        <div class="card-footer">
+          <span class="card-date">Feb 28, 2026</span>
+          <a href="/blog/sulphur-plumber-page-4-to-number-1" class="card-read-more">Read More →</a>
+        </div>
+      </article>
+
+      <article class="post-card reveal d2">
+        <div class="card-cat">Web Design</div>
+        <h3>Mobile-First Web Design: What It Means and Why It Matters for Local Businesses</h3>
+        <p>72% of local service searches happen on mobile. If your site isn't built for a phone first, you're losing more than half your potential customers before they ever read your headline.</p>
+        <div class="card-footer">
+          <span class="card-date">Feb 21, 2026</span>
+          <a href="/blog/mobile-first-web-design-local-businesses" class="card-read-more">Read More →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="load-more-wrap reveal">
+      <button class="btn-outline-dark">Load More Posts</button>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- PRIMARY CTA -->
+    <div class="sidebar-cta reveal">
+      <div class="sidebar-cta-eyebrow">Free · No Pressure</div>
+      <h3>Get Your Business to #1 on Google</h3>
+      <p>We build custom websites and local SEO strategies for local service businesses nationwide.</p>
+      <a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a>
+      <a href="tel:3375702028" class="sidebar-phone">📞 (337) 570-2028</a>
+    </div>
+
+    <!-- POPULAR -->
+    <div class="sidebar-widget reveal d1">
+      <div class="widget-title">Most Read</div>
+      <a href="/blog/why-90-percent-contractors-invisible-google" class="popular-post">
+        <div class="pop-num">01</div>
+        <div class="pop-text">
+          <h4>Why 90% of Local Contractors Are Invisible on Google</h4>
+          <span>Local SEO · 8 min read</span>
+        </div>
+      </a>
+      <a href="/blog/google-business-profile-checklist-home-service" class="popular-post">
+        <div class="pop-num">02</div>
+        <div class="pop-text">
+          <h4>The Google Business Profile Checklist for Home Services</h4>
+          <span>Google Business · 6 min read</span>
+        </div>
+      </a>
+      <a href="/blog/sulphur-plumber-page-4-to-number-1" class="popular-post">
+        <div class="pop-num">03</div>
+        <div class="pop-text">
+          <h4>From Page 4 to #1: A Sulphur Plumber's 90-Day Turnaround</h4>
+          <span>Case Study · 10 min read</span>
+        </div>
+      </a>
+      <a href="/blog/5-things-your-website-is-costing-you" class="popular-post">
+        <div class="pop-num">04</div>
+        <div class="pop-text">
+          <h4>5 Things Your Website Is Costing You Right Now</h4>
+          <span>Web Design · 5 min read</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="sidebar-widget reveal d2">
+      <div class="widget-title">Categories</div>
+      <div class="cat-list">
+        <a href="#" class="cat-item"><span class="cat-name">Local SEO</span><span class="cat-count">12</span></a>
+        <a href="#" class="cat-item"><span class="cat-name">Web Design</span><span class="cat-count">8</span></a>
+        <a href="#" class="cat-item"><span class="cat-name">Google Business</span><span class="cat-count">6</span></a>
+        <a href="#" class="cat-item"><span class="cat-name">Lead Generation</span><span class="cat-count">9</span></a>
+        <a href="#" class="cat-item"><span class="cat-name">Case Studies</span><span class="cat-count">4</span></a>
+        <a href="#" class="cat-item"><span class="cat-name">Home Services</span><span class="cat-count">7</span></a>
+      </div>
+    </div>
+
+    <!-- SECONDARY CTA -->
+    <div class="sidebar-widget reveal d3" style="background:var(--cream);border:2px solid var(--border);padding:2rem;">
+      <div class="widget-title">Our Services</div>
+      <p style="font-size:.9rem;color:var(--dim);line-height:1.6;margin-bottom:1.25rem;">Custom web design, local SEO, and full marketing automation — all done for you.</p>
+      <a href="https://multiplylocal.com/pricing" class="btn-red" style="display:block;text-align:center;font-size:.8rem;">See Pricing →</a>
+    </div>
+
+  </aside>
+</main>
+
+<script>
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  document.querySelectorAll('.cat-tab').forEach(tab => {
+    tab.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

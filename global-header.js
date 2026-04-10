@@ -5,6 +5,7 @@
     if (href === 'pricing.html' && (path === '/pricing' || path === '/pricing.html')) return true;
     if (href === 'contact.html' && (path === '/contact' || path === '/contact.html')) return true;
     if (href === 'multiplyos.html' && (path === '/multiplyos' || path === '/multiplyos.html')) return true;
+    if (href === 'blog.html' && (path === '/blog' || path === '/blog.html')) return true;
     return false;
   }
 
@@ -19,6 +20,7 @@
       '<li><a href="/multiplyos.html"' + cls('multiplyos.html') + '>MultiplyOS</a></li>' +
       '<li><a href="/pricing.html"' + cls('pricing.html') + '>Pricing</a></li>' +
       '<li><a href="/index.html#how-it-works">Process</a></li>' +
+      '<li><a href="/blog.html"' + cls('blog.html') + '>Blog</a></li>' +
       '<li><a href="/contact.html"' + cls('contact.html') + '>Contact</a></li>' +
     '</ul></nav>' +
     '<a href="/book.html" class="header-cta">Multiply My Business</a>' +
@@ -30,6 +32,7 @@
     '<a href="/multiplyos.html" onclick="toggleMobileNav()">MultiplyOS</a>' +
     '<a href="/pricing.html" onclick="toggleMobileNav()">Pricing</a>' +
     '<a href="/index.html#how-it-works" onclick="toggleMobileNav()">Process</a>' +
+    '<a href="/blog.html" onclick="toggleMobileNav()">Blog</a>' +
     '<a href="/contact.html" onclick="toggleMobileNav()">Contact</a>' +
     '<a href="/book.html" class="mobile-cta">Multiply My Business</a>' +
   '</nav>';
