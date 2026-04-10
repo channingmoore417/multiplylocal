@@ -1066,10 +1066,11 @@
       };
 
       try {
+        const formBody = new URLSearchParams(data).toString();
         await fetch('https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/82a0e45e-f184-44c4-be5f-d6952bafd168', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formBody,
           keepalive: true
         });
       } catch(err) {}
