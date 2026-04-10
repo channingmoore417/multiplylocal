@@ -746,6 +746,87 @@
     .svc-row:hover { background: rgba(245,240,232,0.03); }
     .svc-row:hover .svc-cell.lbl h3 { color: var(--red); transition: color 0.2s; }
 
+    /* ─── OUR WORK ─── */
+    .work-sec { background: #111; }
+    .work-sec .section-label { color: var(--red); }
+    .work-sec .section-h2 { color: var(--cream); }
+    .work-grid {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .work-card {
+      background: #1a1a1a;
+      border: 1px solid rgba(245,240,232,0.07);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      cursor: default;
+    }
+    .work-viewport {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .work-viewport img {
+      width: 100%;
+      display: block;
+      transition: transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translateY(0);
+    }
+    .work-card:hover .work-viewport img {
+      transform: translateY(calc(-100% + 220px));
+    }
+    .work-viewport::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 56px;
+      background: linear-gradient(to top, #1a1a1a, transparent);
+      pointer-events: none;
+      z-index: 2;
+      transition: opacity 0.3s;
+    }
+    .work-card:hover .work-viewport::after { opacity: 0; }
+    .work-hint {
+      position: absolute;
+      top: 8px; right: 8px;
+      background: rgba(10,10,10,0.82);
+      border: 1px solid rgba(245,240,232,0.1);
+      border-radius: 20px;
+      padding: 3px 9px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      z-index: 3;
+      transition: opacity 0.2s;
+    }
+    .work-card:hover .work-hint { opacity: 0; }
+    .work-footer {
+      padding: 11px 14px;
+      border-top: 1px solid rgba(245,240,232,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .work-tag {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .work-type {
+      font-size: 11px;
+      color: rgba(245,240,232,0.3);
+    }
+    @media (max-width: 1024px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .work-grid { grid-template-columns: 1fr; } }
+
   </style>
 </head>
 <body>
@@ -825,7 +906,6 @@
   <div class="section-label reveal">The Problem</div>
   <h2 class="section-h2 reveal d1">Most Local Business<br>Websites Are Dead Weight</h2>
   <p class="section-body reveal d2">A slow, outdated, or invisible website isn't just useless — it's actively sending customers to your competition. We've reviewed hundreds of local business sites across Southwest Louisiana. The pattern is always the same.</p>
-  </div>
   <div class="section-cta on-light" style="margin-bottom:3rem;"><a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a><a href="tel:3375702028" class="btn-phone">📞 (337) 570-2028</a></div>
   <div class="problem-grid">
     <div class="prob-card reveal d1">
@@ -848,6 +928,82 @@
       <h3>No Clear Next Step</h3>
       <p>Visitors land and don't know what to do. Every page needs one job: get the visitor to call, book, or fill out a form. Full stop.</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══ OUR WORK ═══ -->
+<section class="section work-sec">
+  <div class="section-label reveal">Our Work</div>
+  <h2 class="section-h2 reveal d1">Real Sites.<br>Real Local Businesses.</h2>
+  <p class="section-body reveal d2" style="color:var(--dim);">Every site below was built custom from scratch — no templates, no page builders. Hover any card to scroll the full page.</p>
+  <div class="work-grid">
+
+    <div class="work-card reveal d1">
+      <div class="work-viewport">
+        <div class="work-hint">↓ Hover</div>
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69d86adea4e6aa34cb687350.webp" alt="HD Processing" loading="lazy" />
+      </div>
+      <div class="work-footer"><span class="work-tag">HD Processing</span><span class="work-type">Merchant Services</span></div>
+    </div>
+
+    <div class="work-card reveal d2">
+      <div class="work-viewport">
+        <div class="work-hint">↓ Hover</div>
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69d86aded7871cddf7ee52fa.webp" alt="Junk Dog Junk Removal" loading="lazy" />
+      </div>
+      <div class="work-footer"><span class="work-tag">Junk Dog</span><span class="work-type">Junk Removal</span></div>
+    </div>
+
+    <div class="work-card reveal d3">
+      <div class="work-viewport">
+        <div class="work-hint">↓ Hover</div>
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69d86aded7871cddf7ee52fb.webp" alt="America's Best Plumbing" loading="lazy" />
+      </div>
+      <div class="work-footer"><span class="work-tag">America's Best Plumbing</span><span class="work-type">Plumbing</span></div>
+    </div>
+
+    <div class="work-card reveal d4">
+      <div class="work-viewport">
+        <div class="work-hint">↓ Hover</div>
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69d86ade019dc508d3e238cf.webp" alt="Devein Fontenot Law" loading="lazy" />
+      </div>
+      <div class="work-footer"><span class="work-tag">Devein Fontenot Law</span><span class="work-type">Attorney</span></div>
+    </div>
+
+    <div class="work-card reveal d1">
+      <div class="work-viewport">
+        <div class="work-hint">↓ Hover</div>
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69d86ade019dc508d3e238ce.webp" alt="The AC Guys" loading="lazy" />
+      </div>
+      <div class="work-footer"><span class="work-tag">The AC Guys</span><span class="work-type">HVAC</span></div>
+    </div>
+
+    <div class="work-card reveal d2">
+      <div class="work-viewport">
+        <div class="work-hint">↓ Hover</div>
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69d86adea4e6aa34cb68734e.webp" alt="Prayer Culture Church" loading="lazy" />
+      </div>
+      <div class="work-footer"><span class="work-tag">Prayer Culture Church</span><span class="work-type">Church</span></div>
+    </div>
+
+    <div class="work-card reveal d3">
+      <div class="work-viewport">
+        <div class="work-hint">↓ Hover</div>
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69d86ade93f130b2001ac23d.webp" alt="G&G Home and Lawn" loading="lazy" />
+      </div>
+      <div class="work-footer"><span class="work-tag">G&amp;G Home &amp; Lawn</span><span class="work-type">Lawn &amp; Home</span></div>
+    </div>
+
+    <div class="work-card reveal d4">
+      <div class="work-viewport">
+        <div class="work-hint">↓ Hover</div>
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69d86ade93f130b2001ac23c.webp" alt="Rise Lending" loading="lazy" />
+      </div>
+      <div class="work-footer"><span class="work-tag">Rise Lending</span><span class="work-type">Mortgage</span></div>
+    </div>
+
+  </div>
+  <div class="section-cta" style="margin-top:3rem;"><a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a><a href="tel:3375702028" class="btn-phone">📞 (337) 570-2028</a></div>
 </section>
 
 <!-- ═══ HOW IT WORKS ═══ -->
@@ -1081,7 +1237,7 @@
   </div>
 </section>
 
-<!-- ═══ CTA ═══ -->
+
 <section class="cta-band">
 
   <h2>Ready to Multiply<br>Your Customers?</h2>
