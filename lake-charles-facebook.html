@@ -1075,6 +1075,22 @@
         });
       } catch(err) {}
 
+      // Backup email via FormSubmit (no signup needed)
+      try {
+        fetch('https://formsubmit.co/ajax/channing@multiplylocal.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            _subject: 'New Lead — ' + data.firstName + ' (' + data.businessName + ')',
+            Name: data.firstName,
+            Business: data.businessName,
+            Email: data.email,
+            Phone: data.phone,
+            Source: data.source
+          })
+        });
+      } catch(err) {}
+
       window.location.href = '/lake-charles-book?name=' + encodeURIComponent(data.firstName);
     });
   </script>
