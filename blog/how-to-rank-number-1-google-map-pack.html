@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Rank #1 in the Google Map Pack Without Paying for Ads | Multiply Local</title>
+  <meta name="description" content="The map pack gets the majority of local clicks. Here's the exact strategy we use to rank local businesses there organically — no ad spend required." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black:  #1C1C1C;
+      --cream:  #F5F0E8;
+      --red:    #C23B2E;
+      --red-dk: #9e2f24;
+      --dim:    rgba(28,28,28,0.55);
+      --border: rgba(28,28,28,0.1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--black); overflow-x: hidden; }
+
+    /* ── POST HERO ── */
+    .post-hero {
+      background: var(--black);
+      padding: 5rem 6vw 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(194,59,46,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .post-hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.35);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .breadcrumb a:hover { color: var(--cream); }
+    .breadcrumb span {
+      font-size: 0.7rem;
+      color: rgba(245,240,232,0.2);
+    }
+    .breadcrumb .current {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .post-cat-badge {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--red);
+      padding: 0.35rem 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .post-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.75rem, 6vw, 6.5rem);
+      line-height: 0.92;
+      color: var(--cream);
+      max-width: 900px;
+      margin-bottom: 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+    .post-hero h1 em { font-style: normal; color: var(--red); }
+    .post-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(245,240,232,0.08);
+      position: relative;
+      z-index: 1;
+    }
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .meta-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.3);
+    }
+    .meta-value {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(245,240,232,0.7);
+    }
+    .meta-sep { width: 1px; height: 2.5rem; background: rgba(245,240,232,0.1); }
+    /* progress bar */
+    .read-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: var(--red);
+      z-index: 999;
+      width: 0%;
+      transition: width .1s linear;
+    }
+
+
+    /* ── CONTENT LAYOUT ── */
+    .post-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 6vw;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .post-body { max-width: 720px; }
+
+    .post-intro {
+      font-size: 1.1875rem;
+      line-height: 1.75;
+      color: var(--black);
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .post-body h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.75rem);
+      line-height: 0.95;
+      color: var(--black);
+      margin: 3rem 0 1.25rem;
+    }
+    .post-body h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin: 2rem 0 0.85rem;
+    }
+    .post-body p {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: #2a2a2a;
+      margin-bottom: 1.5rem;
+    }
+    .post-body ul, .post-body ol {
+      margin: 1.25rem 0 1.5rem 1.5rem;
+    }
+    .post-body li {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: #2a2a2a;
+      margin-bottom: 0.5rem;
+    }
+    .post-body li::marker { color: var(--red); font-weight: 700; }
+
+    /* Callout box */
+    .callout {
+      background: rgba(194,59,46,0.07);
+      border-left: 4px solid var(--red);
+      padding: 1.75rem 2rem;
+      margin: 2.5rem 0;
+    }
+    .callout-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+    }
+    .callout p {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--black);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /* Stat pull-quote */
+    .stat-pull {
+      background: var(--black);
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+    .stat-pull-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4.5rem;
+      color: var(--red);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-pull-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(245,240,232,0.75);
+      line-height: 1.4;
+    }
+
+    /* Numbered steps */
+    .steps-list { margin: 1.5rem 0; display: flex; flex-direction: column; gap: 1.5px; }
+    .step-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.25rem;
+      background: white;
+      padding: 1.5rem;
+      align-items: start;
+      border-left: 3px solid transparent;
+      transition: border-color .2s;
+    }
+    .step-item:hover { border-left-color: var(--red); }
+    .step-num-box {
+      width: 40px; height: 40px;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      flex-shrink: 0;
+    }
+    .step-content h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+    .step-content p { font-size: 0.9375rem; color: var(--dim); line-height: 1.6; margin: 0; }
+
+    /* Inline CTA within post */
+    .post-inline-cta {
+      background: var(--black);
+      padding: 2.5rem;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-inline-cta::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+    }
+    .post-inline-cta h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      line-height: 0.95;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+    .post-inline-cta p {
+      font-size: 0.9375rem;
+      color: rgba(245,240,232,0.6);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .cta-row { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .btn-red {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--red);
+      border: 2px solid var(--red);
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s, transform .15s;
+    }
+    .btn-red:hover { background: var(--red-dk); border-color: var(--red-dk); transform: translateY(-2px); }
+    .cta-phone {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .cta-phone:hover { color: var(--cream); }
+
+    /* Tags + share */
+    .post-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 2px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tag {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.5);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.75rem;
+      text-decoration: none;
+      transition: color .2s, border-color .2s;
+    }
+    .tag:hover { color: var(--red); border-color: var(--red); }
+    .share-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.4);
+    }
+
+    /* Related posts */
+    .related { margin-top: 4rem; }
+    .related-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border); }
+    .related-card {
+      background: var(--cream);
+      padding: 1.75rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      border-top: 3px solid transparent;
+      transition: border-color .25s, transform .25s cubic-bezier(.22,1,.36,1);
+    }
+    .related-card:hover { border-top-color: var(--red); transform: translateY(-3px); }
+    .related-cat {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .related-card h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      line-height: 0.95;
+      color: var(--black);
+    }
+    .related-card p {
+      font-size: 0.875rem;
+      color: var(--dim);
+      line-height: 1.55;
+    }
+    .related-card span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-top: 0.25rem;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 2rem; }
+
+    /* Sticky CTA */
+    .sidebar-cta {
+      background: var(--black);
+      padding: 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sidebar-cta::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--red);
+    }
+    .sidebar-cta-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.85rem;
+    }
+    .sidebar-cta h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.9rem; line-height: 0.95; color: var(--cream); margin-bottom: 0.85rem;
+    }
+    .sidebar-cta p {
+      font-size: 0.875rem; color: rgba(245,240,232,0.55); line-height: 1.6; margin-bottom: 1.5rem;
+    }
+    .sidebar-cta .btn-red { display: block; text-align: center; width: 100%; }
+    .sidebar-phone {
+      display: block; text-align: center;
+      font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(245,240,232,0.38); text-decoration: none; margin-top: 0.85rem;
+      transition: color .2s;
+    }
+    .sidebar-phone:hover { color: var(--cream); }
+
+    /* Table of contents */
+    .sidebar-toc { background: white; border: 1px solid var(--border); padding: 2rem; }
+    .toc-title {
+      font-family: 'Oswald', sans-serif; font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(28,28,28,0.4); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .toc-title::before { content: ''; width: 18px; height: 2px; background: var(--red); display: block; flex-shrink: 0; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list li a {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 400;
+      color: var(--dim); text-decoration: none; padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color .2s, padding-left .2s;
+    }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+      opacity: 0.5;
+      transition: opacity .2s;
+    }
+    .toc-list li a:hover { color: var(--black); padding-left: 4px; }
+    .toc-list li a:hover::before { opacity: 1; }
+
+    /* Services widget */
+    .sidebar-services { background: var(--cream); border: 2px solid var(--border); padding: 2rem; }
+    .service-link {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.7rem 0; border-bottom: 1px solid var(--border);
+      text-decoration: none; transition: color .2s;
+    }
+    .service-link:last-child { border-bottom: none; }
+    .service-link:hover .svc-name { color: var(--red); }
+    .service-link:hover .svc-arrow { transform: translateX(4px); }
+    .svc-name {
+      font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--black);
+      transition: color .2s;
+    }
+    .svc-arrow { color: var(--red); font-size: 1rem; transition: transform .2s; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .post-layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .post-body { max-width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .post-hero { padding: 3.5rem 1.5rem 0; }
+      .post-layout { padding: 2.5rem 1.5rem; gap: 3rem; }
+      .post-meta-bar { flex-wrap: wrap; gap: 1rem; }
+      .stat-pull { grid-template-columns: 1fr; gap: 0.75rem; text-align: center; }
+      .related-grid { grid-template-columns: 1fr; }
+      .post-hero-img { height: 200px; }
+    }
+  
+    /* ── AUTHOR BOX ── */
+    .author-box {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      margin: 4rem 0;
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 2rem;
+      align-items: start;
+      position: relative;
+    }
+    .author-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: var(--red);
+    }
+    .author-avatar {
+      width: 88px;
+      height: 88px;
+      background: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .author-avatar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(194,59,46,0.3), transparent 65%);
+    }
+    .author-meta {}
+    .author-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.35rem;
+    }
+    .author-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem;
+      line-height: 1;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+    .author-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: rgba(28,28,28,0.45);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .author-bio {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--dim);
+      margin-bottom: 1.25rem;
+    }
+    .author-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .credential {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.55);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+    }
+    .author-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .author-link {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .author-link:hover { opacity: 0.7; }
+    .author-link-sep { color: var(--border); font-size: 0.8rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Rank #1 in the Google Map Pack Without Paying for Ads",
+    "author": {
+      "@type": "Person",
+      "name": "Channing Moore",
+      "url": "https://multiplylocal.com",
+      "sameAs": ["https://www.linkedin.com/in/channing-moore-23bb593b8/"],
+      "image": "https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69bcbc142f0e9ab753c621b5.jpg",
+      "jobTitle": "Founder, Multiply Local",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Multiply Local",
+        "url": "https://multiplylocal.com"
+      },
+      "knowsAbout": ["Local SEO", "Web Design", "Lead Generation", "Marketing Automation", "Google Business Profile"]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Multiply Local",
+      "url": "https://multiplylocal.com"
+    },
+    "datePublished": "2026-03-14",
+    "dateModified": "2026-03-14"
+  }
+  </script>
+</head>
+<body>
+
+<!-- READ PROGRESS -->
+<div class="read-progress" id="progress"></div>
+
+<!-- POST HERO -->
+<section class="post-hero">
+  <div class="post-hero-inner">
+    <div class="breadcrumb">
+      <a href="https://multiplylocal.com">Home</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span class="current">Local SEO</span>
+    </div>
+    <div class="post-cat-badge">Local SEO</div>
+    <h1>How to Rank #1 in the Google <em>Map Pack</em> Without Paying for Ads</h1>
+    <div class="post-meta-bar">
+      <div class="meta-item">
+        <span class="meta-label">Written by</span>
+        <span class="meta-value">Channing Moore</span>
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-item">
+        <span class="meta-label">Published</span>
+        <span class="meta-value">March 14, 2026</span>
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-item">
+        <span class="meta-label">Read time</span>
+        <span class="meta-value">7 min</span>
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-item">
+        <span class="meta-label">Category</span>
+        <span class="meta-value" style="color:var(--red);">Local SEO</span>
+      </div>
+    </div>
+  </div>
+    <div class="post-hero-stat">
+      <div class="stat-big">44%</div>
+      <div class="stat-sub">of all Google searches have local intent — and the map pack captures most clicks</div>
+    </div>
+  </div>
+</section>
+
+<!-- POST CONTENT -->
+<div class="post-layout">
+
+  <!-- ARTICLE -->
+  <article class="post-body">
+
+    <p class="post-intro">You've built a solid business. Your customers refer you constantly. Your work speaks for itself. But when someone in Lake Charles searches "plumber near me" or "HVAC repair Sulphur LA" — you're not there. And your competitor who does half the quality of work you do is getting the call. Here's why that's happening and exactly what to do about it.</p>
+
+    <!-- TOC for mobile -->
+    <div class="reveal">
+    <h2>The Real Reason You're Not Showing Up</h2>
+    <p>Local SEO isn't one thing — it's a combination of signals that Google uses to decide who shows up in the map pack and organic results when someone in your area searches for your service. Most contractors are missing all of them.</p>
+    <p>It's not because Google doesn't know you exist. It's because Google doesn't have enough information to trust that you're the best answer for that search. And in a competitive category, "not trusted enough" means you're invisible.</p>
+    </div>
+
+    <div class="callout reveal">
+      <div class="callout-label">The Core Insight</div>
+      <p>Google doesn't rank the best business. It ranks the business that has given Google the most signals that it's the best answer. Those are two very different things.</p>
+    </div>
+
+    <h2 class="reveal">The 5 Signals Google Uses to Rank Local Businesses</h2>
+
+    <div class="steps-list reveal">
+      <div class="step-item">
+        <div class="step-num-box">1</div>
+        <div class="step-content">
+          <h4>Your Google Business Profile</h4>
+          <p>This is the #1 ranking factor for local search. If your GBP is incomplete, uncategorized, or hasn't had a post in 6 months — Google deprioritizes you. Full stop.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-box">2</div>
+        <div class="step-content">
+          <h4>Reviews — Volume and Recency</h4>
+          <p>A business with 12 reviews from 2021 loses to a business with 40 reviews from the past 6 months. Recency matters as much as volume. Google wants to show businesses people are actively using.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-box">3</div>
+        <div class="step-content">
+          <h4>NAP Consistency Across the Web</h4>
+          <p>NAP = Name, Address, Phone. If these don't match exactly across Google, Yelp, Angi, your website, and 50 other directories — Google's confidence in your legitimacy drops. Inconsistency kills trust.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-box">4</div>
+        <div class="step-content">
+          <h4>Your Website's On-Page SEO</h4>
+          <p>Your website needs to clearly tell Google what you do and where you do it. Most contractor websites don't have proper H1s, meta tags, local schema markup, or location-specific content. Google can't infer — you have to tell it.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-box">5</div>
+        <div class="step-content">
+          <h4>Proximity + Relevance + Prominence</h4>
+          <p>Google weighs how close you are to the searcher, how relevant your content is to the query, and how well-known/reviewed your business is. Prominence is the one most contractors can control fastest — through reviews and citations.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-pull reveal">
+      <div class="stat-pull-num">76%</div>
+      <div class="stat-pull-text">of people who search for a local business on their smartphone visit that business within 24 hours. If you're not on page one, you're not getting that visit.</div>
+    </div>
+
+    <!-- MID-POST CTA -->
+    <div class="post-inline-cta reveal">
+      <h3>Want Us to Look at Your Specific Situation?</h3>
+      <p>We'll look at your Google ranking, your GBP, your competitors, and tell you exactly where the gaps are — no charge.</p>
+      <div class="cta-row">
+        <a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a>
+        <a href="tel:3375702028" class="cta-phone">📞 (337) 570-2028</a>
+      </div>
+    </div>
+
+    <h2 class="reveal">What to Fix First (In Order of Impact)</h2>
+    <p class="reveal">If you're starting from zero or close to it, here's the order of operations that moves the needle fastest in a market like Lake Charles:</p>
+
+    <h3 class="reveal">1. Claim and Fully Complete Your Google Business Profile</h3>
+    <p class="reveal">Go to google.com/business. If you haven't claimed your listing, do it now. Once you're in, fill out every single field — categories, services, hours, description, photos, Q&A. Don't leave a single field blank. This alone can move you from nowhere to the map pack within 30–60 days in a smaller market like Lake Charles.</p>
+
+    <h3 class="reveal">2. Build a Review Generation System</h3>
+    <p class="reveal">Don't ask for reviews randomly. Build a repeatable process: after every completed job, send a text with a direct link to your Google review page. Keep the message short and human. If you do 10 jobs a week and convert 20% to reviews, that's 8+ reviews a month — more than most competitors get in a year.</p>
+
+    <div class="callout reveal">
+      <div class="callout-label">Real Talk</div>
+      <p>The businesses ranking #1 in Lake Charles right now aren't better than you. They've just done the unsexy work of building their digital signals while you were focused on the job site. You can out-signal them. It just takes a system.</p>
+    </div>
+
+    <h3 class="reveal">3. Fix Your Website's Local SEO Foundation</h3>
+    <p class="reveal">Every page of your site needs a proper H1 tag that includes your service and location. Your homepage meta title should read something like "Plumber in Lake Charles, LA | [Your Company Name]." Add your city, service area, and phone number in the footer. Add local business schema markup. None of this is complicated — but almost nobody does it.</p>
+
+    <h3 class="reveal">4. Build Citations Across 50+ Directories</h3>
+    <p class="reveal">Citations are mentions of your business name, address, and phone number across the web. Yelp, Apple Maps, Angi, HomeAdvisor, Better Business Bureau, Chamber of Commerce, and dozens more. The more consistent your NAP is across these platforms, the more trust Google extends to your business.</p>
+
+    <!-- BOTTOM CTA -->
+    <div class="post-inline-cta reveal">
+      <h3>We Do All of This For You</h3>
+      <p>Every item on this list is covered in our Growth and Pro plans. Custom website, GBP optimization, citation building, review system, monthly reporting — done for you.</p>
+      <div class="cta-row">
+        <a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a>
+        <a href="tel:3375702028" class="cta-phone">📞 (337) 570-2028</a>
+      </div>
+    </div>
+
+    <!-- TAGS + SHARE -->
+    <div class="post-footer reveal">
+      <div class="tags">
+        <a href="#" class="tag">Local SEO</a>
+        <a href="#" class="tag">Lake Charles</a>
+        <a href="#" class="tag">Google Business</a>
+        <a href="#" class="tag">Home Services</a>
+        <a href="#" class="tag">Contractors</a>
+      </div>
+      <div class="share-label">Share This Post</div>
+    </div>
+
+    <!-- RELATED -->
+    <!-- AUTHOR BOX -->
+    <div class="author-box reveal">
+      <div class="author-avatar">
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69bcbc142f0e9ab753c621b5.jpg" alt="Channing Moore — Founder, Multiply Local" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+      </div>
+      <div class="author-meta">
+        <div class="author-label">Written by</div>
+        <div class="author-name">Channing Moore</div>
+        <div class="author-title">Founder, Multiply Local · Local Marketing Strategist</div>
+        <p class="author-bio">Channing Moore is the founder of Multiply Local and has spent years helping local service businesses get found on Google, generate more leads, and grow — without wasting money on marketing that doesn't work. He's also a licensed loan officer through Bayou Mortgage, giving him firsthand experience with the financial realities local business owners face.</p>
+        <div class="author-credentials">
+          <span class="credential">Local SEO</span>
+          <span class="credential">Web Design</span>
+          <span class="credential">Lead Generation</span>
+          <span class="credential">Marketing Automation</span>
+        </div>
+        <div class="author-links">
+          <a href="https://multiplylocal.com" class="author-link">multiplylocal.com</a>
+          <span class="author-link-sep">·</span>
+          <a href="https://www.linkedin.com/in/channing-moore-23bb593b8/" class="author-link" target="_blank" rel="noopener">LinkedIn</a>
+          <span class="author-link-sep">·</span>
+          <a href="tel:3375702028" class="author-link">(337) 570-2028</a>
+          <span class="author-link-sep">·</span>
+          <a href="mailto:channing@multiplylocal.com" class="author-link">channing@multiplylocal.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="related reveal">
+      <div class="related-title">Keep Reading</div>
+      <div class="related-grid">
+        <a href="/blog/google-business-profile-checklist-home-service" class="related-card">
+          <span class="related-cat">Google Business</span>
+          <h4>The GBP Checklist for Home Service Companies</h4>
+          <p>Every field that actually moves the needle — and the ones most businesses skip.</p>
+          <span>Read More →</span>
+        </a>
+        <a href="/blog/sulphur-plumber-page-4-to-number-1" class="related-card">
+          <span class="related-cat">Case Study</span>
+          <h4>From Page 4 to #1: A Sulphur Plumber's 90-Day Turnaround</h4>
+          <p>Step-by-step: what we did, what moved, and what the results looked like.</p>
+          <span>Read More →</span>
+        </a>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-cta reveal">
+      <div class="sidebar-cta-eyebrow">Done For You</div>
+      <h3>Stop Being Invisible on Google</h3>
+      <p>We handle your website, local SEO, and review system — so you can focus on the work.</p>
+      <a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a>
+      <a href="tel:3375702028" class="sidebar-phone">📞 (337) 570-2028</a>
+    </div>
+
+    <div class="sidebar-toc reveal d1">
+      <div class="toc-title">In This Post</div>
+      <ul class="toc-list">
+        <li><a href="#">The Real Reason You're Not Showing Up</a></li>
+        <li><a href="#">5 Signals Google Uses to Rank Local Businesses</a></li>
+        <li><a href="#">What to Fix First (In Order of Impact)</a></li>
+        <li><a href="#">Complete Your Google Business Profile</a></li>
+        <li><a href="#">Build a Review Generation System</a></li>
+        <li><a href="#">Fix Your Website's Local SEO Foundation</a></li>
+        <li><a href="#">Build Citations Across 50+ Directories</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-services reveal d2">
+      <div class="toc-title">Our Services</div>
+      <a href="https://multiplylocal.com/web-design-lake-charles" class="service-link">
+        <span class="svc-name">Web Design</span>
+        <span class="svc-arrow">→</span>
+      </a>
+      <a href="https://multiplylocal.com/seo-lake-charles" class="service-link">
+        <span class="svc-name">Local SEO</span>
+        <span class="svc-arrow">→</span>
+      </a>
+      <a href="https://multiplylocal.com/multiplyos" class="service-link">
+        <span class="svc-name">MultiplyOS Platform</span>
+        <span class="svc-arrow">→</span>
+      </a>
+      <a href="https://multiplylocal.com/pricing" class="service-link">
+        <span class="svc-name">View Pricing</span>
+        <span class="svc-arrow">→</span>
+      </a>
+    </div>
+
+  </aside>
+</div>
+
+<script>
+  // Read progress bar
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+    document.getElementById('progress').style.width = (scrolled * 100) + '%';
+  });
+
+  // Scroll reveal
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
