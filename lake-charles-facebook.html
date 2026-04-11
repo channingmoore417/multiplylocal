@@ -697,6 +697,113 @@
       margin-bottom: 16px;
     }
 
+    /* ─── PRICING SECTION ─── */
+    .pricing-section {
+      padding: 80px 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pricing-card-main {
+      background: var(--panel);
+      border: 1px solid rgba(245,240,232,0.1);
+      border-top: 3px solid var(--red);
+      border-radius: 6px;
+      padding: 48px 36px 40px;
+      margin-top: 32px;
+    }
+
+    .pricing-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .pricing-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 10vw, 88px);
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pricing-amount sup {
+      font-size: 32px;
+      vertical-align: top;
+      margin-top: 12px;
+      display: inline-block;
+      color: rgba(245,240,232,0.5);
+    }
+
+    .pricing-per {
+      font-size: 15px;
+      color: rgba(245,240,232,0.45);
+      margin-bottom: 24px;
+    }
+
+    .pricing-waived {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(194,59,46,0.12);
+      border: 1px solid rgba(194,59,46,0.25);
+      border-radius: 4px;
+      padding: 12px 20px;
+      margin-bottom: 28px;
+    }
+
+    .pricing-waived-old {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: rgba(245,240,232,0.35);
+      text-decoration: line-through;
+    }
+
+    .pricing-waived-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin: 0 auto 32px;
+      max-width: 340px;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(245,240,232,0.06);
+      font-size: 15px;
+      color: rgba(245,240,232,0.75);
+    }
+
+    .pricing-features li:last-child { border-bottom: none; }
+
+    .pricing-features li svg {
+      flex-shrink: 0;
+      color: var(--red);
+    }
+
+    .pricing-note {
+      font-size: 13px;
+      color: rgba(245,240,232,0.35);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
     /* ─── BOTTOM CTA ─── */
     .bottom-cta {
       background: var(--red);
@@ -994,6 +1101,55 @@
     </div>
   </section>
 
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <p class="section-label">What It Costs</p>
+    <h2 class="section-title">Free Website Build.<br>Just $97/Month After.</h2>
+    <p class="section-sub">No contracts. No hidden fees. Cancel anytime.</p>
+
+    <div class="pricing-card-main">
+      <div class="pricing-eyebrow">Your Monthly Investment</div>
+      <div class="pricing-amount"><sup>$</sup>97</div>
+      <div class="pricing-per">/month — website hosting &amp; maintenance</div>
+
+      <div class="pricing-waived">
+        <span class="pricing-waived-old">$1,000</span>
+        <span class="pricing-waived-label">Setup Fee Waived</span>
+      </div>
+
+      <ul class="pricing-features">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Custom website — built for you, free
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          $1,000 setup fee — completely waived
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Website hosting included
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Ongoing maintenance &amp; support
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          No long-term contracts
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Cancel anytime — 30 days notice
+        </li>
+      </ul>
+
+      <a href="#" class="btn-hero" onclick="openModal(); return false;" style="margin-bottom:0;">Claim My Free Website &rarr;</a>
+
+      <p class="pricing-note">You only pay $97/mo for hosting and maintenance after your free website is live.</p>
+    </div>
+  </section>
+
   <!-- BOTTOM CTA -->
   <section class="bottom-cta">
     <h2>Only 7 Spots Left.<br>Don't Miss Yours.</h2>
@@ -1009,6 +1165,7 @@
       <h2 class="modal-title">Claim Your<br>Free Website</h2>
       <form class="modal-form" id="leadForm" novalidate>
         <input type="text" id="fname" name="firstName" placeholder="First Name" required />
+        <input type="text" id="lname" name="lastName" placeholder="Last Name" required />
         <input type="text" id="bizname" name="businessName" placeholder="Business Name" required />
         <input type="email" id="email" name="email" placeholder="Email Address" required />
         <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
@@ -1059,6 +1216,7 @@
 
       const data = {
         firstName: document.getElementById('fname').value.trim(),
+        lastName: document.getElementById('lname').value.trim(),
         businessName: document.getElementById('bizname').value.trim(),
         email: document.getElementById('email').value.trim(),
         phone: document.getElementById('phone').value.trim(),
