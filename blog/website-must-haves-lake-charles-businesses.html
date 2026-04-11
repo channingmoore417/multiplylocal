@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Things Your Website Needs | Lake Charles Businesses | Multiply Local</title>
+  <meta name="description" content="Is your website actually winning you customers? Here are 5 things every Lake Charles business website needs to build trust, rank on Google, and turn clicks into calls." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black:  #1C1C1C;
+      --cream:  #F5F0E8;
+      --red:    #C23B2E;
+      --red-dk: #9e2f24;
+      --dim:    rgba(28,28,28,0.55);
+      --border: rgba(28,28,28,0.1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--black); overflow-x: hidden; }
+
+    /* ── POST HERO ── */
+    .post-hero {
+      background: var(--black);
+      padding: 5rem 6vw 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(194,59,46,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .post-hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.35);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .breadcrumb a:hover { color: var(--cream); }
+    .breadcrumb span {
+      font-size: 0.7rem;
+      color: rgba(245,240,232,0.2);
+    }
+    .breadcrumb .current {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .post-cat-badge {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--red);
+      padding: 0.35rem 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .post-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.75rem, 6vw, 6.5rem);
+      line-height: 0.92;
+      color: var(--cream);
+      max-width: 900px;
+      margin-bottom: 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+    .post-hero h1 em { font-style: normal; color: var(--red); }
+    .post-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(245,240,232,0.08);
+      position: relative;
+      z-index: 1;
+    }
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .meta-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.3);
+    }
+    .meta-value {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(245,240,232,0.7);
+    }
+    .meta-sep { width: 1px; height: 2.5rem; background: rgba(245,240,232,0.1); }
+    /* progress bar */
+    .read-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: var(--red);
+      z-index: 999;
+      width: 0%;
+      transition: width .1s linear;
+    }
+
+
+    /* ── CONTENT LAYOUT ── */
+    .post-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 6vw;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .post-body { max-width: 720px; }
+
+    .post-intro {
+      font-size: 1.1875rem;
+      line-height: 1.75;
+      color: var(--black);
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .post-body h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.75rem);
+      line-height: 0.95;
+      color: var(--black);
+      margin: 3rem 0 1.25rem;
+    }
+    .post-body h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin: 2rem 0 0.85rem;
+    }
+    .post-body p {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: #2a2a2a;
+      margin-bottom: 1.5rem;
+    }
+    .post-body ul, .post-body ol {
+      margin: 1.25rem 0 1.5rem 1.5rem;
+    }
+    .post-body li {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: #2a2a2a;
+      margin-bottom: 0.5rem;
+    }
+    .post-body li::marker { color: var(--red); font-weight: 700; }
+
+    /* Callout box */
+    .callout {
+      background: rgba(194,59,46,0.07);
+      border-left: 4px solid var(--red);
+      padding: 1.75rem 2rem;
+      margin: 2.5rem 0;
+    }
+    .callout-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+    }
+    .callout p {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--black);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /* Stat pull-quote */
+    .stat-pull {
+      background: var(--black);
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+    .stat-pull-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4.5rem;
+      color: var(--red);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-pull-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(245,240,232,0.75);
+      line-height: 1.4;
+    }
+
+    /* Numbered steps */
+    .steps-list { margin: 1.5rem 0; display: flex; flex-direction: column; gap: 1.5px; }
+    .step-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.25rem;
+      background: white;
+      padding: 1.5rem;
+      align-items: start;
+      border-left: 3px solid transparent;
+      transition: border-color .2s;
+    }
+    .step-item:hover { border-left-color: var(--red); }
+    .step-num-box {
+      width: 40px; height: 40px;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      flex-shrink: 0;
+    }
+    .step-content h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+    .step-content p { font-size: 0.9375rem; color: var(--dim); line-height: 1.6; margin: 0; }
+
+    /* Inline CTA within post */
+    .post-inline-cta {
+      background: var(--black);
+      padding: 2.5rem;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-inline-cta::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+    }
+    .post-inline-cta h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      line-height: 0.95;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+    .post-inline-cta p {
+      font-size: 0.9375rem;
+      color: rgba(245,240,232,0.6);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .cta-row { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .btn-red {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--red);
+      border: 2px solid var(--red);
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s, transform .15s;
+    }
+    .btn-red:hover { background: var(--red-dk); border-color: var(--red-dk); transform: translateY(-2px); }
+    .cta-phone {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .cta-phone:hover { color: var(--cream); }
+
+    /* Tags + share */
+    .post-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 2px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tag {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.5);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.75rem;
+      text-decoration: none;
+      transition: color .2s, border-color .2s;
+    }
+    .tag:hover { color: var(--red); border-color: var(--red); }
+    .share-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.4);
+    }
+
+    /* Related posts */
+    .related { margin-top: 4rem; }
+    .related-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border); }
+    .related-card {
+      background: var(--cream);
+      padding: 1.75rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      border-top: 3px solid transparent;
+      transition: border-color .25s, transform .25s cubic-bezier(.22,1,.36,1);
+    }
+    .related-card:hover { border-top-color: var(--red); transform: translateY(-3px); }
+    .related-cat {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .related-card h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      line-height: 0.95;
+      color: var(--black);
+    }
+    .related-card p {
+      font-size: 0.875rem;
+      color: var(--dim);
+      line-height: 1.55;
+    }
+    .related-card span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-top: 0.25rem;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 2rem; }
+
+    /* Sticky CTA */
+    .sidebar-cta {
+      background: var(--black);
+      padding: 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sidebar-cta::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--red);
+    }
+    .sidebar-cta-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.85rem;
+    }
+    .sidebar-cta h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.9rem; line-height: 0.95; color: var(--cream); margin-bottom: 0.85rem;
+    }
+    .sidebar-cta p {
+      font-size: 0.875rem; color: rgba(245,240,232,0.55); line-height: 1.6; margin-bottom: 1.5rem;
+    }
+    .sidebar-cta .btn-red { display: block; text-align: center; width: 100%; }
+    .sidebar-phone {
+      display: block; text-align: center;
+      font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(245,240,232,0.38); text-decoration: none; margin-top: 0.85rem;
+      transition: color .2s;
+    }
+    .sidebar-phone:hover { color: var(--cream); }
+
+    /* Table of contents */
+    .sidebar-toc { background: white; border: 1px solid var(--border); padding: 2rem; }
+    .toc-title {
+      font-family: 'Oswald', sans-serif; font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(28,28,28,0.4); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .toc-title::before { content: ''; width: 18px; height: 2px; background: var(--red); display: block; flex-shrink: 0; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list li a {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 400;
+      color: var(--dim); text-decoration: none; padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color .2s, padding-left .2s;
+    }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+      opacity: 0.5;
+      transition: opacity .2s;
+    }
+    .toc-list li a:hover { color: var(--black); padding-left: 4px; }
+    .toc-list li a:hover::before { opacity: 1; }
+
+    /* Services widget */
+    .sidebar-services { background: var(--cream); border: 2px solid var(--border); padding: 2rem; }
+    .service-link {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.7rem 0; border-bottom: 1px solid var(--border);
+      text-decoration: none; transition: color .2s;
+    }
+    .service-link:last-child { border-bottom: none; }
+    .service-link:hover .svc-name { color: var(--red); }
+    .service-link:hover .svc-arrow { transform: translateX(4px); }
+    .svc-name {
+      font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--black);
+      transition: color .2s;
+    }
+    .svc-arrow { color: var(--red); font-size: 1rem; transition: transform .2s; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .post-layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .post-body { max-width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .post-hero { padding: 3.5rem 1.5rem 0; }
+      .post-layout { padding: 2.5rem 1.5rem; gap: 3rem; }
+      .post-meta-bar { flex-wrap: wrap; gap: 1rem; }
+      .stat-pull { grid-template-columns: 1fr; gap: 0.75rem; text-align: center; }
+      .related-grid { grid-template-columns: 1fr; }
+      .post-hero-img { height: 200px; }
+    }
+  
+    /* ── AUTHOR BOX ── */
+    .author-box {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      margin: 4rem 0;
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 2rem;
+      align-items: start;
+      position: relative;
+    }
+    .author-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: var(--red);
+    }
+    .author-avatar {
+      width: 88px;
+      height: 88px;
+      background: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .author-avatar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(194,59,46,0.3), transparent 65%);
+    }
+    .author-meta {}
+    .author-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.35rem;
+    }
+    .author-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem;
+      line-height: 1;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+    .author-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: rgba(28,28,28,0.45);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .author-bio {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--dim);
+      margin-bottom: 1.25rem;
+    }
+    .author-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .credential {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.55);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+    }
+    .author-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .author-link {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .author-link:hover { opacity: 0.7; }
+    .author-link-sep { color: var(--border); font-size: 0.8rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "5 Things Your Website Needs If You Run a Business in Lake Charles",
+    "author": {
+      "@type": "Person",
+      "name": "Channing Moore",
+      "url": "https://multiplylocal.com",
+      "sameAs": ["https://www.linkedin.com/in/channing-moore-23bb593b8/"],
+      "image": "https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69bcbc142f0e9ab753c621b5.jpg",
+      "jobTitle": "Founder, Multiply Local",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Multiply Local",
+        "url": "https://multiplylocal.com"
+      },
+      "knowsAbout": ["Local SEO", "Web Design", "Lead Generation", "Marketing Automation", "Google Business Profile"]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Multiply Local",
+      "url": "https://multiplylocal.com"
+    },
+    "datePublished": "2026-04-11",
+    "dateModified": "2026-04-11"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does my Lake Charles small business actually need a website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Over 97% of consumers search online before contacting a local business. If you don't have a website — or if your site is outdated — you're invisible to customers who are actively looking for your service right now."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a professional website cost for a Lake Charles business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A professionally built local business website in Lake Charles typically ranges from $1,000 to $5,000+ depending on the scope, with ongoing hosting and maintenance ranging from $97 to $300/month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between a website that looks good and one that actually gets leads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Design gets attention. Structure and strategy get leads. A high-converting website is built around a clear call to action, fast load speeds, local SEO signals, trust elements, and an automated follow-up system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to see results from a new website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SEO results typically take 60–120 days to build traction in local search. Paid traffic or social ads can drive visitors immediately. Conversion improvements show results as soon as traffic hits the site."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Multiply Local build a website for my Lake Charles business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Multiply Local is a Lake Charles-based digital marketing agency specializing in websites, local SEO, and business automation for local service businesses."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- READ PROGRESS -->
+<div class="read-progress" id="progress"></div>
+
+<!-- POST HERO -->
+<section class="post-hero">
+  <div class="post-hero-inner">
+    <div class="breadcrumb">
+      <a href="https://multiplylocal.com">Home</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span class="current">Web Design</span>
+    </div>
+    <div class="post-cat-badge">Web Design</div>
+    <h1>5 Things Your Website Needs If You Run a Business in <em>Lake Charles</em></h1>
+    <div class="post-meta-bar">
+      <div class="meta-item">
+        <span class="meta-label">Written by</span>
+        <span class="meta-value">Channing Moore</span>
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-item">
+        <span class="meta-label">Published</span>
+        <span class="meta-value">April 11, 2026</span>
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-item">
+        <span class="meta-label">Read time</span>
+        <span class="meta-value">7 min</span>
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-item">
+        <span class="meta-label">Category</span>
+        <span class="meta-value" style="color:var(--red);">Web Design</span>
+      </div>
+    </div>
+  </div>
+    <div class="post-hero-stat">
+      <div class="stat-big">97%</div>
+      <div class="stat-sub">of consumers search online before contacting a local business</div>
+    </div>
+  </div>
+</section>
+
+<!-- POST CONTENT -->
+<div class="post-layout">
+
+  <!-- ARTICLE -->
+  <article class="post-body">
+
+    <p class="post-intro">Most business owners in Lake Charles have a website. The problem? Most of those websites aren't doing anything. No calls coming in. No form fills. No one finding them on Google. Just a digital brochure sitting in the dark collecting dust. If your website isn't actively bringing in customers, something's missing. Here are the five things every Lake Charles business website needs to actually work — and what's likely costing you if you don't have them.</p>
+
+    <div class="reveal">
+    <h2>1. A Google-Ready Local SEO Foundation</h2>
+    <p>If your website isn't built for local search, you're invisible to the people who matter most — customers in Lake Charles actively searching for what you offer.</p>
+    <p><a href="/seo/lake-charles" style="color:var(--red);text-decoration:underline;">Local SEO</a> isn't just about having your city name on the page. It means your site is structured so Google can connect you to searches like "HVAC repair near me" or "best landscaper in Lake Charles." That includes proper title tags, a Google Business Profile that matches your website, and consistent NAP (Name, Address, Phone) data across every page.</p>
+    <p>Without this foundation, you're losing business to competitors who rank above you — even if your service is better.</p>
+    </div>
+
+    <div class="callout reveal">
+      <div class="callout-label">What to Check</div>
+      <p>Open Google and search your exact service + "Lake Charles." If you're not in the top 3–5 results or the map pack, your site has an SEO problem worth fixing.</p>
+    </div>
+
+    <div class="reveal">
+    <h2>2. A Clear, Fast-Loading Design That Works on Phones</h2>
+    <p>More than 60% of local searches happen on mobile devices. If your website takes more than three seconds to load or forces people to pinch and zoom, they're gone — and they're calling your competitor.</p>
+    <p>Speed and mobile usability aren't just user experience issues. Google uses them as ranking signals. A slow, clunky site hurts your visibility and kills conversions at the same time.</p>
+    <p>A fast, clean design also signals trust. When a Lake Charles homeowner or business owner lands on your site, they're deciding in about five seconds whether you look like the real deal. Outdated design says you're behind. A sharp, professional site says you mean business.</p>
+    </div>
+
+    <div class="stat-pull reveal">
+      <div class="stat-pull-num">60%</div>
+      <div class="stat-pull-text">of local searches happen on mobile devices. If your site isn't fast and mobile-friendly, you're losing more than half your potential customers.</div>
+    </div>
+
+    <div class="reveal">
+    <h2>3. One Crystal-Clear Call to Action</h2>
+    <p>Most business websites try to do too much — a menu with eight pages, three different phone numbers, a contact form buried at the bottom, and a chatbot that pops up immediately. The result? Visitors don't know what to do, so they do nothing.</p>
+    <p>Your website needs one primary call to action. For most Lake Charles service businesses, that's either a phone call or a booked appointment. Everything on your site should point to that one action.</p>
+    <p>Make your phone number prominent. Put it in the header. Make the "Call Now" or "Get a Free Quote" button impossible to miss. Don't make people hunt — they won't.</p>
+    </div>
+
+    <!-- MID-POST CTA -->
+    <div class="post-inline-cta reveal">
+      <h3>Is Your Website Actually Working for You?</h3>
+      <p>We'll look at your site, your Google presence, and your competitors — and tell you exactly what's missing. No charge.</p>
+      <div class="cta-row">
+        <a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a>
+        <a href="tel:3375702028" class="cta-phone">📞 (337) 570-2028</a>
+      </div>
+    </div>
+
+    <div class="reveal">
+    <h2>4. Trust Signals That Do the Selling for You</h2>
+    <p>People don't hire strangers. Before a Lake Charles customer calls you, they want evidence you're the real deal. That evidence needs to live on your website.</p>
+    <p>Trust signals include:</p>
+    <ul>
+      <li><strong>Google reviews</strong> — pulled directly or linked from your Google Business Profile</li>
+      <li><strong>Before/after photos</strong> or examples of your work</li>
+      <li><strong>Your story</strong> — who you are, how long you've been in Lake Charles, why you do what you do</li>
+      <li><strong>Logos of associations, licenses, or certifications</strong> relevant to your trade</li>
+      <li><strong>Video</strong> — even a short 60-second intro from you builds more trust than a paragraph of copy ever will</li>
+    </ul>
+    <p>Customers are already sold on the <em>type</em> of service they need. Your website's job is to convince them <em>you</em> are the right person to call.</p>
+    </div>
+
+    <div class="reveal">
+    <h2>5. An Automated Follow-Up System Built Into the Site</h2>
+    <p>Most businesses lose leads not because the customer wasn't interested — but because no one followed up fast enough.</p>
+    <p>When someone fills out a form on your website at 9 PM, they're not waiting until tomorrow morning. They're submitting that same form to two or three of your competitors at the same time. Whoever responds first usually wins the job.</p>
+    <p>A properly built website connects your contact forms and lead captures to an automated follow-up system — a text, an email, or both — that goes out within minutes. This alone can double the number of leads you actually close from your site.</p>
+    <p>At Multiply Local, this is built into every website we build through <a href="/multiplyos" style="color:var(--red);text-decoration:underline;">MultiplyOS</a>, our client management platform. Your leads don't fall through the cracks.</p>
+    </div>
+
+    <div class="callout reveal">
+      <div class="callout-label">The Bottom Line</div>
+      <p>Your website should be your best salesperson — working 24/7, capturing leads while you're on the job, and building trust before you ever pick up the phone. If your current site isn't doing that, it's not a website problem. It's a strategy problem.</p>
+    </div>
+
+    <!-- BOTTOM CTA -->
+    <div class="post-inline-cta reveal">
+      <h3>We Build Websites That Actually Work</h3>
+      <p><a href="/web-design/lake-charles" style="color:rgba(245,240,232,0.8);text-decoration:underline;">Multiply Local builds websites</a> for Lake Charles businesses that rank, convert, and follow up automatically. Ready to see what that looks like for your business?</p>
+      <div class="cta-row">
+        <a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a>
+        <a href="tel:3375702028" class="cta-phone">📞 (337) 570-2028</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <h2 class="reveal">Frequently Asked Questions</h2>
+
+    <div class="reveal">
+    <h3>Does my Lake Charles small business actually need a website?</h3>
+    <p>Yes. Over 97% of consumers search online before contacting a local business. If you don't have a website — or if your site is outdated — you're invisible to customers who are actively looking for your service right now. A website is the foundation of every other marketing channel you use.</p>
+    </div>
+
+    <div class="reveal">
+    <h3>How much does a professional website cost for a Lake Charles business?</h3>
+    <p>A professionally built local business website in Lake Charles typically ranges from $1,000 to $5,000+ depending on the scope, with ongoing hosting and maintenance ranging from $97 to $300/month. Cookie-cutter DIY builders cost less upfront but often underperform on local SEO and lead generation.</p>
+    </div>
+
+    <div class="reveal">
+    <h3>What's the difference between a website that looks good and one that actually gets leads?</h3>
+    <p>Design gets attention. Structure and strategy get leads. A high-converting website is built around a clear call to action, fast load speeds, local SEO signals, trust elements, and an automated follow-up system. Most "pretty" websites are missing three or four of those five things.</p>
+    </div>
+
+    <div class="reveal">
+    <h3>How long does it take to see results from a new website?</h3>
+    <p>SEO results typically take 60–120 days to build traction in local search. Paid traffic or social ads can drive visitors immediately. Conversion improvements (faster load, better CTAs, trust signals) show results as soon as traffic hits the site.</p>
+    </div>
+
+    <div class="reveal">
+    <h3>Can Multiply Local build a website for my Lake Charles business?</h3>
+    <p>Yes. Multiply Local is a Lake Charles-based digital marketing agency specializing in <a href="/web-design/lake-charles" style="color:var(--red);text-decoration:underline;">websites, local SEO, and business automation</a> for local service businesses. Every website includes SEO setup, mobile optimization, automated lead follow-up, and full support. <a href="https://multiplylocal.com/book" style="color:var(--red);text-decoration:underline;">Start Multiplying →</a></p>
+    </div>
+
+    <!-- TAGS + SHARE -->
+    <div class="post-footer reveal">
+      <div class="tags">
+        <a href="#" class="tag">Web Design</a>
+        <a href="#" class="tag">Lake Charles</a>
+        <a href="#" class="tag">Local SEO</a>
+        <a href="#" class="tag">Small Business</a>
+        <a href="#" class="tag">Louisiana</a>
+      </div>
+      <div class="share-label">Share This Post</div>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <div class="author-box reveal">
+      <div class="author-avatar">
+        <img src="https://assets.cdn.filesafe.space/rqfDKEvso1ofKq2wgy5d/media/69bcbc142f0e9ab753c621b5.jpg" alt="Channing Moore — Founder, Multiply Local" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+      </div>
+      <div class="author-meta">
+        <div class="author-label">Written by</div>
+        <div class="author-name">Channing Moore</div>
+        <div class="author-title">Founder, Multiply Local · Local Marketing Strategist</div>
+        <p class="author-bio">Channing Moore is the founder of Multiply Local and has spent years helping local service businesses get found on Google, generate more leads, and grow — without wasting money on marketing that doesn't work. He's also a licensed loan officer through Bayou Mortgage, giving him firsthand experience with the financial realities local business owners face.</p>
+        <div class="author-credentials">
+          <span class="credential">Local SEO</span>
+          <span class="credential">Web Design</span>
+          <span class="credential">Lead Generation</span>
+          <span class="credential">Marketing Automation</span>
+        </div>
+        <div class="author-links">
+          <a href="https://multiplylocal.com" class="author-link">multiplylocal.com</a>
+          <span class="author-link-sep">·</span>
+          <a href="https://www.linkedin.com/in/channing-moore-23bb593b8/" class="author-link" target="_blank" rel="noopener">LinkedIn</a>
+          <span class="author-link-sep">·</span>
+          <a href="tel:3375702028" class="author-link">(337) 570-2028</a>
+          <span class="author-link-sep">·</span>
+          <a href="mailto:channing@multiplylocal.com" class="author-link">channing@multiplylocal.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="related reveal">
+      <div class="related-title">Keep Reading</div>
+      <div class="related-grid">
+        <a href="/blog/why-90-percent-contractors-invisible-google" class="related-card">
+          <span class="related-cat">Local SEO</span>
+          <h4>Why 90% of Local Contractors Are Invisible on Google</h4>
+          <p>What's actually going wrong — and exactly how to fix it.</p>
+          <span>Read More →</span>
+        </a>
+        <a href="/blog/5-things-your-website-is-costing-you" class="related-card">
+          <span class="related-cat">Web Design</span>
+          <h4>5 Things Your Website Is Costing You Right Now</h4>
+          <p>The five most expensive mistakes we see on local business websites — and how to fix them.</p>
+          <span>Read More →</span>
+        </a>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-cta reveal">
+      <div class="sidebar-cta-eyebrow">Done For You</div>
+      <h3>Stop Being Invisible on Google</h3>
+      <p>We handle your website, local SEO, and review system — so you can focus on the work.</p>
+      <a href="https://multiplylocal.com/book" class="btn-red">Start Multiplying →</a>
+      <a href="tel:3375702028" class="sidebar-phone">📞 (337) 570-2028</a>
+    </div>
+
+    <div class="sidebar-toc reveal d1">
+      <div class="toc-title">In This Post</div>
+      <ul class="toc-list">
+        <li><a href="#">A Google-Ready Local SEO Foundation</a></li>
+        <li><a href="#">Fast-Loading Design That Works on Phones</a></li>
+        <li><a href="#">One Crystal-Clear Call to Action</a></li>
+        <li><a href="#">Trust Signals That Do the Selling</a></li>
+        <li><a href="#">An Automated Follow-Up System</a></li>
+        <li><a href="#">Frequently Asked Questions</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-services reveal d2">
+      <div class="toc-title">Our Services</div>
+      <a href="https://multiplylocal.com/web-design-lake-charles" class="service-link">
+        <span class="svc-name">Web Design</span>
+        <span class="svc-arrow">→</span>
+      </a>
+      <a href="https://multiplylocal.com/seo-lake-charles" class="service-link">
+        <span class="svc-name">Local SEO</span>
+        <span class="svc-arrow">→</span>
+      </a>
+      <a href="https://multiplylocal.com/multiplyos" class="service-link">
+        <span class="svc-name">MultiplyOS Platform</span>
+        <span class="svc-arrow">→</span>
+      </a>
+      <a href="https://multiplylocal.com/pricing" class="service-link">
+        <span class="svc-name">View Pricing</span>
+        <span class="svc-arrow">→</span>
+      </a>
+    </div>
+
+  </aside>
+</div>
+
+<script>
+  // Read progress bar
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+    document.getElementById('progress').style.width = (scrolled * 100) + '%';
+  });
+
+  // Scroll reveal
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
