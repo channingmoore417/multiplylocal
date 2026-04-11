@@ -619,13 +619,11 @@
 <!-- CATEGORY NAV -->
 <nav class="cat-nav">
   <div class="cat-nav-inner">
-    <a href="#" class="cat-tab active">All Posts</a>
-    <a href="#" class="cat-tab">Local SEO</a>
-    <a href="#" class="cat-tab">Web Design</a>
-    <a href="#" class="cat-tab">Google Business</a>
-    <a href="#" class="cat-tab">Lead Generation</a>
-    <a href="#" class="cat-tab">Home Services</a>
-    <a href="#" class="cat-tab">Case Studies</a>
+    <a href="#" class="cat-tab active" data-filter="all">All Posts</a>
+    <a href="#" class="cat-tab" data-filter="local-seo">Local SEO</a>
+    <a href="#" class="cat-tab" data-filter="web-design">Web Design</a>
+    <a href="#" class="cat-tab" data-filter="google-business">Google Business</a>
+    <a href="#" class="cat-tab" data-filter="lead-generation">Lead Generation</a>
   </div>
 </nav>
 
@@ -635,24 +633,24 @@
 
     <!-- FEATURED -->
     <div class="section-title">Featured Post</div>
-    <article class="featured-post reveal">
+    <article class="featured-post reveal" data-category="web-design">
       <div class="featured-img">
         <div class="featured-img-bg"></div>
         <div class="featured-img-pattern"></div>
-        <div class="featured-img-label">SEO</div>
-        <div class="featured-badge">Featured</div>
+        <div class="featured-img-label">WEB</div>
+        <div class="featured-badge">Latest</div>
       </div>
       <div class="featured-content">
         <div>
           <div class="post-meta">
-            <span class="post-cat">Local SEO</span>
-            <span class="post-date">Apr 3, 2026</span>
-            <span class="post-read">8 min read</span>
+            <span class="post-cat">Web Design</span>
+            <span class="post-date">Apr 11, 2026</span>
+            <span class="post-read">7 min read</span>
           </div>
-          <h2>Why 90% of Local Contractors Are Invisible on Google (And How to Fix It)</h2>
-          <p>Most local service businesses have the same problem: great work, solid word-of-mouth — but when someone searches Google for what they offer, they're nowhere to be found. Here's what's actually going on and exactly how to change it.</p>
+          <h2>5 Things Your Website Needs If You Run a Business in Lake Charles</h2>
+          <p>Most business owners in Lake Charles have a website. The problem? Most of those websites aren't doing anything. Here are the five things every Lake Charles business website needs to actually work — and what's likely costing you if you don't have them.</p>
         </div>
-        <a href="/blog/why-90-percent-contractors-invisible-google" class="read-more">Read the Full Post</a>
+        <a href="/blog/website-must-haves-lake-charles-businesses" class="read-more">Read the Full Post</a>
       </div>
     </article>
 
@@ -672,17 +670,17 @@
     <div class="section-title">Latest Posts</div>
     <div class="post-grid">
 
-      <article class="post-card reveal d1">
-        <div class="card-cat">Web Design</div>
-        <h3>5 Things Your Website Needs If You Run a Business in Lake Charles</h3>
-        <p>Most business owners in Lake Charles have a website. The problem? Most of those websites aren't doing anything. Here are the five things every Lake Charles business website needs to actually work.</p>
+      <article class="post-card reveal d1" data-category="local-seo">
+        <div class="card-cat">Local SEO</div>
+        <h3>Why 90% of Local Contractors Are Invisible on Google (And How to Fix It)</h3>
+        <p>Most local service businesses have the same problem: great work, solid word-of-mouth — but when someone searches Google for what they offer, they're nowhere to be found. Here's what's actually going on and exactly how to change it.</p>
         <div class="card-footer">
-          <span class="card-date">Apr 11, 2026</span>
-          <a href="/blog/website-must-haves-lake-charles-businesses" class="card-read-more">Read More →</a>
+          <span class="card-date">Apr 3, 2026</span>
+          <a href="/blog/why-90-percent-contractors-invisible-google" class="card-read-more">Read More →</a>
         </div>
       </article>
 
-      <article class="post-card reveal d2">
+      <article class="post-card reveal d2" data-category="web-design">
         <div class="card-cat">Web Design</div>
         <h3>5 Things Your Website Is Costing You Right Now</h3>
         <p>A slow, template-built, or mobile-broken website isn't just embarrassing — it's actively sending your customers to a competitor. Here are the five most expensive mistakes we see on local business sites.</p>
@@ -692,7 +690,7 @@
         </div>
       </article>
 
-      <article class="post-card reveal d2">
+      <article class="post-card reveal d2" data-category="google-business">
         <div class="card-cat">Google Business</div>
         <h3>The Google Business Profile Checklist for Home Service Companies</h3>
         <p>Your Google Business Profile is your most powerful free marketing tool — and most businesses are leaving 80% of it on the table. This checklist covers every field that actually moves the needle.</p>
@@ -702,7 +700,7 @@
         </div>
       </article>
 
-      <article class="post-card reveal d3">
+      <article class="post-card reveal d3" data-category="local-seo">
         <div class="card-cat">Local SEO</div>
         <h3>How to Rank #1 in the Google Map Pack Without Paying for Ads</h3>
         <p>The map pack — those three business listings that appear above organic results — gets the majority of local clicks. Here's the exact strategy we use to rank local businesses there organically.</p>
@@ -712,7 +710,7 @@
         </div>
       </article>
 
-      <article class="post-card reveal d4">
+      <article class="post-card reveal d4" data-category="lead-generation">
         <div class="card-cat">Lead Generation</div>
         <h3>Why Most HVAC Companies Get Zero Leads From Their Website</h3>
         <p>Having a website and having a website that generates leads are two completely different things. We break down the conversion gaps we see most often — and how to close them without rebuilding from scratch.</p>
@@ -722,7 +720,7 @@
         </div>
       </article>
 
-      <article class="post-card reveal d2">
+      <article class="post-card reveal d2" data-category="web-design">
         <div class="card-cat">Web Design</div>
         <h3>Mobile-First Web Design: What It Means and Why It Matters for Local Businesses</h3>
         <p>72% of local service searches happen on mobile. If your site isn't built for a phone first, you're losing more than half your potential customers before they ever read your headline.</p>
@@ -807,11 +805,28 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
+  // Category filtering
   document.querySelectorAll('.cat-tab').forEach(tab => {
     tab.addEventListener('click', e => {
       e.preventDefault();
       document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
+
+      const filter = tab.getAttribute('data-filter');
+      const featured = document.querySelector('.featured-post');
+      const cards = document.querySelectorAll('.post-card');
+
+      if (filter === 'all') {
+        featured.style.display = '';
+        cards.forEach(c => { c.style.display = ''; });
+      } else {
+        // Show/hide featured post
+        featured.style.display = featured.getAttribute('data-category') === filter ? '' : 'none';
+        // Show/hide grid cards
+        cards.forEach(c => {
+          c.style.display = c.getAttribute('data-category') === filter ? '' : 'none';
+        });
+      }
     });
   });
 </script>
