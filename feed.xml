@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+
+    <title>Multiply Local — Marketing Tips for Local Businesses</title>
+    <link>https://multiplylocal.com</link>
+    <description>Practical local SEO, web design, and business automation advice for service businesses in Lake Charles and beyond.</description>
+    <language>en-us</language>
+    <copyright>Amplify Marketing SEO LLC (operating as Multiply Local)</copyright>
+    <managingEditor>channing@multiplylocal.com (Channing Moore)</managingEditor>
+    <webMaster>channing@multiplylocal.com (Channing Moore)</webMaster>
+    <lastBuildDate>Sun, 12 Apr 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="https://multiplylocal.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <!-- ============================================================
+         HOW TO ADD A NEW POST:
+         1. Copy one <item> block below
+         2. Paste it directly after this comment (newest post = top)
+         3. Update title, link, description, pubDate, and guid
+         4. Push to GitHub — Vercel deploys in ~30 seconds
+         5. GHL picks it up on next RSS poll and queues your social post
+
+         pubDate format (RFC 822):  Day, DD Mon YYYY HH:MM:SS +0000
+         Example:                   Sun, 12 Apr 2026 09:00:00 +0000
+         ============================================================ -->
+
+    <item>
+      <title>How We Got Bayou Mortgage 20 Google Reviews in 3 Days</title>
+      <link>https://multiplylocal.com/blog/bayou-mortgage-20-reviews-3-days</link>
+      <description>A real, repeatable case study: how we helped Bayou Mortgage land 20 five-star Google reviews in just 72 hours using a simple text-based review system — no incentives, no gimmicks, no review-gating. Steal the exact playbook for your own business. 👉 multiplylocal.com/book</description>
+      <pubDate>Sun, 12 Apr 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://multiplylocal.com/blog/bayou-mortgage-20-reviews-3-days</guid>
+    </item>
+
+    <item>
+      <title>5 Things Your Website Needs If You Run a Business in Lake Charles</title>
+      <link>https://multiplylocal.com/blog/website-must-haves-lake-charles-businesses</link>
+      <description>Most business owners in Lake Charles have a website. The problem? Most of those websites aren't doing anything. Here are the five things every Lake Charles business website needs to actually work. 👉 multiplylocal.com/book</description>
+      <pubDate>Sat, 11 Apr 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://multiplylocal.com/blog/website-must-haves-lake-charles-businesses</guid>
+    </item>
+
+    <item>
+      <title>Why 90% of Local Contractors Are Invisible on Google (And How to Fix It)</title>
+      <link>https://multiplylocal.com/blog/why-90-percent-contractors-invisible-google</link>
+      <description>Most local service businesses have the same problem: great work, solid word-of-mouth — but when someone searches Google for what they offer, they're nowhere to be found. Here's what's actually going on and exactly how to change it. 👉 multiplylocal.com/book</description>
+      <pubDate>Fri, 03 Apr 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://multiplylocal.com/blog/why-90-percent-contractors-invisible-google</guid>
+    </item>
+
+    <item>
+      <title>5 Things Your Website Is Costing You Right Now</title>
+      <link>https://multiplylocal.com/blog/5-things-your-website-is-costing-you</link>
+      <description>A slow, template-built, or mobile-broken website isn't just embarrassing — it's actively sending your customers to a competitor. Here are the five most expensive mistakes we see on local business sites. 👉 multiplylocal.com/book</description>
+      <pubDate>Sat, 28 Mar 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://multiplylocal.com/blog/5-things-your-website-is-costing-you</guid>
+    </item>
+
+    <item>
+      <title>The Google Business Profile Checklist for Home Service Companies</title>
+      <link>https://multiplylocal.com/blog/google-business-profile-checklist-home-service</link>
+      <description>Your Google Business Profile is your most powerful free marketing tool — and most businesses are leaving 80% of it on the table. This checklist covers every field that actually moves the needle. 👉 multiplylocal.com/book</description>
+      <pubDate>Sat, 21 Mar 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://multiplylocal.com/blog/google-business-profile-checklist-home-service</guid>
+    </item>
+
+    <item>
+      <title>How to Rank #1 in the Google Map Pack Without Paying for Ads</title>
+      <link>https://multiplylocal.com/blog/how-to-rank-number-1-google-map-pack</link>
+      <description>The map pack — those three business listings that appear above organic results — gets the majority of local clicks. Here's the exact strategy we use to rank local businesses there organically. 👉 multiplylocal.com/book</description>
+      <pubDate>Sat, 14 Mar 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://multiplylocal.com/blog/how-to-rank-number-1-google-map-pack</guid>
+    </item>
+
+    <item>
+      <title>Why Most HVAC Companies Get Zero Leads From Their Website</title>
+      <link>https://multiplylocal.com/blog/why-most-hvac-companies-get-zero-leads</link>
+      <description>Having a website and having a website that generates leads are two completely different things. We break down the conversion gaps we see most often — and how to close them without rebuilding from scratch. 👉 multiplylocal.com/book</description>
+      <pubDate>Sat, 07 Mar 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://multiplylocal.com/blog/why-most-hvac-companies-get-zero-leads</guid>
+    </item>
+
+    <item>
+      <title>Mobile-First Web Design: What It Means and Why It Matters for Local Businesses</title>
+      <link>https://multiplylocal.com/blog/mobile-first-web-design-local-businesses</link>
+      <description>72% of local service searches happen on mobile. If your site isn't built for a phone first, you're losing more than half your potential customers before they ever read your headline. 👉 multiplylocal.com/book</description>
+      <pubDate>Sat, 21 Feb 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://multiplylocal.com/blog/mobile-first-web-design-local-businesses</guid>
+    </item>
+
+  </channel>
+</rss>
