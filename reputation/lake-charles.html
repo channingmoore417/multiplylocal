@@ -46,7 +46,7 @@
       background: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(245,240,232,0.012) 60px, rgba(245,240,232,0.012) 61px);
       pointer-events: none;
     }
-    .hero-left { display: flex; flex-direction: column; position: relative; z-index: 1; }
+    .hero-left { display: flex; flex-direction: column; position: relative; z-index: 1; min-width: 0; }
     .eyebrow {
       font-family: 'Oswald', sans-serif;
       font-size: 0.78rem; font-weight: 500;
@@ -56,8 +56,8 @@
     }
     .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4.5rem, 8vw, 9.5rem);
-      line-height: 0.88; letter-spacing: 0.01em; color: var(--cream);
+      font-size: clamp(3.75rem, 5.6vw, 6.75rem);
+      line-height: 0.92; letter-spacing: 0.01em; color: var(--cream);
       opacity: 0; animation: up .6s .2s forwards;
     }
     .hero h1 em { font-style: normal; color: var(--red); }
