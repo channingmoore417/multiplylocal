@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="/favicon.png">
 <title>Pricing — MULTI×PLY</title>
-<meta name="description" content="Simple, transparent pricing for local businesses. Starter ($97), Growth ($297), and Pro ($597) plans with no hidden fees and no long-term contracts.">
+<meta name="description" content="Simple, transparent pricing for local businesses. Growth ($297) and Pro ($597) plans with no hidden fees and no long-term contracts.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/global-nav.css" />
 <style>
@@ -45,7 +45,7 @@
   /* PRICING GRID */
   .pricing-section{padding:80px 48px 120px}
   .pricing-inner{max-width:1200px;margin:0 auto}
-  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+  .pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:start;max-width:820px;margin:0 auto}
 
   .pricing-card{background:var(--black-card);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:44px 36px;position:relative;transition:transform 0.2s}
   .pricing-card:hover{transform:translateY(-4px)}
@@ -178,32 +178,6 @@
   <div class="pricing-inner">
     <div class="pricing-grid">
 
-      <!-- STARTER -->
-      <div class="pricing-card">
-        <div class="pricing-stripe"></div>
-        <div class="p-plan">Starter</div>
-        <div class="p-price"><sup>$</sup>97</div>
-        <div class="p-per">/month</div>
-        <div class="p-setup-wrap">
-          <div class="p-setup-label">One-time setup fee</div>
-          <span class="p-setup-amount">$1,000</span>
-        </div>
-        <div class="p-divider"></div>
-        <p class="p-promise">Get started with a sleek, mobile-friendly website designed to capture leads and improve your online presence.</p>
-        <ul class="p-list">
-          <li>5-Page Website</li>
-          <li>Desktop and Mobile Friendly Site</li>
-          <li>On-Page Website SEO</li>
-          <li>Contact Form</li>
-          <li>Chat Widget</li>
-          <li>SMS and Email Automations</li>
-          <li>1 Website Edit Per Month</li>
-          <li class="dim">Calendar booking — Growth &amp; Pro</li>
-          <li class="dim">AI Voice — Pro only</li>
-        </ul>
-        <a href="https://checkout.multiplylocal.com/basic" class="p-cta outline">Start Multiplying</a>
-      </div>
-
       <!-- GROWTH -->
       <div class="pricing-card featured">
         <div class="pricing-stripe"></div>
@@ -218,8 +192,12 @@
         <div class="p-divider"></div>
         <p class="p-promise">A professional web presence with booking, payments, and automations — everything you need to capture and convert leads.</p>
         <ul class="p-list">
-          <li>Everything in Starter</li>
           <li>20-Page Website</li>
+          <li>Desktop and Mobile Friendly Site</li>
+          <li>On-Page Website SEO</li>
+          <li>Contact Form</li>
+          <li>Chat Widget</li>
+          <li>SMS and Email Automations</li>
           <li>Calendar Booking</li>
           <li>Sales Pipeline &amp; CRM</li>
           <li>Payment Processing</li>
@@ -267,49 +245,48 @@
     <table class="compare-table">
       <thead>
         <tr>
-          <th style="width:34%">Feature</th>
-          <th>Starter<br><span style="font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--gray-muted)">$97/mo</span></th>
+          <th style="width:50%">Feature</th>
           <th class="featured-col">Growth<br><span style="font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--gray-muted)">$297/mo</span></th>
           <th>Pro<br><span style="font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--gray-muted)">$597/mo</span></th>
         </tr>
       </thead>
       <tbody>
-        <tr class="cat-row"><td colspan="4">Website</td></tr>
-        <tr><td>Website pages</td><td>5 pages</td><td class="featured-col">20 pages</td><td>20 pages</td></tr>
-        <tr><td>Desktop and Mobile Friendly Site</td><td><span class="check">×</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>On-Page Website SEO</td><td><span class="check">×</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>Website edits per month</td><td>1</td><td class="featured-col">5</td><td>5</td></tr>
+        <tr class="cat-row"><td colspan="3">Website</td></tr>
+        <tr><td>Website pages</td><td class="featured-col">20 pages</td><td>20 pages</td></tr>
+        <tr><td>Desktop and Mobile Friendly Site</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>On-Page Website SEO</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>Website edits per month</td><td class="featured-col">5</td><td>5</td></tr>
 
-        <tr class="cat-row"><td colspan="4">Lead Capture &amp; Automation</td></tr>
-        <tr><td>Contact Form</td><td><span class="check">×</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>Chat Widget</td><td><span class="check">×</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>SMS and Email Automations</td><td><span class="check">×</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>Calendar Booking</td><td><span class="dash">—</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>Sales Pipeline &amp; CRM</td><td><span class="dash">—</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>Lead follow-up sequences</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
+        <tr class="cat-row"><td colspan="3">Lead Capture &amp; Automation</td></tr>
+        <tr><td>Contact Form</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>Chat Widget</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>SMS and Email Automations</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>Calendar Booking</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>Sales Pipeline &amp; CRM</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>Lead follow-up sequences</td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
 
-        <tr class="cat-row"><td colspan="4">Reputation &amp; Reviews</td></tr>
-        <tr><td>Google Review Automations</td><td><span class="dash">—</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>Reputation Management</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
+        <tr class="cat-row"><td colspan="3">Reputation &amp; Reviews</td></tr>
+        <tr><td>Google Review Automations</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>Reputation Management</td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
 
-        <tr class="cat-row"><td colspan="4">Payments</td></tr>
-        <tr><td>Payment Processing</td><td><span class="dash">—</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr class="cat-row"><td colspan="3">Payments</td></tr>
+        <tr><td>Payment Processing</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
 
-        <tr class="cat-row"><td colspan="4">SEO &amp; Visibility</td></tr>
-        <tr><td>Ongoing SEO Management</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>Google Business Posts</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
+        <tr class="cat-row"><td colspan="3">SEO &amp; Visibility</td></tr>
+        <tr><td>Ongoing SEO Management</td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>Google Business Posts</td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
 
-        <tr class="cat-row"><td colspan="4">Ads</td></tr>
-        <tr><td>Facebook Ads Management</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>Google LSA Management</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
+        <tr class="cat-row"><td colspan="3">Ads</td></tr>
+        <tr><td>Facebook Ads Management</td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>Google LSA Management</td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
 
-        <tr class="cat-row"><td colspan="4">AI &amp; Advanced</td></tr>
-        <tr><td>AI Voice</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>AI Chat</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
+        <tr class="cat-row"><td colspan="3">AI &amp; Advanced</td></tr>
+        <tr><td>AI Voice</td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>AI Chat</td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
 
-        <tr class="cat-row"><td colspan="4">Platform &amp; Support</td></tr>
-        <tr><td>Dedicated Account Manager</td><td><span class="dash">—</span></td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
-        <tr><td>Monthly performance report</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
+        <tr class="cat-row"><td colspan="3">Platform &amp; Support</td></tr>
+        <tr><td>Dedicated Account Manager</td><td class="featured-col"><span class="check">×</span></td><td><span class="check">×</span></td></tr>
+        <tr><td>Monthly performance report</td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">×</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -357,7 +334,7 @@
         <span class="faq-q-text">Can I upgrade plans later?</span>
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-a">Absolutely. You can upgrade at any time and we'll prorate the difference. Most clients start on Starter or Growth, see results within 60–90 days, and upgrade to the next tier from there.</div>
+      <div class="faq-a">Absolutely. You can upgrade at any time and we'll prorate the difference. Most clients start on Growth, see results within 60–90 days, and upgrade to Pro from there.</div>
     </div>
 
     <div class="faq-item">
