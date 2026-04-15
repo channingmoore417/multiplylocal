@@ -309,17 +309,30 @@
       if ((n && n.value) || (e && e.value)) teammates.push({ name: n ? n.value : '', email: e ? e.value : '', phone: p ? p.value : '' });
     });
     if (teammates.length) data.teammates = JSON.stringify(teammates);
-    var APPS_SCRIPT_URL = 'https://script.google.com/a/macros/multiplylocal.com/s/AKfycbwfWHx8Awb76JRvxP6yYeyJmAO2CT9MkeNICjb09sMXwEFacVyF4wzd29xzP809VOsuWQ/exec';
+    var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/a53c3bf5-9c17-4277-819f-375d5469de00';
     var btn = document.querySelector('.btn-submit');
     btn.disabled = true; btn.textContent = 'Submitting...';
-    fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(data)
-    });
-    document.getElementById('onboardingForm').style.display = 'none';
-    window.location.href = '/onboarding-next-steps';
+    var payload = JSON.stringify(data);
+    var sent = false;
+    try {
+      var blob = new Blob([payload], { type: 'text/plain;charset=UTF-8' });
+      sent = navigator.sendBeacon(WEBHOOK_URL, blob);
+    } catch (e) {}
+    if (sent) {
+      document.getElementById('onboardingForm').style.display = 'none';
+      window.location.href = '/onboarding-next-steps';
+    } else {
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: payload,
+        keepalive: true
+      }).finally(function() {
+        document.getElementById('onboardingForm').style.display = 'none';
+        window.location.href = '/onboarding-next-steps';
+      });
+    }
   }
 </script>
 <script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100"></script>
