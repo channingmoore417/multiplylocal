@@ -16,7 +16,7 @@
   var html = '<header class="site-header">' +
     '<a href="/index.html" class="header-logo">MULTI<span class="x">\u00d7</span>PLY</a>' +
     '<nav><ul class="header-nav">' +
-      '<li class="nav-dropdown"><a href="#">Services</a><div class="nav-dropdown-menu"><a href="/web-design/lake-charles.html">Web Design</a><a href="/seo/lake-charles.html">Local SEO</a></div></li>' +
+      '<li class="nav-dropdown"><a href="#">Services</a><div class="nav-dropdown-menu"><a href="/web-design/lake-charles.html">Web Design</a><a href="/seo/lake-charles.html">Local SEO</a><a href="/reputation/lake-charles.html">Reputation Management</a></div></li>' +
       '<li><a href="/multiplyos.html"' + cls('multiplyos.html') + '>MultiplyOS</a></li>' +
       '<li><a href="/pricing.html"' + cls('pricing.html') + '>Pricing</a></li>' +
       '<li><a href="/index.html#how-it-works">Process</a></li>' +
@@ -29,6 +29,7 @@
   '<nav class="mobile-nav" id="mobileNav">' +
     '<a href="/web-design/lake-charles.html" onclick="toggleMobileNav()">Web Design</a>' +
     '<a href="/seo/lake-charles.html" onclick="toggleMobileNav()">Local SEO</a>' +
+    '<a href="/reputation/lake-charles.html" onclick="toggleMobileNav()">Reputation Management</a>' +
     '<a href="/multiplyos.html" onclick="toggleMobileNav()">MultiplyOS</a>' +
     '<a href="/pricing.html" onclick="toggleMobileNav()">Pricing</a>' +
     '<a href="/index.html#how-it-works" onclick="toggleMobileNav()">Process</a>' +
