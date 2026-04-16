@@ -272,7 +272,7 @@
     if (teammates.length) data.teammates = JSON.stringify(teammates);
     var btn = document.querySelector('.btn-submit');
     btn.disabled = true; btn.textContent = 'Submitting...';
-    fetch('/api/onboarding', {
+    fetch('https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/a53c3bf5-9c17-4277-819f-375d5469de00', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
