@@ -272,25 +272,24 @@
     if (teammates.length) data.teammates = JSON.stringify(teammates);
     var btn = document.querySelector('.btn-submit');
     btn.disabled = true; btn.textContent = 'Submitting...';
-    var form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/a53c3bf5-9c17-4277-819f-375d5469de00';
-    form.target = 'onboarding_submit';
-    Object.keys(data).forEach(function(key) {
-      var input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = key;
-      input.value = data[key];
-      form.appendChild(input);
+    fetch('/api/onboarding', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(res) {
+      if (res.ok) {
+        document.getElementById('onboardingForm').style.display = 'none';
+        window.location.href = '/onboarding-next-steps';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Submit Onboarding Form';
+        alert('Something went wrong — please try again or call us at (337) 570-2028.');
+      }
+    }).catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Submit Onboarding Form';
+      alert('Something went wrong — please try again or call us at (337) 570-2028.');
     });
-    var iframe = document.createElement('iframe');
-    iframe.name = 'onboarding_submit';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    document.body.appendChild(form);
-    form.submit();
-    document.getElementById('onboardingForm').style.display = 'none';
-    setTimeout(function() { window.location.href = '/onboarding-next-steps'; }, 1500);
   }
 </script>
 <script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100"></script>
