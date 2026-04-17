@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://www.multiplylocal.com/favicon.png">
+<title>Mortgage Client Onboarding — MULTI×PLY</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#1c1c1c;--black-light:#232323;--black-card:#ffffff;--red:#c23b2e;--red-dark:#9e2f25;--cream:#f5f0e8;--gray:#6a6a6a;--gray-muted:#8a8a8a;--gray-light:#555;--border:rgba(28,28,28,0.12);--border-strong:rgba(28,28,28,0.2)}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black);overflow-x:hidden;min-height:100vh}
+  a{text-decoration:none;color:inherit}
+  .page-wrap{max-width:760px;margin:0 auto;padding:60px 40px 100px}
+  .ob-header{text-align:center;margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--border)}
+  .ob-logo{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.08em;color:var(--black);display:block;margin-bottom:20px}
+  .ob-logo .x{color:var(--red)}
+  .ob-plan-badge{display:inline-block;background:rgba(194,59,46,0.08);border:1px solid rgba(194,59,46,0.3);color:var(--red);font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.35em;text-transform:uppercase;padding:6px 18px;border-radius:3px;margin-bottom:20px}
+  .ob-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,64px);letter-spacing:0.03em;color:var(--black);line-height:0.95;margin-bottom:14px}
+  .ob-subtitle{font-size:16px;color:var(--gray-light);line-height:1.6;max-width:520px;margin:0 auto}
+
+  /* Progress bar */
+  .progress-wrap{margin-bottom:48px}
+  .progress-steps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:10px}
+  .progress-step{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative}
+  .progress-step:not(:last-child)::after{content:'';position:absolute;top:16px;left:calc(50% + 16px);right:calc(-50% + 16px);height:1px;background:var(--border)}
+  .progress-step.done::after{background:var(--red)}
+  .step-dot{width:32px;height:32px;border-radius:50%;background:#fff;border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--gray);position:relative;z-index:1}
+  .progress-step.active .step-dot{background:var(--red);border-color:var(--red);color:#fff}
+  .progress-step.done .step-dot{background:var(--red-dark);border-color:var(--red-dark);color:#fff}
+  .step-label{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);text-align:center}
+  .progress-step.active .step-label{color:var(--black)}
+
+  /* Form cards */
+  .form-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:36px;margin-bottom:24px;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+  .form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red)}
+  .form-card-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.04em;color:var(--black);margin-bottom:6px}
+  .form-card-desc{font-size:14px;color:var(--gray);margin-bottom:28px;line-height:1.5}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0}
+  .form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:0}
+  .form-group{margin-bottom:16px}
+  .form-group label{display:block;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gray-light);margin-bottom:8px}
+  .form-group input,.form-group select,.form-group textarea{width:100%;background:#fff;border:1px solid var(--border-strong);border-radius:4px;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--black);transition:border-color 0.2s,box-shadow 0.2s;outline:none}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(194,59,46,0.1)}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:#b0b0b0}
+  .form-group select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236a6a6a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px}
+  .form-group select option{background:#fff;color:var(--black)}
+  .form-group textarea{resize:vertical;min-height:100px}
+  .form-group .help{font-size:12px;color:var(--gray);margin-top:6px;line-height:1.5}
+  .form-group input[type=color]{padding:4px;height:48px;cursor:pointer;background:#fff}
+
+  /* Radio */
+  .radio-group{display:flex;gap:20px;flex-wrap:wrap}
+  .radio-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-light);cursor:pointer}
+  .radio-item input{width:16px;height:16px;accent-color:var(--red);cursor:pointer;flex-shrink:0}
+
+  /* Checkbox grid */
+  .checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .checkbox-item{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border-strong);border-radius:4px;padding:12px 14px;cursor:pointer;transition:border-color 0.2s,background 0.2s}
+  .checkbox-item:hover{border-color:var(--red);background:rgba(194,59,46,0.03)}
+  .checkbox-item input{width:16px;height:16px;accent-color:var(--red);cursor:pointer;flex-shrink:0}
+  .checkbox-item span{font-size:14px;color:var(--black)}
+
+  /* Color swatches inline */
+  .color-field{display:flex;gap:10px;align-items:center}
+  .color-field input[type=color]{width:60px;flex-shrink:0}
+  .color-field input[type=text]{flex:1}
+
+  /* Teammates */
+  .teammate-row{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:16px;margin-bottom:12px;position:relative}
+  .teammate-row input,.teammate-row select{background:#fff}
+  .teammate-remove{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--gray);cursor:pointer;font-size:20px;line-height:1;padding:0}
+  .teammate-remove:hover{color:var(--red)}
+  .btn-add-teammate{background:transparent;border:1px dashed var(--border-strong);color:var(--gray-light);font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:12px 20px;border-radius:3px;cursor:pointer;width:100%;margin-top:4px;transition:border-color 0.2s,color 0.2s,background 0.2s}
+  .btn-add-teammate:hover{border-color:var(--red);color:var(--red);background:rgba(194,59,46,0.03)}
+
+  /* Submit */
+  .submit-section{text-align:center;margin-top:32px}
+  .btn-submit{font-family:'Oswald',sans-serif;letter-spacing:0.25em;text-transform:uppercase;background:var(--red);color:#fff;padding:18px 56px;border:none;border-radius:3px;cursor:pointer;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;font-size:14px;box-shadow:0 2px 8px rgba(194,59,46,0.25)}
+  .btn-submit:hover{background:#d44638;transform:translateY(-1px);box-shadow:0 4px 12px rgba(194,59,46,0.35)}
+  .submit-note{font-size:13px;color:var(--gray);margin-top:14px;line-height:1.6}
+
+  /* Success */
+  .success-state{display:none;text-align:center;padding:60px 20px}
+  .success-state.show{display:block}
+  .success-x{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--red);line-height:1;margin-bottom:20px}
+  .success-title{font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:0.04em;color:var(--black);margin-bottom:16px}
+  .success-body{font-size:16px;color:var(--gray-light);line-height:1.7;max-width:460px;margin:0 auto}
+
+  @media(max-width:768px){
+    .page-wrap{padding:40px 20px 80px}
+    .form-row,.form-row-3{grid-template-columns:1fr}
+    .checkbox-grid{grid-template-columns:1fr}
+    .progress-step .step-label{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="ob-header">
+    <span class="ob-logo">MULTI<span class="x">×</span>PLY</span>
+    <div class="ob-plan-badge">Mortgage Client Onboarding</div>
+    <h1 class="ob-title">LET'S BUILD<br>YOUR SYSTEM.</h1>
+    <p class="ob-subtitle">Fill out this form and your account manager will have everything we need to build your website and CRM within 5–7 business days.</p>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-steps">
+      <div class="progress-step active"><div class="step-dot">1</div><div class="step-label">Business</div></div>
+      <div class="progress-step"><div class="step-dot">2</div><div class="step-label">Licensing</div></div>
+      <div class="progress-step"><div class="step-dot">3</div><div class="step-label">Website</div></div>
+      <div class="progress-step"><div class="step-dot">4</div><div class="step-label">Brand</div></div>
+      <div class="progress-step"><div class="step-dot">5</div><div class="step-label">CRM</div></div>
+      <div class="progress-step"><div class="step-dot">6</div><div class="step-label">Access</div></div>
+    </div>
+  </div>
+
+  <div id="onboardingForm">
+
+    <!-- SECTION 1: Business Info -->
+    <div class="form-card">
+      <div class="form-card-title">Your Business</div>
+      <div class="form-card-desc">Tell us about your mortgage business so we can build your website and CRM correctly from day one.</div>
+      <div class="form-row">
+        <div class="form-group"><label>Business / Brand Name *</label><input type="text" id="biz_name" name="biz_name" placeholder="Bayou Mortgage" required=""></div>
+        <div class="form-group"><label>Business Type *</label>
+          <select id="biz_type" name="biz_type" required="">
+            <option value="">Select...</option>
+            <option value="individual_lo">Individual Loan Officer</option>
+            <option value="brokerage">Mortgage Brokerage</option>
+            <option value="branch">Branch Owner</option>
+            <option value="team">LO Team</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>First Name *</label><input type="text" id="first_name" name="first_name" placeholder="Channing" required=""></div>
+        <div class="form-group"><label>Last Name *</label><input type="text" id="last_name" name="last_name" placeholder="Moore" required=""></div>
+      </div>
+      <div class="form-group"><label>Your Title</label><input type="text" id="owner_title" name="owner_title" placeholder="Owner / Sr. Loan Officer"></div>
+      <div class="form-row">
+        <div class="form-group"><label>Email *</label><input type="email" id="email" name="email" placeholder="you@yourbrand.com" required=""></div>
+        <div class="form-group"><label>Phone *</label><input type="tel" id="phone" name="phone" placeholder="(337) 570-2028" required=""></div>
+      </div>
+      <div class="form-group"><label>Business Address</label><input type="text" id="address" name="address" placeholder="113 Williamsburg St, Lake Charles, LA 70605"></div>
+      <div class="form-row">
+        <div class="form-group"><label>Primary City *</label><input type="text" id="primary_city" name="primary_city" placeholder="Lake Charles, LA" required=""><div class="help">The main city you're based in.</div></div>
+        <div class="form-group"><label>Surrounding Cities Served</label><input type="text" id="surrounding_cities" name="surrounding_cities" placeholder="Sulphur, Westlake, Moss Bluff, DeRidder..."><div class="help">We'll build location pages targeting these cities for SEO.</div></div>
+      </div>
+      <div class="form-group"><label>Business Hours</label><input type="text" id="hours" name="hours" placeholder="Mon–Fri 8am–6pm, Sat by appointment"></div>
+    </div>
+
+    <!-- SECTION 2: Business Verification -->
+    <div class="form-card">
+      <div class="form-card-title">Business Verification</div>
+      <div class="form-card-desc">Required for A2P 10DLC registration — the carrier compliance process that allows your business to legally send text messages at scale. This information is kept strictly confidential.</div>
+      <div class="form-group"><label>Legal Business Name *</label><input type="text" id="legal_biz_name" name="legal_biz_name" placeholder="Bayou Mortgage LLC" required=""><div class="help">Exactly as registered with the IRS / state — may differ from your DBA or trade name.</div></div>
+      <div class="form-row">
+        <div class="form-group"><label>EIN / Tax ID *</label><input type="text" id="ein" name="ein" placeholder="XX-XXXXXXX" required=""><div class="help">Your federal Employer Identification Number.</div></div>
+        <div class="form-group"><label>Business Structure *</label>
+          <select id="biz_structure" name="biz_structure" required="">
+            <option value="">Select...</option>
+            <option value="llc">LLC</option>
+            <option value="sole_prop">Sole Proprietorship</option>
+            <option value="s_corp">S-Corp</option>
+            <option value="c_corp">C-Corp</option>
+            <option value="partnership">Partnership</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>State of Business Registration *</label><input type="text" id="biz_state" name="biz_state" placeholder="Louisiana" required=""></div>
+    </div>
+
+    <!-- SECTION 3: NMLS & Licensing -->
+    <div class="form-card">
+      <div class="form-card-title">NMLS & Licensing</div>
+      <div class="form-card-desc">Your NMLS information is required for all compliance disclosures on your website and marketing materials.</div>
+      <div class="form-row">
+        <div class="form-group"><label>Individual NMLS # *</label><input type="text" id="nmls_individual" name="nmls_individual" placeholder="1234567" required=""></div>
+        <div class="form-group"><label>Company NMLS # (if applicable)</label><input type="text" id="nmls_company" name="nmls_company" placeholder="7654321"></div>
+      </div>
+      <div class="form-group"><label>States Where You're Licensed *</label><input type="text" id="licensed_states" name="licensed_states" placeholder="Louisiana, Texas, Mississippi" required=""><div class="help">List every state where you currently hold an active mortgage license.</div></div>
+      <div class="form-row">
+        <div class="form-group"><label>Sponsoring Broker / Wholesale Lender</label><input type="text" id="sponsoring_broker" name="sponsoring_broker" placeholder="UWM, Rocket Pro TPO, etc."></div>
+        <div class="form-group"><label>Years in the Mortgage Industry</label><input type="text" id="years_experience" name="years_experience" placeholder="8"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Loan Products -->
+    <div class="form-card">
+      <div class="form-card-title">Loan Products Offered</div>
+      <div class="form-card-desc">Check every loan program you offer. We'll build a dedicated page for each of your priority products.</div>
+      <div class="form-group">
+        <label>Loan Programs</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="conventional"> <span>Conventional</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="fha"> <span>FHA</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="va"> <span>VA</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="usda"> <span>USDA / Rural</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="jumbo"> <span>Jumbo</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="dscr"> <span>DSCR (Investor)</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="non_qm"> <span>Non-QM / Bank Statement</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="construction"> <span>Construction / One-Time Close</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="renovation"> <span>Renovation (203k / HomeStyle)</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="reverse"> <span>Reverse Mortgage</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="heloc"> <span>HELOC / 2nd Mortgage</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="loan_products" value="refi"> <span>Refinance / Cash-Out</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label>Which 2–3 products do you want to feature most on your website?</label><input type="text" id="featured_products" name="featured_products" placeholder="VA, FHA, Conventional"><div class="help">These will get hero placement on your homepage.</div></div>
+      <div class="form-group"><label>Any niche or specialty programs worth highlighting?</label><textarea id="niche_programs" name="niche_programs" placeholder="Down payment assistance programs, first-time buyer grants, bond programs, physician loans, etc." style="min-height:80px"></textarea></div>
+    </div>
+
+    <!-- SECTION 5: Website -->
+    <div class="form-card">
+      <div class="form-card-title">Your Website</div>
+      <div class="form-card-desc">Help us understand what you want your site to accomplish and how it should feel to borrowers.</div>
+      <div class="form-group"><label>Existing website URL (if any)</label><input type="url" id="existing_url" name="existing_url" placeholder="https://yourbrand.com"></div>
+      <div class="form-group"><label>What makes you different from other loan officers?</label><textarea id="differentiator" name="differentiator" placeholder="I close loans in 21 days, I specialize in VA loans for veterans, I answer my phone on weekends..."></textarea></div>
+      <div class="form-group"><label>Who is your ideal borrower?</label><textarea id="ideal_borrower" name="ideal_borrower" placeholder="First-time homebuyers in SW Louisiana, veterans, self-employed borrowers who need bank statement loans..." style="min-height:80px"></textarea></div>
+      <div class="form-group"><label>Application / Point of Sale link (if you have one)</label><input type="url" id="application_url" name="application_url" placeholder="https://apply.yourlender.com/yourname"><div class="help">The link borrowers click to start a loan application — we'll integrate this site-wide.</div></div>
+      <div class="form-group"><label>Do you have client testimonials or reviews we can use?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="has_testimonials" value="yes"> Yes, I'll send them</label>
+          <label class="radio-item"><input type="radio" name="has_testimonials" value="google"> Pull from my Google reviews</label>
+          <label class="radio-item"><input type="radio" name="has_testimonials" value="no"> Not yet</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: Brand Assets -->
+    <div class="form-card">
+      <div class="form-card-title">Brand Assets</div>
+      <div class="form-card-desc">If you have an established brand, give us the specs. If not, leave fields blank — your account manager will help you build one.</div>
+
+      <div class="form-group"><label>Do you have a brand guide?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="has_brand_guide" value="yes"> Yes — I have a PDF</label>
+          <label class="radio-item"><input type="radio" name="has_brand_guide" value="partial"> Partial (logo + colors only)</label>
+          <label class="radio-item"><input type="radio" name="has_brand_guide" value="no"> No — build one for me</label>
+        </div>
+        <div class="help">If yes, your account manager will send you a Google Drive link to upload your brand guide PDF and logo files (AI/EPS/SVG/PNG preferred).</div>
+      </div>
+
+      <div class="form-group"><label>Do you have a logo?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="has_logo" value="yes"> Yes</label>
+          <label class="radio-item"><input type="radio" name="has_logo" value="no"> No, I need one designed</label>
+        </div>
+      </div>
+
+      <label style="display:block;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gray);margin-bottom:8px;margin-top:8px">Brand Colors</label>
+      <div class="form-row-3">
+        <div class="form-group"><label style="font-size:9px">Primary</label>
+          <div class="color-field">
+            <input type="color" id="color_primary_picker" value="#1c1c1c" oninput="syncColor('primary')">
+            <input type="text" id="color_primary" name="color_primary" placeholder="#1C1C1C" oninput="syncPicker('primary')">
+          </div>
+        </div>
+        <div class="form-group"><label style="font-size:9px">Secondary</label>
+          <div class="color-field">
+            <input type="color" id="color_secondary_picker" value="#f5f0e8" oninput="syncColor('secondary')">
+            <input type="text" id="color_secondary" name="color_secondary" placeholder="#F5F0E8" oninput="syncPicker('secondary')">
+          </div>
+        </div>
+        <div class="form-group"><label style="font-size:9px">Accent</label>
+          <div class="color-field">
+            <input type="color" id="color_accent_picker" value="#c23b2e" oninput="syncColor('accent')">
+            <input type="text" id="color_accent" name="color_accent" placeholder="#C23B2E" oninput="syncPicker('accent')">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group"><label>Headline Font</label><input type="text" id="font_headline" name="font_headline" placeholder="Bebas Neue, Playfair Display, etc."></div>
+        <div class="form-group"><label>Body Font</label><input type="text" id="font_body" name="font_body" placeholder="DM Sans, Inter, Lato, etc."></div>
+      </div>
+
+      <div class="form-group"><label>Overall Vibe / Style</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-item"><input type="checkbox" name="brand_vibe" value="modern"> <span>Modern / Minimal</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="brand_vibe" value="traditional"> <span>Traditional / Professional</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="brand_vibe" value="bold"> <span>Bold / High-Contrast</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="brand_vibe" value="warm"> <span>Warm / Personal</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="brand_vibe" value="luxury"> <span>Luxury / Upscale</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="brand_vibe" value="friendly"> <span>Friendly / Approachable</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 7: Lead Sources & CRM -->
+    <div class="form-card">
+      <div class="form-card-title">Lead Sources & CRM Setup</div>
+      <div class="form-card-desc">We'll route every lead source into your MultiplyOS CRM with proper tagging, so you always know where a lead came from.</div>
+      <div class="form-group"><label>Where do your leads currently come from?</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="realtors"> <span>Realtor Referrals</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="past_clients"> <span>Past Clients / Sphere</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="zillow"> <span>Zillow</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="lendingtree"> <span>LendingTree / Bankrate</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="facebook_ads"> <span>Facebook / Instagram Ads</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="google_ads"> <span>Google Ads</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="seo"> <span>Organic SEO / Google</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="social"> <span>Organic Social Media</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="cpa_attorney"> <span>CPA / Attorney Referrals</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="builder"> <span>Builder Partnerships</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="lead_sources" value="other"> <span>Other</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label>Current CRM / LOS (if any)</label><input type="text" id="current_crm" name="current_crm" placeholder="Encompass, Arive, BNTouch, HubSpot, none..."><div class="help">We'll help migrate contacts into MultiplyOS if needed.</div></div>
+      <div class="form-group" style="margin-top:8px">
+        <label>Top Referral Partners</label>
+        <div class="help" style="margin-bottom:12px">Add your top realtors, CPAs, builders, and referral sources. We'll pre-load them into your MultiplyOS CRM so you can stay in touch automatically.</div>
+        <div id="partners">
+          <div class="teammate-row" id="partner_1">
+            <div class="form-row">
+              <div class="form-group" style="margin-bottom:0"><label>Full Name</label><input type="text" name="partner_name_1" placeholder="Jane Smith"></div>
+              <div class="form-group" style="margin-bottom:0"><label>Company</label><input type="text" name="partner_company_1" placeholder="Keller Williams"></div>
+            </div>
+            <div class="form-row" style="margin-top:12px">
+              <div class="form-group" style="margin-bottom:0"><label>Email</label><input type="email" name="partner_email_1" placeholder="jane@kw.com"></div>
+              <div class="form-group" style="margin-bottom:0"><label>Phone</label><input type="tel" name="partner_phone_1" placeholder="(337) 555-1234"></div>
+            </div>
+            <div class="form-group" style="margin-bottom:0;margin-top:12px"><label>Partner Type</label>
+              <select name="partner_type_1">
+                <option value="">Select...</option>
+                <option value="realtor">Realtor</option>
+                <option value="cpa">CPA / Accountant</option>
+                <option value="attorney">Attorney</option>
+                <option value="builder">Builder</option>
+                <option value="financial_advisor">Financial Advisor</option>
+                <option value="insurance">Insurance Agent</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn-add-teammate" onclick="addPartner()">+ Add Another Referral Partner</button>
+      </div>
+    </div>
+
+    <!-- SECTION 8: Compliance -->
+    <div class="form-card">
+      <div class="form-card-title">Compliance & Disclosures</div>
+      <div class="form-card-desc">Mortgage websites have strict disclosure requirements. Give us the exact language your compliance team wants on the site.</div>
+      <div class="form-group"><label>Required Website Footer Disclosure *</label><textarea id="footer_disclosure" name="footer_disclosure" placeholder="Example: Bayou Mortgage LLC, NMLS #1234567. Licensed in LA, TX, MS. Equal Housing Lender. This is not a commitment to lend..." style="min-height:120px" required=""></textarea><div class="help">Paste the full compliance footer your broker or compliance dept. requires. If you don't have one, we'll draft a standard version for your review.</div></div>
+      <div class="form-row">
+        <div class="form-group"><label>Equal Housing Lender Logo?</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="equal_housing" value="yes"> Yes, include</label>
+            <label class="radio-item"><input type="radio" name="equal_housing" value="no"> No</label>
+          </div>
+        </div>
+        <div class="form-group"><label>NMLS Consumer Access Link?</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="nmls_link" value="yes"> Yes, include</label>
+            <label class="radio-item"><input type="radio" name="nmls_link" value="no"> No</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group"><label>State-Specific Disclosures</label><textarea id="state_disclosures" name="state_disclosures" placeholder="Any state-specific licensing disclosures required (e.g., Texas Recovery Fund notice, California DRE ID, etc.)" style="min-height:80px"></textarea></div>
+      <div class="form-group"><label>Does your broker / compliance dept. need to approve the site before launch?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="compliance_approval" value="yes"> Yes</label>
+          <label class="radio-item"><input type="radio" name="compliance_approval" value="no"> No</label>
+          <label class="radio-item"><input type="radio" name="compliance_approval" value="unsure"> Not sure</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 9: Platform Access -->
+    <div class="form-card">
+      <div class="form-card-title">Platform Access</div>
+      <div class="form-card-desc">Final details to set up your MultiplyOS dashboard, mobile app, and team member accounts.</div>
+      <div class="form-group"><label>Preferred login email for MultiplyOS *</label><input type="email" id="platform_email" name="platform_email" placeholder="you@yourbrand.com" required=""></div>
+      <div class="form-group"><label>Business phone number *</label><input type="tel" id="sms_number" name="sms_number" placeholder="(337) 570-2028" required=""></div>
+      <div class="form-group"><label>Domain name (if you have one)</label><input type="text" id="domain" name="domain" placeholder="yourbrand.com"><div class="help">If you need a domain, let us know and we'll help you secure one.</div></div>
+
+      <!-- Team Members -->
+      <div class="form-group" style="margin-top:8px">
+        <label>Team Members Needing MultiplyOS Access</label>
+        <div class="help" style="margin-bottom:12px">Add LO assistants, processors, or teammates who need a login. Leave blank if it's just you.</div>
+        <div id="teammates">
+          <div class="teammate-row" id="teammate_1">
+            <div class="form-row">
+              <div class="form-group" style="margin-bottom:0"><label>Full Name</label><input type="text" name="teammate_name_1" placeholder="Jane Smith"></div>
+              <div class="form-group" style="margin-bottom:0"><label>Email</label><input type="email" name="teammate_email_1" placeholder="jane@yourbrand.com"></div>
+            </div>
+            <div class="form-row" style="margin-top:12px">
+              <div class="form-group" style="margin-bottom:0"><label>Phone</label><input type="tel" name="teammate_phone_1" placeholder="(337) 555-1234"></div>
+              <div class="form-group" style="margin-bottom:0"><label>Role</label><input type="text" name="teammate_role_1" placeholder="Loan Officer Assistant"></div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn-add-teammate" onclick="addTeammate()">+ Add Another Teammate</button>
+      </div>
+
+      <div class="form-group" style="margin-top:16px"><label>Anything else we should know?</label><textarea id="notes" name="notes" placeholder="Special requests, timeline concerns, compliance notes, or anything else..."></textarea></div>
+    </div>
+
+    <div class="submit-section">
+      <button type="button" class="btn-submit" onclick="submitForm()">Submit Onboarding Form</button>
+      <p class="submit-note">Your account manager will reach out within 1 business day to confirm receipt and schedule your kickoff call.</p>
+    </div>
+  </div>
+
+  <div class="success-state" id="successState">
+    <div class="success-x">×</div>
+    <div class="success-title">YOU'RE ALL SET.</div>
+    <p class="success-body">Your onboarding form has been received. Your account manager will reach out within 1 business day to confirm everything and schedule your kickoff call. Welcome to Multiply.</p>
+  </div>
+</div>
+
+<script>
+  let teammateCount = 1;
+  function addTeammate() {
+    teammateCount++;
+    const container = document.getElementById('teammates');
+    const row = document.createElement('div');
+    row.className = 'teammate-row';
+    row.id = 'teammate_' + teammateCount;
+    row.innerHTML = '<button type="button" class="teammate-remove" onclick="removeTeammate(' + teammateCount + ')" title="Remove">×</button>' +
+      '<div class="form-row">' +
+        '<div class="form-group" style="margin-bottom:0"><label>Full Name</label><input type="text" name="teammate_name_' + teammateCount + '" placeholder="Jane Smith"></div>' +
+        '<div class="form-group" style="margin-bottom:0"><label>Email</label><input type="email" name="teammate_email_' + teammateCount + '" placeholder="jane@yourbrand.com"></div>' +
+      '</div>' +
+      '<div class="form-row" style="margin-top:12px">' +
+        '<div class="form-group" style="margin-bottom:0"><label>Phone</label><input type="tel" name="teammate_phone_' + teammateCount + '" placeholder="(337) 555-1234"></div>' +
+        '<div class="form-group" style="margin-bottom:0"><label>Role</label><input type="text" name="teammate_role_' + teammateCount + '" placeholder="Loan Officer Assistant"></div>' +
+      '</div>';
+    container.appendChild(row);
+  }
+  function removeTeammate(id) {
+    const el = document.getElementById('teammate_' + id);
+    if (el) el.remove();
+  }
+  let partnerCount = 1;
+  function addPartner() {
+    partnerCount++;
+    const container = document.getElementById('partners');
+    const row = document.createElement('div');
+    row.className = 'teammate-row';
+    row.id = 'partner_' + partnerCount;
+    row.innerHTML = '<button type="button" class="teammate-remove" onclick="removePartner(' + partnerCount + ')" title="Remove">×</button>' +
+      '<div class="form-row">' +
+        '<div class="form-group" style="margin-bottom:0"><label>Full Name</label><input type="text" name="partner_name_' + partnerCount + '" placeholder="Jane Smith"></div>' +
+        '<div class="form-group" style="margin-bottom:0"><label>Company</label><input type="text" name="partner_company_' + partnerCount + '" placeholder="Keller Williams"></div>' +
+      '</div>' +
+      '<div class="form-row" style="margin-top:12px">' +
+        '<div class="form-group" style="margin-bottom:0"><label>Email</label><input type="email" name="partner_email_' + partnerCount + '" placeholder="jane@kw.com"></div>' +
+        '<div class="form-group" style="margin-bottom:0"><label>Phone</label><input type="tel" name="partner_phone_' + partnerCount + '" placeholder="(337) 555-1234"></div>' +
+      '</div>' +
+      '<div class="form-group" style="margin-bottom:0;margin-top:12px"><label>Partner Type</label>' +
+        '<select name="partner_type_' + partnerCount + '">' +
+          '<option value="">Select...</option>' +
+          '<option value="realtor">Realtor</option>' +
+          '<option value="cpa">CPA / Accountant</option>' +
+          '<option value="attorney">Attorney</option>' +
+          '<option value="builder">Builder</option>' +
+          '<option value="financial_advisor">Financial Advisor</option>' +
+          '<option value="insurance">Insurance Agent</option>' +
+          '<option value="other">Other</option>' +
+        '</select>' +
+      '</div>';
+    container.appendChild(row);
+  }
+  function removePartner(id) {
+    const el = document.getElementById('partner_' + id);
+    if (el) el.remove();
+  }
+  function syncColor(key) {
+    document.getElementById('color_' + key).value = document.getElementById('color_' + key + '_picker').value.toUpperCase();
+  }
+  function syncPicker(key) {
+    const val = document.getElementById('color_' + key).value.trim();
+    if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+      document.getElementById('color_' + key + '_picker').value = val;
+    }
+  }
+  function submitForm() {
+    var required = document.querySelectorAll('#onboardingForm [required]');
+    for (var i = 0; i < required.length; i++) {
+      if (!required[i].value.trim()) {
+        required[i].focus();
+        required[i].style.borderColor = '#c23b2e';
+        setTimeout(function(el){ el.style.borderColor = ''; }, 2000, required[i]);
+        return;
+      }
+    }
+    var data = { form_source: 'Mortgage Client Onboarding' };
+    document.querySelectorAll('#onboardingForm input:not([type=checkbox]):not([type=radio]):not([type=color]), #onboardingForm select, #onboardingForm textarea').forEach(function(el) {
+      if (el.name) data[el.name] = el.value;
+    });
+    document.querySelectorAll('#onboardingForm input[type=radio]:checked').forEach(function(el) {
+      if (el.name) data[el.name] = el.value;
+    });
+    var checked = {};
+    document.querySelectorAll('#onboardingForm input[type=checkbox]:checked').forEach(function(cb) {
+      if (!checked[cb.name]) checked[cb.name] = [];
+      checked[cb.name].push(cb.value);
+    });
+    Object.keys(checked).forEach(function(k) { data[k] = checked[k].join(', '); });
+    var teammates = [];
+    document.querySelectorAll('#teammates .teammate-row').forEach(function(row) {
+      var n = row.querySelector('input[name^=teammate_name]');
+      var e = row.querySelector('input[name^=teammate_email]');
+      var p = row.querySelector('input[name^=teammate_phone]');
+      var r = row.querySelector('input[name^=teammate_role]');
+      if ((n && n.value) || (e && e.value)) teammates.push({ name: n ? n.value : '', email: e ? e.value : '', phone: p ? p.value : '', role: r ? r.value : '' });
+    });
+    if (teammates.length) data.teammates = JSON.stringify(teammates);
+    var partners = [];
+    document.querySelectorAll('#partners .teammate-row').forEach(function(row) {
+      var n = row.querySelector('input[name^=partner_name]');
+      var c = row.querySelector('input[name^=partner_company]');
+      var e = row.querySelector('input[name^=partner_email]');
+      var p = row.querySelector('input[name^=partner_phone]');
+      var t = row.querySelector('select[name^=partner_type]');
+      if ((n && n.value) || (c && c.value) || (e && e.value)) {
+        partners.push({
+          name: n ? n.value : '',
+          company: c ? c.value : '',
+          email: e ? e.value : '',
+          phone: p ? p.value : '',
+          type: t ? t.value : ''
+        });
+      }
+    });
+    if (partners.length) data.referral_partners = JSON.stringify(partners);
+    var btn = document.querySelector('.btn-submit');
+    btn.disabled = true; btn.textContent = 'Submitting...';
+    fetch('https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/0fdc5fbe-ffeb-4fc7-a38d-d7dd99901693', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(res) {
+      if (res.ok) {
+        document.getElementById('onboardingForm').style.display = 'none';
+        window.location.href = '/onboarding-next-steps';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Submit Onboarding Form';
+        alert('Something went wrong — please try again or call us at (337) 570-2028.');
+      }
+    }).catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Submit Onboarding Form';
+      alert('Something went wrong — please try again or call us at (337) 570-2028.');
+    });
+  }
+</script>
+<script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_81e4d8a3b41a45499c1172492b86f100"></script>
+</body></html>
