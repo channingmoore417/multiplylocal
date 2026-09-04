@@ -1,5 +1,12 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "portal.multiplylocal.com" }],
+      "destination": "/portal/:path*"
+    }
+  ],
   "redirects": [
     { "source": "/onboarding-starter", "destination": "/onboarding", "permanent": true },
     { "source": "/onboarding-growth", "destination": "/onboarding", "permanent": true },
