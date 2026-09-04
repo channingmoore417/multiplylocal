@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #000000;
+  --color-paper: #faf7f2;
+  --color-accent: #c23b2e;
+  --font-display: var(--font-bebas), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
