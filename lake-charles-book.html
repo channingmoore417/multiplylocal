@@ -344,50 +344,205 @@
       margin-bottom: 28px;
     }
 
-    /* ── CALENDAR SECTION ── */
-    .calendar-section {
+    /* ── GET STARTED CTA ── */
+    .cta-section {
       position: relative;
       z-index: 2;
-      max-width: 860px;
+      max-width: 720px;
       margin: 48px auto 0;
       padding: 0 24px;
+      text-align: center;
     }
 
-    .calendar-section h2 {
+    .cta-section h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(32px, 5vw, 54px);
       letter-spacing: 0.02em;
       color: var(--cream);
-      text-align: center;
-      margin-bottom: 8px;
+      line-height: 1;
+      margin-bottom: 12px;
     }
 
-    .calendar-section h2 em {
+    .cta-section h2 em {
       color: var(--red);
       font-style: normal;
     }
 
-    .calendar-sub {
+    .cta-sub {
       font-size: 15px;
       color: rgba(245,240,232,0.5);
-      text-align: center;
-      margin-bottom: 36px;
       line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto 28px;
     }
 
-    .calendar-embed {
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid rgba(245,240,232,0.08);
-      background: #fff;
-      min-height: 700px;
-    }
-
-    .calendar-embed iframe {
-      width: 100%;
-      height: 700px;
+    .btn-primary {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      padding: 18px 48px;
       border: none;
-      display: block;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,10,0.85);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      backdrop-filter: blur(4px);
+      overflow-y: auto;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-box {
+      background: #1e1e1e;
+      border: 1px solid rgba(245,240,232,0.1);
+      border-top: 3px solid var(--red);
+      border-radius: 6px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 460px;
+      position: relative;
+      transform: translateY(16px);
+      transition: transform 0.25s;
+    }
+
+    .modal-overlay.open .modal-box { transform: translateY(0); }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: rgba(245,240,232,0.4);
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--cream); }
+
+    .modal-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    .modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .modal-form input {
+      width: 100%;
+      background: #2a2a2a;
+      border: 1px solid rgba(245,240,232,0.12);
+      border-radius: 4px;
+      padding: 15px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .modal-form input:focus { border-color: var(--red); }
+    .modal-form input::placeholder { color: rgba(245,240,232,0.35); }
+
+    .modal-form .btn-submit {
+      background: var(--red);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      padding: 18px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 4px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .modal-form .btn-submit:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .modal-form .btn-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
+
+    .modal-error {
+      font-size: 13px;
+      color: var(--red);
+      text-align: center;
+      display: none;
+    }
+
+    .modal-consent {
+      font-size: 11px;
+      color: rgba(245,240,232,0.35);
+      line-height: 1.5;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .modal-success {
+      display: none;
+      text-align: center;
+    }
+
+    .modal-success h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .modal-success p {
+      font-size: 15px;
+      color: rgba(245,240,232,0.6);
+      line-height: 1.6;
     }
 
     /* ── REASSURANCE ── */
@@ -472,29 +627,23 @@
     </div>
   </section>
 
-  <!-- CALENDAR — immediately below video -->
-  <section class="calendar-section" id="calendar" style="margin-top: 40px;">
-    <h2>Pick a Time That<br /><em>Works For You</em></h2>
-    <p class="calendar-sub">15 minutes. No pressure. We'll look at your current online presence and show you exactly what we'd build for your business.</p>
+  <!-- GET STARTED — immediately below video -->
+  <section class="cta-section" id="get-started" style="margin-top: 40px;">
+    <h2>Ready To Get<br /><em>Started?</em></h2>
+    <p class="cta-sub">Tell us a little about your business and we'll reach out to get your custom, call-driving website underway.</p>
 
-    <div class="calendar-embed">
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/booking/vi7CsC1AbMZIkfKJ0I1u"
-        title="Book a Strategy Call with Multiply Local"
-        scrolling="yes"
-      ></iframe>
-    </div>
+    <button type="button" class="btn-primary" onclick="openModal()">Get Started</button>
   </section>
 
-  <!-- REASSURANCE (below calendar) -->
+  <!-- REASSURANCE -->
   <div class="reassurance" style="margin-bottom: 0;">
     <div class="reassurance-item">
       <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      No pressure sales call — just a conversation about your business
+      No pressure — just a conversation about your business
     </div>
     <div class="reassurance-item">
       <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Cancel or reschedule anytime, no questions asked
+      No contracts, no setup fees — cancel anytime
     </div>
     <div class="reassurance-item">
       <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -550,11 +699,37 @@
       <div class="price-current">$97<span style="font-size:22px;font-family:'DM Sans';font-weight:400;color:rgba(245,240,232,0.4)">/mo</span></div>
       <p class="price-label">Hosting, maintenance &amp; support — first 10 businesses only</p>
 
-      <a href="#calendar" style="display:inline-block;background:var(--red);color:white;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.08em;padding:16px 40px;border-radius:4px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#a03025'" onmouseout="this.style.background='#C23B2E'">
-        → Book My Free Strategy Call
-      </a>
+      <button type="button" class="btn-primary" onclick="openModal()">
+        → Get Started
+      </button>
     </div>
   </section>
+
+  <!-- GET STARTED MODAL -->
+  <div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+
+      <div id="modalContent">
+        <p class="modal-eyebrow">Limited Launch Offer</p>
+        <h2 class="modal-title" id="modalTitle">Let's Get<br />You Started</h2>
+        <form class="modal-form" id="startForm" novalidate>
+          <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required />
+          <input type="tel" id="phone" name="phone" placeholder="Phone Number" autocomplete="tel" required />
+          <input type="text" id="bizname" name="businessName" placeholder="Business Name" autocomplete="organization" required />
+          <input type="email" id="email" name="email" placeholder="Email Address (optional)" autocomplete="email" />
+          <p class="modal-error" id="modalError"></p>
+          <button type="submit" class="btn-submit" id="startSubmit">Get Started &rarr;</button>
+          <p class="modal-consent">By submitting, you agree to receive SMS &amp; email communications from Amplify Marketing SEO LLC (operating as Multiply Local). Msg &amp; data rates may apply. Reply STOP to opt out.</p>
+        </form>
+      </div>
+
+      <div class="modal-success" id="modalSuccess">
+        <h3>You're All Set!</h3>
+        <p>Thanks — we've got your info. We'll reach out shortly to get your website underway.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -571,9 +746,112 @@
       const bar = document.getElementById('greetingBar');
       const text = document.getElementById('greetingText');
       const firstName = name.split(' ')[0];
-      text.textContent = `🎉 You're in, ${firstName}! Watch the video below — then book your free call.`;
+      text.textContent = `🎉 You're in, ${firstName}! Watch the video below — then let's get you started.`;
       bar.style.display = 'block';
+      // Pre-fill the form with the name we already have
+      document.getElementById('name').value = name;
     }
+
+    // ── MODAL ──
+    function openModal() {
+      document.getElementById('modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function () {
+        const first = document.getElementById('name');
+        if (!first.value) first.focus();
+        else document.getElementById('phone').focus();
+      }, 260);
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('modal')) closeModal();
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Phone auto-format
+    document.getElementById('phone').addEventListener('input', function (e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length >= 6) v = '(' + v.substring(0, 3) + ') ' + v.substring(3, 6) + '-' + v.substring(6, 10);
+      else if (v.length >= 3) v = '(' + v.substring(0, 3) + ') ' + v.substring(3);
+      e.target.value = v;
+    });
+
+    // Form submit → GHL webhook
+    document.getElementById('startForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const err = document.getElementById('modalError');
+      const fullName = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const businessName = document.getElementById('bizname').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      // Name, phone and business name are required — email is optional
+      if (!fullName || !phone || !businessName) {
+        err.textContent = 'Please fill in your name, phone and business name.';
+        err.style.display = 'block';
+        return;
+      }
+      if (phone.replace(/\D/g, '').length < 10) {
+        err.textContent = 'Please enter a valid 10-digit phone number.';
+        err.style.display = 'block';
+        return;
+      }
+      err.style.display = 'none';
+
+      const btn = document.getElementById('startSubmit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const parts = fullName.split(' ');
+      const data = {
+        name: fullName,
+        firstName: parts[0],
+        lastName: parts.slice(1).join(' '),
+        businessName: businessName,
+        phone: phone,
+        email: email,
+        source: 'lake-charles-book'
+      };
+
+      try {
+        await fetch('https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/966d4f6e-6f23-49d8-ad6e-a5e914ced7b6', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString(),
+          keepalive: true
+        });
+      } catch (err2) {}
+
+      // Backup email notification
+      try {
+        fetch('https://formsubmit.co/ajax/channing@multiplylocal.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            _subject: 'New Get Started Lead — ' + data.firstName + ' (' + data.businessName + ')',
+            Name: data.name,
+            Business: data.businessName,
+            Phone: data.phone,
+            Email: data.email || '(not provided)',
+            Source: data.source
+          })
+        });
+      } catch (err2) {}
+
+      if (typeof fbq === 'function') fbq('track', 'Lead');
+
+      document.getElementById('modalContent').style.display = 'none';
+      document.getElementById('modalSuccess').style.display = 'block';
+    });
   </script>
 <!-- Meta Pixel Code -->
 <script>
