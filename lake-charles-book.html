@@ -605,6 +605,106 @@
 
     .catch-box strong { color: var(--cream); font-weight: 600; }
 
+    /* ── FAQ ── */
+    .faq-section {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+    }
+
+    .faq-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 4.4vw, 44px);
+      letter-spacing: 0.03em;
+      color: var(--cream);
+      margin-bottom: 10px;
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .faq-section h2 em { color: var(--red); font-style: normal; }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .faq-item {
+      background: rgba(245,240,232,0.03);
+      border: 1px solid rgba(245,240,232,0.07);
+      border-radius: 6px;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item[open] { border-color: rgba(194,59,46,0.28); }
+    .faq-item:hover { border-color: rgba(194,59,46,0.2); }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 15.5px;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--cream);
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-toggle {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .faq-toggle::before,
+    .faq-toggle::after {
+      content: '';
+      position: absolute;
+      background: var(--red);
+      border-radius: 1px;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    .faq-toggle::before {
+      top: 8px;
+      left: 0;
+      width: 18px;
+      height: 2px;
+    }
+
+    .faq-toggle::after {
+      top: 0;
+      left: 8px;
+      width: 2px;
+      height: 18px;
+    }
+
+    .faq-item[open] .faq-toggle::after {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+
+    .faq-answer {
+      padding: 0 20px 20px;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: rgba(245,240,232,0.6);
+    }
+
+    .faq-answer p { margin-bottom: 10px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+    .faq-answer strong { color: var(--cream); font-weight: 600; }
+
     /* ── FINAL CTA ── */
     .cta-section {
       position: relative;
@@ -1035,6 +1135,86 @@
       <p>We waive the <strong>$1,000 setup fee</strong> because we'd rather earn your business every month than charge you a big number up front. If the site doesn't do its job, you leave — and we lose. That keeps us honest.</p>
       <p>The trade is that we only take on <strong>10 businesses at a time</strong> so every client gets real attention. When the spots are gone, the setup fee goes back to $1,000.</p>
       <p>No contracts, no hidden fees, and you can cancel anytime with 30 days notice.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2>Questions People<br /><em>Usually Ask</em></h2>
+    <p class="section-sub">If yours isn't here, ask us on the call — no pressure either way.</p>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Is the website really free?<span class="faq-toggle"></span></summary>
+        <div class="faq-answer">
+          <p>Yes. The build itself is free — design, copy, and launch. The <strong>$1,000 setup fee is waived</strong> for the businesses in this launch group.</p>
+          <p>The only thing you pay is <strong>$97/month</strong>, and that starts once your site is live. Nothing up front, nothing due before you see the work.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What exactly does the $97/month cover?<span class="faq-toggle"></span></summary>
+        <div class="faq-answer">
+          <p>Four things: <strong>hosting</strong>, <strong>ongoing maintenance and edits</strong>, <strong>support</strong> from a real person here in Lake Charles, and <strong>Multiply OS</strong> — the platform that runs your missed-call text-back, follow-up automations, review requests, pipeline, chat widget, and mobile app.</p>
+          <p>It's one flat price. No per-user fees, no upsells to unlock the features above.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is Multiply OS?<span class="faq-toggle"></span></summary>
+        <div class="faq-answer">
+          <p>It's the system that sits behind your website and does the follow-up you don't have time for — texting back missed calls in seconds, chasing leads that went quiet, asking every customer for a Google review, and keeping every conversation in one inbox you can run from your phone.</p>
+          <p>A website brings people to the door. Multiply OS is what keeps them from wandering off to your competitor.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How long until my site is live?<span class="faq-toggle"></span></summary>
+        <div class="faq-answer">
+          <p>Days, not months. Once we have your details — services, service area, photos if you have them — we handle the writing and the design and get a draft in front of you quickly.</p>
+          <p>The main thing that slows a build down is waiting on information from you, so the faster you get us what we need, the faster you're live.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What do you need from me?<span class="faq-toggle"></span></summary>
+        <div class="faq-answer">
+          <p>Not much, and not much of your time. A short conversation about what you do and who you serve, any photos of your work, and your logo if you have one. If you don't have photos or a logo, we'll work with what you've got.</p>
+          <p>You don't need to write anything. That's our job.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>I already have a website. Can you still help?<span class="faq-toggle"></span></summary>
+        <div class="faq-answer">
+          <p>Usually yes — and this is who we help most often. Most of the businesses we work with already have a site; it just isn't bringing the phone to life.</p>
+          <p>We'll build you a new one and move everything over. Bring it up on the call and we'll tell you straight whether replacing it is actually worth it for you.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Am I locked into a contract?<span class="faq-toggle"></span></summary>
+        <div class="faq-answer">
+          <p>No. There's no contract and no minimum term. You can cancel anytime with 30 days notice.</p>
+          <p>That's deliberate — if the site isn't earning its keep, we'd rather you be free to walk than stuck. It keeps the pressure on us to make it work.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you work with my type of business?<span class="faq-toggle"></span></summary>
+        <div class="faq-answer">
+          <p>We specialize in <strong>home service businesses</strong> in Lake Charles and Southwest Louisiana — plumbing, HVAC, power washing, lawn care, roofing, electrical, and the like. We've also built for local attorneys and other service businesses.</p>
+          <p>If you're a local business that makes money from the phone ringing, we're probably a fit. Ask us on the call.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why only 10 businesses?<span class="faq-toggle"></span></summary>
+        <div class="faq-answer">
+          <p>Because we actually build these ourselves, and we won't take on more than we can do well. Ten at a time is what we can give real attention to.</p>
+          <p>When the spots are filled, the setup fee goes back to $1,000.</p>
+        </div>
+      </details>
     </div>
   </section>
 
