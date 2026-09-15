@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claim Your Free Website | Multiply Local</title>
-  <meta name="description" content="Free custom website build for Lake Charles service businesses. $2,000 setup fee waived — just $97/month for hosting, maintenance and MultiplyOS." />
+  <meta name="description" content="Free custom website build for local service businesses. $2,000 setup fee waived — just $97/month for hosting, maintenance and MultiplyOS." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -931,20 +931,41 @@
     .fade-in-3 { animation: fadeUp 0.7s 0.3s ease both; }
 
     @media (max-width: 640px) {
-      /* Tighten the hero so the CTA clears the fold on short phones */
+      /* Tighten the hero so the CTA clears the fold on short phones. Sizes are
+         set against the usable viewport (a 375x667 phone gives ~553px in
+         Safari), not the nominal one. */
+      .topbar { padding: 12px 24px; }
+      .logo { font-size: 24px; }
+      .greeting-bar { padding: 10px 20px; }
+      .greeting-bar p { font-size: 12px; }
       .video-section { padding-top: 22px; }
       .section-eyebrow { margin-bottom: 8px; }
-      .video-section h1 { margin-bottom: 13px; }
-      .hero-sub { font-size: 15px; line-height: 1.55; margin-bottom: 16px; }
-      .hero-price-line { font-size: 14px; padding: 11px 16px; margin-bottom: 16px; }
-      .hero-pills { gap: 8px; margin-bottom: 16px; }
-      .hero-cta { margin-bottom: 24px; }
+      .video-section h1 { font-size: 34px; margin-bottom: 12px; }
+      .hero-sub { font-size: 14.5px; line-height: 1.5; margin-bottom: 14px; }
+      .hero-price-line { font-size: 13.5px; line-height: 1.5; padding: 11px 16px; margin-bottom: 14px; }
+      .hero-pills { gap: 8px; margin-bottom: 14px; }
+      .pill { font-size: 9px; padding: 6px 11px; }
+      .hero-cta { margin-bottom: 20px; }
       .offer-box { padding: 30px 20px; }
       .price-split { grid-template-columns: 1fr; }
       .price-panel-amount { font-size: 44px; }
       .catch-box { padding: 26px 22px; }
       .btn-primary { padding: 17px 32px; font-size: 20px; width: 100%; }
       .spot-dot { width: 20px; }
+    }
+
+    /* Narrow phones — the CTA label and the greeting bar were wrapping to two
+       lines at 360px, which pushed the button under the fold. */
+    @media (max-width: 385px) {
+      .greeting-bar p { font-size: 11px; letter-spacing: 0.08em; }
+      .video-section h1 { font-size: 31px; }
+      .hero-sub { font-size: 14px; }
+      .hero-price-line { font-size: 12.5px; padding: 10px 14px; }
+      .btn-primary { font-size: 18px; padding: 16px 18px; letter-spacing: 0.05em; }
+    }
+
+    @media (max-width: 340px) {
+      .btn-primary { font-size: 16px; padding: 15px 10px; letter-spacing: 0.03em; }
     }
   </style>
 </head>
@@ -974,14 +995,14 @@
       hosting, maintenance, and updates.
     </p>
 
+    <div class="hero-cta fade-in-2">
+      <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
+    </div>
+
     <div class="hero-pills fade-in-2">
       <span class="pill">No Setup Fee</span>
       <span class="pill">No Contract</span>
       <span class="pill">Cancel Anytime</span>
-    </div>
-
-    <div class="hero-cta fade-in-2">
-      <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
     </div>
 
     <div class="video-embed fade-in-3">
@@ -1078,7 +1099,7 @@
       </div>
       <div class="bullet-item">
         <div class="bullet-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-        <div class="bullet-text"><strong>Set up to be found in Lake Charles.</strong> Your service areas, your Google Business Profile, and the local SEO groundwork done right from day one.</div>
+        <div class="bullet-text"><strong>Set up to get found locally.</strong> Your service areas, your Google Business Profile, and the local SEO groundwork done right from day one.</div>
       </div>
       <div class="bullet-item">
         <div class="bullet-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
@@ -1163,7 +1184,7 @@
       <details class="faq-item">
         <summary>What exactly does the $97/month cover?<span class="faq-toggle"></span></summary>
         <div class="faq-answer">
-          <p>Four things: <strong>hosting</strong>, <strong>ongoing maintenance and edits</strong>, <strong>support</strong> from a real person here in Lake Charles, and <strong>MultiplyOS</strong> — the platform that runs your missed-call text-back, follow-up automations, pipeline, chat widget, and mobile app.</p>
+          <p>Four things: <strong>hosting</strong>, <strong>ongoing maintenance and edits</strong>, <strong>support</strong> from a real person who knows your account, and <strong>MultiplyOS</strong> — the platform that runs your missed-call text-back, follow-up automations, pipeline, chat widget, and mobile app.</p>
           <p>It's one flat price. No per-user fees, no upsells to unlock the features above.</p>
         </div>
       </details>
