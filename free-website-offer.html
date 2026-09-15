@@ -583,72 +583,6 @@
       padding: 32px 30px;
     }
 
-    /* Fit / not-fit filter */
-    .fit-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .fit-col {
-      background: rgba(245,240,232,0.03);
-      border: 1px solid rgba(245,240,232,0.09);
-      border-radius: 8px;
-      padding: 26px 24px;
-      text-align: left;
-    }
-
-    .fit-col h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .fit-col.yes h3 { color: var(--cream); }
-    .fit-col.no h3 { color: rgba(245,240,232,0.5); }
-
-    .fit-col ul { list-style: none; }
-
-    .fit-col li {
-      position: relative;
-      padding-left: 26px;
-      margin-bottom: 11px;
-      font-size: 15px;
-      line-height: 1.5;
-      color: rgba(245,240,232,0.78);
-    }
-
-    .fit-col li:last-child { margin-bottom: 0; }
-
-    .fit-col.yes li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 7px;
-      width: 9px;
-      height: 5px;
-      border-left: 2px solid var(--red);
-      border-bottom: 2px solid var(--red);
-      transform: rotate(-45deg);
-    }
-
-    .fit-col.no li {
-      color: rgba(245,240,232,0.45);
-    }
-
-    .fit-col.no li::before {
-      content: '\00d7';
-      position: absolute;
-      left: 2px;
-      top: -1px;
-      font-size: 17px;
-      color: rgba(245,240,232,0.35);
-    }
-
     .catch-box h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(26px, 4vw, 38px);
@@ -912,8 +846,7 @@
 
     .modal-form { display: flex; flex-direction: column; gap: 12px; }
 
-    .modal-form input,
-    .modal-form select {
+    .modal-form input {
       width: 100%;
       background: #2a2a2a;
       border: 1px solid rgba(245,240,232,0.12);
@@ -926,23 +859,7 @@
       transition: border-color 0.2s;
     }
 
-    .modal-form select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23f5f0e8' fill-opacity='0.5' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 18px center;
-      background-size: 12px 8px;
-      padding-right: 44px;
-      cursor: pointer;
-    }
-
-    .modal-form select.is-placeholder { color: rgba(245,240,232,0.35); }
-    .modal-form select option { color: var(--cream); background: #2a2a2a; }
-
-    .modal-form input:focus,
-    .modal-form select:focus { border-color: var(--red); }
+    .modal-form input:focus { border-color: var(--red); }
     .modal-form input::placeholder { color: rgba(245,240,232,0.35); }
 
     .modal-form .btn-submit {
@@ -1211,35 +1128,6 @@
     </div>
   </section>
 
-  <!-- WHO IT'S FOR -->
-  <section class="catch-section">
-    <div class="bullets-section" style="margin:0 0 22px; padding:0; max-width:none;">
-      <h2>Who This Is <em>Actually For</em></h2>
-      <p class="section-sub">Ten spots, and we build every one by hand. So we'd rather be straight about the fit than waste your time or ours.</p>
-    </div>
-
-    <div class="fit-grid">
-      <div class="fit-col yes">
-        <h3>This Is For You If</h3>
-        <ul>
-          <li>You run a real service business — plumbing, HVAC, electrical, roofing, lawn care, remodeling, pest control and the like</li>
-          <li>You're already open and doing jobs for paying customers</li>
-          <li>You serve Lake Charles or somewhere in Southwest Louisiana</li>
-          <li>You make your money when the phone rings and a job gets booked</li>
-        </ul>
-      </div>
-      <div class="fit-col no">
-        <h3>This Isn't For You If</h3>
-        <ul>
-          <li>You haven't opened yet, or it's an idea you're still testing</li>
-          <li>You sell products online — carts, inventory and shipping aren't what we build</li>
-          <li>It's network marketing, drop shipping, or reselling someone else's program</li>
-          <li>You're outside the Lake Charles area — we're only taking local businesses in this group</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section class="faq-section">
     <h2>Questions People<br /><em>Usually Ask</em></h2>
@@ -1364,50 +1252,6 @@
           <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required />
           <input type="tel" id="phone" name="phone" placeholder="Phone Number" autocomplete="tel" required />
           <input type="text" id="bizname" name="businessName" placeholder="Business Name" autocomplete="organization" required />
-
-          <select id="biztype" name="businessType" class="is-placeholder" required>
-            <option value="" disabled selected>What Kind Of Business?</option>
-            <optgroup label="Home Services">
-              <option value="Plumbing">Plumbing</option>
-              <option value="HVAC">HVAC / Air Conditioning</option>
-              <option value="Electrical">Electrical</option>
-              <option value="Roofing">Roofing</option>
-              <option value="Restoration">Water / Fire Restoration</option>
-              <option value="Pest Control">Pest Control</option>
-            </optgroup>
-            <optgroup label="Outdoor &amp; Property">
-              <option value="Lawn Care">Lawn Care / Landscaping</option>
-              <option value="Power Washing">Power Washing</option>
-              <option value="Pool Service">Pool Service</option>
-            </optgroup>
-            <optgroup label="Contracting">
-              <option value="Remodeling">Remodeling / General Contracting</option>
-              <option value="Concrete">Concrete / Fencing / Flooring</option>
-              <option value="Garage Doors">Garage Doors / Windows / Siding</option>
-            </optgroup>
-            <optgroup label="Professional">
-              <option value="Attorney">Attorney / Law Firm</option>
-              <option value="Accounting">Accounting / Bookkeeping</option>
-              <option value="Insurance">Insurance</option>
-              <option value="Medical">Medical / Dental</option>
-            </optgroup>
-            <optgroup label="Other">
-              <option value="Other Service">Another service business</option>
-              <option value="Ecommerce">E-commerce / online store</option>
-              <option value="Network Marketing">Network marketing / MLM</option>
-              <option value="Not A Business Yet">Not a business yet — just an idea</option>
-            </optgroup>
-          </select>
-
-          <select id="bizage" name="yearsInBusiness" class="is-placeholder" required>
-            <option value="" disabled selected>How Long In Business?</option>
-            <option value="Not open yet">Not open yet</option>
-            <option value="Under 1 year">Less than a year</option>
-            <option value="1-3 years">1–3 years</option>
-            <option value="3-10 years">3–10 years</option>
-            <option value="10+ years">10+ years</option>
-          </select>
-
           <input type="email" id="email" name="email" placeholder="Email Address (optional)" autocomplete="email" />
           <p class="modal-error" id="modalError"></p>
           <button type="submit" class="btn-submit" id="startSubmit">Claim Your Free Website &rarr;</button>
@@ -1475,18 +1319,6 @@
       e.target.value = v;
     });
 
-    // Dropdowns show placeholder-grey until an actual choice is made
-    ['biztype', 'bizage'].forEach(function (id) {
-      document.getElementById(id).addEventListener('change', function (e) {
-        e.target.classList.toggle('is-placeholder', !e.target.value);
-      });
-    });
-
-    // Business types we don't build for, and stages that aren't ready for us yet.
-    // These still submit — they just don't count as a Lead for ad optimization.
-    const DQ_TYPES = ['Ecommerce', 'Network Marketing', 'Not A Business Yet'];
-    const DQ_STAGES = ['Not open yet'];
-
     // Form submit → GHL webhook
     document.getElementById('startForm').addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -1495,18 +1327,11 @@
       const fullName = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const businessName = document.getElementById('bizname').value.trim();
-      const businessType = document.getElementById('biztype').value;
-      const yearsInBusiness = document.getElementById('bizage').value;
       const email = document.getElementById('email').value.trim();
 
       // Name, phone and business name are required — email is optional
       if (!fullName || !phone || !businessName) {
         err.textContent = 'Please fill in your name, phone and business name.';
-        err.style.display = 'block';
-        return;
-      }
-      if (!businessType || !yearsInBusiness) {
-        err.textContent = 'Please tell us what kind of business you run and how long you’ve been open.';
         err.style.display = 'block';
         return;
       }
@@ -1521,27 +1346,15 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      const qualified = DQ_TYPES.indexOf(businessType) === -1 && DQ_STAGES.indexOf(yearsInBusiness) === -1;
-
       const parts = fullName.split(' ');
       const data = {
         name: fullName,
         firstName: parts[0],
         lastName: parts.slice(1).join(' '),
         businessName: businessName,
-        businessType: businessType,
-        yearsInBusiness: yearsInBusiness,
         phone: phone,
         email: email,
-        leadTier: qualified ? 'qualified' : 'unqualified',
-        source: 'lake-charles-book',
-        // So you can see which ad, audience and creative each lead came from
-        utmSource: params.get('utm_source') || '',
-        utmMedium: params.get('utm_medium') || '',
-        utmCampaign: params.get('utm_campaign') || '',
-        utmContent: params.get('utm_content') || '',
-        utmTerm: params.get('utm_term') || '',
-        landingPage: window.location.pathname
+        source: 'lake-charles-book'
       };
 
       try {
@@ -1559,27 +1372,17 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            _subject: (qualified ? 'New Free Website Lead — ' : '[UNQUALIFIED] ') + data.firstName + ' (' + data.businessName + ')',
+            _subject: 'New Free Website Lead — ' + data.firstName + ' (' + data.businessName + ')',
             Name: data.name,
             Business: data.businessName,
-            BusinessType: data.businessType,
-            YearsInBusiness: data.yearsInBusiness,
             Phone: data.phone,
             Email: data.email || '(not provided)',
-            Tier: data.leadTier,
-            Source: data.source,
-            Campaign: data.utmCampaign || '(none)',
-            AdContent: data.utmContent || '(none)'
+            Source: data.source
           })
         });
       } catch (err2) {}
 
-      // Only real prospects train the ad algorithm. Everyone else gets a
-      // separate event so you can still see the volume without optimizing for it.
-      if (typeof fbq === 'function') {
-        if (qualified) fbq('track', 'Lead');
-        else fbq('trackCustom', 'UnqualifiedLead', { business_type: businessType });
-      }
+      if (typeof fbq === 'function') fbq('track', 'Lead');
 
       document.getElementById('modalContent').style.display = 'none';
       document.getElementById('modalSuccess').style.display = 'block';
