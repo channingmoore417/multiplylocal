@@ -191,6 +191,18 @@
       color: rgba(245,240,232,0.6);
     }
 
+    /* Primary CTA — kept above the fold, before the video */
+    .hero-cta {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero-cta-micro {
+      font-size: 13px;
+      color: rgba(245,240,232,0.45);
+      margin-top: 11px;
+    }
+
     .video-embed {
       position: relative;
       width: 100%;
@@ -925,6 +937,15 @@
     .fade-in-3 { animation: fadeUp 0.7s 0.3s ease both; }
 
     @media (max-width: 640px) {
+      /* Tighten the hero so the CTA clears the fold on short phones */
+      .video-section { padding-top: 22px; }
+      .section-eyebrow { margin-bottom: 8px; }
+      .video-section h1 { margin-bottom: 13px; }
+      .hero-sub { font-size: 15px; line-height: 1.55; margin-bottom: 16px; }
+      .hero-price-line { font-size: 14px; padding: 11px 16px; margin-bottom: 16px; }
+      .hero-pills { gap: 8px; margin-bottom: 16px; }
+      .hero-cta { margin-bottom: 24px; }
+      .hero-cta-micro { font-size: 12px; margin-top: 8px; }
       .offer-box { padding: 30px 20px; }
       .price-split { grid-template-columns: 1fr; }
       .price-panel-amount { font-size: 44px; }
@@ -948,7 +969,7 @@
 
   <!-- HERO + VIDEO -->
   <section class="video-section">
-    <p class="section-eyebrow fade-in">Lake Charles &amp; SWLA — Limited Launch Offer</p>
+    <p class="section-eyebrow fade-in">Limited Launch Offer</p>
     <h1 class="fade-in-2">Claim Your <em>Free</em><br />Business Website</h1>
     <p class="hero-sub fade-in-2">
       Get a professional, SEO-optimized website paired with MultiplyOS to help you get found on
@@ -964,6 +985,11 @@
       <span class="pill">No Setup Fee</span>
       <span class="pill">No Contract</span>
       <span class="pill">Cancel Anytime</span>
+    </div>
+
+    <div class="hero-cta fade-in-2">
+      <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
+      <p class="hero-cta-micro">Takes about 30 seconds — nothing due up front.</p>
     </div>
 
     <div class="video-embed fade-in-3">
@@ -1310,6 +1336,62 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeModal();
     });
+
+    // ── EXIT INTENT ──
+    // Opens the claim form once when someone looks like they're leaving.
+    (function () {
+      const modal = document.getElementById('modal');
+      const success = document.getElementById('modalSuccess');
+      const QUIET_HOURS = 24;
+      let fired = false;
+      let armed = false;
+
+      // Show at most once a day — don't badger people on every visit
+      try {
+        const last = parseInt(localStorage.getItem('mlExitIntent') || '0', 10);
+        if (Date.now() - last < QUIET_HOURS * 3600 * 1000) fired = true;
+      } catch (e) {}
+
+      // Give them a few seconds to actually look at the page first
+      setTimeout(function () { armed = true; }, 6000);
+
+      function fire() {
+        if (fired || !armed) return;
+        if (modal.classList.contains('open')) return;
+        if (success.style.display === 'block') return;  // already submitted
+        fired = true;
+        try { localStorage.setItem('mlExitIntent', String(Date.now())); } catch (e) {}
+        openModal();
+      }
+
+      // Desktop — pointer leaves through the top of the viewport
+      document.addEventListener('mouseout', function (e) {
+        if (e.relatedTarget || e.clientY > 0) return;
+        fire();
+      });
+
+      // Mobile has no pointer to track, so watch for a fast scroll back toward
+      // the top — the usual tell that someone is about to bail. Smooth and
+      // inertial scrolling arrive in small increments, so measure the distance
+      // travelled across a short window rather than between single events.
+      const WINDOW_MS = 400;
+      let deepest = window.scrollY;
+      const trail = [];
+
+      window.addEventListener('scroll', function () {
+        const y = window.scrollY;
+        const now = Date.now();
+
+        if (y > deepest) deepest = y;
+        trail.push([now, y]);
+        while (trail.length > 1 && now - trail[0][0] > WINDOW_MS) trail.shift();
+
+        // Distance climbed in the last WINDOW_MS. A reading scroll runs a few
+        // hundred px/sec; bailing out is a hard flick, several times that.
+        const climbed = trail[0][1] - y;
+        if (deepest > 800 && y < 200 && climbed > 400) fire();
+      }, { passive: true });
+    })();
 
     // Phone auto-format
     document.getElementById('phone').addEventListener('input', function (e) {
