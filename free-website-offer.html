@@ -379,43 +379,6 @@
       line-height: 1.6;
     }
 
-    /* ── SPOTS BAR ── */
-    .spots {
-      position: relative;
-      z-index: 2;
-      max-width: 820px;
-      margin: 20px auto 0;
-      padding: 0 24px;
-      text-align: center;
-    }
-
-    .spots-track {
-      display: flex;
-      gap: 6px;
-      justify-content: center;
-      margin-bottom: 10px;
-    }
-
-    .spot-dot {
-      width: 26px;
-      height: 6px;
-      border-radius: 3px;
-      background: rgba(245,240,232,0.12);
-    }
-
-    .spot-dot.taken { background: var(--red); }
-
-    .spots p {
-      font-family: 'Oswald', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(245,240,232,0.45);
-    }
-
-    .spots p strong { color: var(--red); }
-
     /* ── DIVIDER ── */
     .divider {
       position: relative;
@@ -951,7 +914,6 @@
       .price-panel-amount { font-size: 44px; }
       .catch-box { padding: 26px 22px; }
       .btn-primary { padding: 17px 32px; font-size: 20px; width: 100%; }
-      .spot-dot { width: 20px; }
     }
 
     /* Narrow phones — the CTA label and the greeting bar were wrapping to two
@@ -1055,23 +1017,6 @@
     </div>
   </section>
 
-  <!-- SPOTS -->
-  <div class="spots">
-    <div class="spots-track">
-      <span class="spot-dot taken"></span>
-      <span class="spot-dot taken"></span>
-      <span class="spot-dot taken"></span>
-      <span class="spot-dot"></span>
-      <span class="spot-dot"></span>
-      <span class="spot-dot"></span>
-      <span class="spot-dot"></span>
-      <span class="spot-dot"></span>
-      <span class="spot-dot"></span>
-      <span class="spot-dot"></span>
-    </div>
-    <p><strong>7 of 10 spots</strong> still available</p>
-  </div>
-
   <!-- DIVIDER -->
   <div class="divider">
     <div class="divider-line"></div>
@@ -1162,7 +1107,7 @@
       <h2>So What's <em>The Catch?</em></h2>
       <p>There isn't one — but here's the honest reasoning, because "free website" deserves an explanation.</p>
       <p>We waive the <strong>$2,000 setup fee</strong> because we'd rather earn your business every month than charge you a big number up front. If the site doesn't do its job, you leave — and we lose. That keeps us honest.</p>
-      <p>The trade is that we only take on <strong>10 businesses at a time</strong> so every client gets real attention. When the spots are gone, the setup fee goes back to $2,000.</p>
+      <p>The trade is that we only take on as many builds as we can do well at once, so every client gets real attention. This is a launch offer — when it ends, the setup fee goes back to $2,000.</p>
       <p>No contracts, no hidden fees, and you can cancel anytime with 30 days notice.</p>
     </div>
   </section>
@@ -1176,7 +1121,7 @@
       <details class="faq-item">
         <summary>Is the website really free?<span class="faq-toggle"></span></summary>
         <div class="faq-answer">
-          <p>Yes. The build itself is free — design, copy, and launch. The <strong>$2,000 setup fee is waived</strong> for the businesses in this launch group.</p>
+          <p>Yes. The build itself is free — design, copy, and launch. The <strong>$2,000 setup fee is waived</strong> for businesses that come in on this launch offer.</p>
           <p>The only thing you pay is <strong>$97/month</strong>, and that starts once your site is live. Nothing up front, nothing due before you see the work.</p>
         </div>
       </details>
@@ -1247,10 +1192,10 @@
       </details>
 
       <details class="faq-item">
-        <summary>Why only 10 businesses?<span class="faq-toggle"></span></summary>
+        <summary>How long is this offer good for?<span class="faq-toggle"></span></summary>
         <div class="faq-answer">
-          <p>Because we actually build these ourselves, and we won't take on more than we can do well. Ten at a time is what we can give real attention to.</p>
-          <p>When the spots are filled, the setup fee goes back to $2,000.</p>
+          <p>We build these ourselves, so we only take on as many at once as we can do properly. When we're at capacity, the offer closes and the setup fee goes back to $2,000.</p>
+          <p>If you're thinking about it, it costs nothing to ask — we'll tell you straight whether there's room right now.</p>
         </div>
       </details>
     </div>
@@ -1285,7 +1230,7 @@
       <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
 
       <div id="modalContent">
-        <p class="modal-eyebrow">7 of 10 Spots Still Available</p>
+        <p class="modal-eyebrow">Limited Launch Offer</p>
         <h2 class="modal-title" id="modalTitle">Claim Your<br />Free Website</h2>
         <form class="modal-form" id="startForm" novalidate>
           <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required />
