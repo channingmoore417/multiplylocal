@@ -117,12 +117,13 @@
     }
 
     /* ── HERO / VIDEO ── */
+    /* Hero. No video here any more — the CTA and offer block carry the page. */
     .video-section {
       position: relative;
       z-index: 2;
       max-width: 860px;
       margin: 0 auto;
-      padding: 48px 24px 16px;
+      padding: 48px 24px 8px;
     }
 
     .video-section h1 {
@@ -151,25 +152,7 @@
 
     .hero-sub strong { color: var(--cream); font-weight: 600; }
 
-    .hero-price-line {
-      font-family: 'Oswald', sans-serif;
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 1.6;
-      color: rgba(245,240,232,0.75);
-      text-align: center;
-      max-width: 540px;
-      margin: 0 auto 28px;
-      padding: 14px 20px;
-      background: rgba(194,59,46,0.08);
-      border: 1px solid rgba(194,59,46,0.22);
-      border-radius: 5px;
-    }
 
-    .hero-price-line strong {
-      color: var(--red);
-      font-weight: 600;
-    }
 
     .hero-pills {
       display: flex;
@@ -198,39 +181,10 @@
       margin-bottom: 30px;
     }
 
-    .video-embed {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 0 0 1px rgba(245,240,232,0.08), 0 40px 100px rgba(0,0,0,0.6);
-    }
 
-    .video-embed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
 
-    .watch-prompt {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 600px;
-      margin: 24px auto 0;
-      padding: 0 24px;
-    }
 
-    .watch-prompt p {
-      font-size: 15px;
-      color: rgba(245,240,232,0.5);
-      line-height: 1.6;
-    }
 
-    .watch-prompt strong { color: var(--cream); }
 
     /* ── THE OFFER (centerpiece) ── */
     .offer-section {
@@ -1126,7 +1080,6 @@
       .section-eyebrow { margin-bottom: 8px; }
       .video-section h1 { font-size: 34px; margin-bottom: 12px; }
       .hero-sub { font-size: 14.5px; line-height: 1.5; margin-bottom: 14px; }
-      .hero-price-line { font-size: 13.5px; line-height: 1.5; padding: 11px 16px; margin-bottom: 14px; }
       .hero-pills { gap: 8px; margin-bottom: 14px; }
       .pill { font-size: 9px; padding: 6px 11px; }
       .hero-cta { margin-bottom: 20px; }
@@ -1143,7 +1096,6 @@
       .greeting-bar p { font-size: 11px; letter-spacing: 0.08em; }
       .video-section h1 { font-size: 31px; }
       .hero-sub { font-size: 14px; }
-      .hero-price-line { font-size: 12.5px; padding: 10px 14px; }
       .btn-primary { font-size: 18px; padding: 16px 18px; letter-spacing: 0.05em; }
     }
 
@@ -1166,17 +1118,13 @@
     <p id="greetingText"></p>
   </div>
 
-  <!-- HERO + VIDEO -->
+  <!-- HERO -->
   <section class="video-section">
     <p class="section-eyebrow fade-in">For Contractors &amp; Home Service Businesses</p>
     <h1 class="fade-in-2">Free Websites For<br /><em>Contractors &amp; Home Services</em></h1>
     <p class="hero-sub fade-in-2">
       A professional, SEO-optimized website built for the trades — paired with MultiplyOS, so
       missed calls get texted back and every lead gets followed up while you're still on the job.
-    </p>
-    <p class="hero-price-line fade-in-2">
-      <strong>FREE</strong> website build. Just <strong>$97/month</strong> for MultiplyOS,
-      hosting, maintenance, and updates.
     </p>
 
     <div class="hero-cta fade-in-2">
@@ -1188,15 +1136,7 @@
       <span class="pill">No Contract</span>
       <span class="pill">Cancel Anytime</span>
     </div>
-
-    <div class="video-embed fade-in-3">
-      <iframe src="https://www.loom.com/embed/b21a8ee3e92a4613a21ad08a211c0989" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-    </div>
   </section>
-
-  <div class="watch-prompt">
-    <p>Watch the short video above — then <strong>claim your spot below</strong>.</p>
-  </div>
 
   <!-- THE OFFER — the centerpiece of the page -->
   <section class="offer-section" id="offer">
@@ -1632,7 +1572,7 @@
       const bar = document.getElementById('greetingBar');
       const text = document.getElementById('greetingText');
       const firstName = name.split(' ')[0];
-      text.textContent = `🎉 You're in, ${firstName}! Watch the video below — then claim your free website.`;
+      text.textContent = `🎉 You're in, ${firstName}! Claim your free website below.`;
       bar.style.display = 'block';
       // Pre-fill the form with the name we already have
       document.getElementById('name').value = name;
