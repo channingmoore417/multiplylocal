@@ -97,6 +97,38 @@
 
     .sub strong { color: var(--ink); font-weight: 600; }
 
+    /* ── WAIVED SETUP FEE ── */
+    .fee-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 0 auto 18px;
+    }
+
+    .fee-was {
+      font-family: 'Oswald', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--ink-faint);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: var(--red);
+    }
+
+    .fee-waived {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--red);
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+
     /* ── FORM ── */
     .form-card {
       background: var(--white);
@@ -328,18 +360,21 @@
 
     /* Short screens: the button must never need a scroll */
     @media (max-height: 720px) {
-      .brandbar { padding-top: 12px; }
-      main { padding-top: 12px; padding-bottom: 18px; }
-      .callout { padding: 8px 13px; margin-bottom: 11px; font-size: 11.5px; letter-spacing: 0.07em; }
-      h1 { font-size: 33px; margin-bottom: 7px; }
-      .sub { font-size: 12.8px; line-height: 1.35; margin-bottom: 11px; max-width: 400px; }
-      .logo { font-size: 21px; }
+      .brandbar { padding-top: 9px; }
+      main { padding-top: 9px; padding-bottom: 14px; }
+      .callout { padding: 7px 12px; margin-bottom: 9px; font-size: 11px; letter-spacing: 0.06em; }
+      h1 { font-size: 31px; margin-bottom: 6px; }
+      .sub { font-size: 12.5px; line-height: 1.33; margin-bottom: 9px; max-width: 400px; }
+      .logo { font-size: 19px; }
       .form-card { padding: 15px 14px 13px; }
       .form-card form { gap: 7px; }
       .form-card input { padding: 11px 13px; }
       .btn { padding: 14px 12px; font-size: 16px; }
-      .micro { margin-top: 8px; font-size: 10.5px; }
+      .micro { margin-top: 7px; font-size: 10px; line-height: 1.45; }
       .pills { margin-top: 12px; }
+      .fee-line { margin-bottom: 10px; gap: 7px; }
+      .fee-was { font-size: 15px; }
+      .fee-waived { font-size: 10px; padding: 3px 8px; }
       .badges { margin-top: 16px; }
       .locale { margin-top: 11px; }
     }
@@ -363,6 +398,11 @@
       <p class="sub fade">
         We build you a professional website optimized for SEO, then show it to you.
         <strong>If you love it, it's just $97/month</strong> for hosting and maintenance.
+      </p>
+
+      <p class="fee-line fade">
+        <span class="fee-was">$2,000 Setup Fee</span>
+        <span class="fee-waived">Waived</span>
       </p>
 
       <div class="form-card fade-2">
