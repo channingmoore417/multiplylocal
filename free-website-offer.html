@@ -260,12 +260,21 @@
 
     .offer-box h2 em { color: var(--red); font-style: normal; }
 
+    .offer-lede strong { color: var(--cream); font-weight: 600; }
+
     .offer-lede {
       font-size: 15px;
       color: rgba(245,240,232,0.6);
       line-height: 1.6;
       max-width: 500px;
       margin: 0 auto 32px;
+    }
+
+    /* Single price panel */
+    .price-single {
+      max-width: 420px;
+      margin: 0 auto 28px;
+      text-align: left;
     }
 
     /* Two-panel price split */
@@ -982,33 +991,19 @@
   <section class="offer-section" id="offer">
     <div class="offer-box">
       <div class="section-eyebrow">What It Costs</div>
-      <h2>Free Website Build.<br /><em>$97 A Month After.</em></h2>
-      <p class="offer-lede">Two numbers. That's the whole deal — nothing hidden underneath it.</p>
+      <h2>Free Website Build.<br /><em>Just $97 A Month.</em></h2>
+      <p class="offer-lede">One price. The <strong>$2,000 setup fee is waived</strong> — the build costs you nothing, and everything after runs on the monthly.</p>
 
-      <div class="price-split">
-        <!-- Panel 1 — the build -->
+      <div class="price-single">
         <div class="price-panel">
-          <div class="price-panel-label">To Get Started</div>
-          <div class="price-panel-strike">$2,000 setup <span class="price-waived">Waived</span></div>
-          <div class="price-panel-amount">$0</div>
-          <p class="price-panel-note">Your custom website, built and launched — free.</p>
-          <ul class="price-panel-list">
-            <li>Custom design — your brand, your colors</li>
-            <li>Written and built to drive phone calls</li>
-            <li>Mobile-first, fast, Google-ready</li>
-            <li>Live in days, not months</li>
-          </ul>
-        </div>
-
-        <!-- Panel 2 — the monthly -->
-        <div class="price-panel">
-          <div class="price-panel-label">Then Every Month</div>
+          <div class="price-panel-label">Your Monthly</div>
           <div class="price-panel-amount">$97<span class="unit">/mo</span></div>
-          <p class="price-panel-note">Everything that keeps it running and working for you.</p>
+          <p class="price-panel-note">Your website built and launched, then everything that keeps it running and working for you.</p>
           <ul class="price-panel-list">
+            <li>Custom website — your brand, your colors, built to drive calls</li>
             <li>Hosting &amp; security — handled</li>
             <li>Ongoing maintenance &amp; edits</li>
-            <li>Support from a real local person</li>
+            <li>Support from a real person, not a ticket</li>
             <li><strong>MultiplyOS included</strong> — the full platform</li>
           </ul>
         </div>
@@ -1124,7 +1119,7 @@
         <summary>Is the website really free?<span class="faq-toggle"></span></summary>
         <div class="faq-answer">
           <p>Yes. The build itself is free — design, copy, and launch. The <strong>$2,000 setup fee is waived</strong> for businesses that come in on this launch offer.</p>
-          <p>The only thing you pay is <strong>$97/month</strong>, and that starts once your site is live. Nothing up front, nothing due before you see the work.</p>
+          <p>The only thing you pay is <strong>$97/month</strong> — no setup fee, no build cost, and no surprise invoice when the site goes live.</p>
         </div>
       </details>
 
