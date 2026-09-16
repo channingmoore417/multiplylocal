@@ -175,10 +175,37 @@
       color: rgba(245,240,232,0.6);
     }
 
-    /* Primary CTA — kept above the fold, before the video */
+    /* Primary CTA — kept above the fold */
     .hero-cta {
       text-align: center;
       margin-bottom: 30px;
+    }
+
+    .hero-price-line {
+      font-family: 'Oswald', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(245,240,232,0.75);
+      text-align: center;
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      background: rgba(194,59,46,0.08);
+      border: 1px solid rgba(194,59,46,0.22);
+      border-radius: 5px;
+    }
+
+    .hero-price-line strong {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* Repeat CTA closing each section, so the ask is never more than a
+       screen away wherever someone stops reading */
+    .section-cta {
+      text-align: center;
+      margin-top: 32px;
     }
 
 
@@ -1136,6 +1163,11 @@
       <span class="pill">No Contract</span>
       <span class="pill">Cancel Anytime</span>
     </div>
+
+    <p class="hero-price-line fade-in-2">
+      Your website is <strong>FREE</strong>. All you cover is <strong>$97/month</strong> for
+      hosting, maintenance and MultiplyOS.
+    </p>
   </section>
 
   <!-- THE OFFER — the centerpiece of the page -->
@@ -1199,6 +1231,9 @@
         <div class="bullet-text"><strong>Live in days, not months.</strong> You tell us what you do and where you work — once. We handle the writing, the design, and the launch.</div>
       </div>
     </div>
+    <div class="section-cta">
+      <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
+    </div>
   </section>
 
   <!-- DIVIDER -->
@@ -1235,6 +1270,9 @@
     </div>
 
     <p class="trades-note">Don't see your trade? <strong>If you run service calls and quote jobs, we can build for you.</strong></p>
+    <div class="section-cta">
+      <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
+    </div>
   </section>
 
   <!-- DIVIDER -->
@@ -1336,6 +1374,9 @@
         </div>
       </div>
     </div>
+    <div class="section-cta">
+      <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
+    </div>
   </section>
 
   <!-- DIVIDER -->
@@ -1384,6 +1425,9 @@
         <p>Updates, security, backups and edits — all handled. You will never log into a dashboard to fix your own website.</p>
       </div>
     </div>
+    <div class="section-cta">
+      <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
+    </div>
   </section>
 
   <!-- WHAT'S THE CATCH -->
@@ -1394,6 +1438,9 @@
       <p>We waive the <strong>$2,000 setup fee</strong> because we'd rather earn your business every month than charge you a big number up front. If the site doesn't do its job, you leave — and we lose. That keeps us honest.</p>
       <p>The trade is that we only take on as many builds as we can do well at once, so every client gets real attention. This is a launch offer — when it ends, the setup fee goes back to $2,000.</p>
       <p>No contracts, no hidden fees, and you can cancel anytime with 30 days notice.</p>
+    </div>
+    <div class="section-cta">
+      <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
     </div>
   </section>
 
@@ -1483,6 +1530,9 @@
           <p>If you're thinking about it, it costs nothing to ask — we'll tell you straight whether there's room right now.</p>
         </div>
       </details>
+    </div>
+    <div class="section-cta">
+      <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
     </div>
   </section>
 
