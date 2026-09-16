@@ -115,8 +115,8 @@
       transform: translateY(-1px);
     }
 
-    /* ── HERO / VIDEO ── */
-    .video-section {
+    /* ── HERO ── */
+    .hero-section {
       position: relative;
       z-index: 2;
       max-width: 860px;
@@ -124,7 +124,7 @@
       padding: 48px 24px 16px;
     }
 
-    .video-section h1 {
+    .hero-section h1 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(38px, 6.4vw, 68px);
       line-height: 1;
@@ -134,7 +134,7 @@
       margin-bottom: 18px;
     }
 
-    .video-section h1 em {
+    .hero-section h1 em {
       color: var(--red);
       font-style: normal;
     }
@@ -191,45 +191,11 @@
       color: rgba(245,240,232,0.6);
     }
 
-    /* Primary CTA — kept above the fold, before the video */
+    /* Primary CTA — kept above the fold */
     .hero-cta {
       text-align: center;
       margin-bottom: 30px;
     }
-
-    .video-embed {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 0 0 1px rgba(245,240,232,0.08), 0 40px 100px rgba(0,0,0,0.6);
-    }
-
-    .video-embed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .watch-prompt {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 600px;
-      margin: 24px auto 0;
-      padding: 0 24px;
-    }
-
-    .watch-prompt p {
-      font-size: 15px;
-      color: rgba(245,240,232,0.5);
-      line-height: 1.6;
-    }
-
-    .watch-prompt strong { color: var(--cream); }
 
     /* ── THE OFFER (centerpiece) ── */
     .offer-section {
@@ -910,9 +876,9 @@
       .logo { font-size: 24px; }
       .greeting-bar { padding: 10px 20px; }
       .greeting-bar p { font-size: 12px; }
-      .video-section { padding-top: 22px; }
+      .hero-section { padding-top: 22px; }
       .section-eyebrow { margin-bottom: 8px; }
-      .video-section h1 { font-size: 34px; margin-bottom: 12px; }
+      .hero-section h1 { font-size: 34px; margin-bottom: 12px; }
       .hero-sub { font-size: 14.5px; line-height: 1.5; margin-bottom: 14px; }
       .hero-price-line { font-size: 13.5px; line-height: 1.5; padding: 11px 16px; margin-bottom: 14px; }
       .hero-pills { gap: 8px; margin-bottom: 14px; }
@@ -929,7 +895,7 @@
        lines at 360px, which pushed the button under the fold. */
     @media (max-width: 385px) {
       .greeting-bar p { font-size: 11px; letter-spacing: 0.08em; }
-      .video-section h1 { font-size: 31px; }
+      .hero-section h1 { font-size: 31px; }
       .hero-sub { font-size: 14px; }
       .hero-price-line { font-size: 12.5px; padding: 10px 14px; }
       .btn-primary { font-size: 18px; padding: 16px 18px; letter-spacing: 0.05em; }
@@ -954,18 +920,14 @@
     <p id="greetingText"></p>
   </div>
 
-  <!-- HERO + VIDEO -->
-  <section class="video-section">
+  <!-- HERO -->
+  <section class="hero-section">
     <p class="section-eyebrow fade-in">Limited Launch Offer</p>
     <h1 class="fade-in-2">Claim Your <em>Free</em><br />Business Website</h1>
     <p class="hero-sub fade-in-2">
       Get a professional, SEO-optimized website paired with MultiplyOS to help you get found on
       Google, catch every lead that comes in, and follow up before potential customers move on to
       your competitor.
-    </p>
-    <p class="hero-price-line fade-in-2">
-      <strong>FREE</strong> website build. Just <strong>$97/month</strong> for MultiplyOS,
-      hosting, maintenance, and updates.
     </p>
 
     <div class="hero-cta fade-in-2">
@@ -978,14 +940,11 @@
       <span class="pill">Cancel Anytime</span>
     </div>
 
-    <div class="video-embed fade-in-3">
-      <iframe src="https://www.loom.com/embed/b21a8ee3e92a4613a21ad08a211c0989" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-    </div>
+    <p class="hero-price-line fade-in-2">
+      Your website is <strong>FREE</strong>. All you cover is <strong>$97/month</strong> for
+      hosting, maintenance and MultiplyOS.
+    </p>
   </section>
-
-  <div class="watch-prompt">
-    <p>Watch the short video above — then <strong>claim your spot below</strong>.</p>
-  </div>
 
   <!-- THE OFFER — the centerpiece of the page -->
   <section class="offer-section" id="offer">
@@ -1262,7 +1221,7 @@
       const bar = document.getElementById('greetingBar');
       const text = document.getElementById('greetingText');
       const firstName = name.split(' ')[0];
-      text.textContent = `🎉 You're in, ${firstName}! Watch the video below — then claim your free website.`;
+      text.textContent = `🎉 You're in, ${firstName}! Claim your free website below.`;
       bar.style.display = 'block';
       // Pre-fill the form with the name we already have
       document.getElementById('name').value = name;
