@@ -152,25 +152,6 @@
 
     .hero-sub strong { color: var(--cream); font-weight: 600; }
 
-    /* Hero with photo */
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      align-items: end;
-      gap: 24px;
-    }
-    .hero-grid .hero-copy { padding-bottom: 30px; }
-    .hero-grid h1, .hero-grid .section-eyebrow, .hero-grid .hero-sub, .hero-grid .hero-cta { text-align: left; }
-    .hero-grid .hero-sub { margin-left: 0; margin-right: 0; }
-    .hero-photo { display: block; width: 100%; max-width: 380px; height: auto; margin: 0 auto; }
-    .video-section.has-photo { max-width: 1040px; }
-    @media (max-width: 760px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 0; }
-      .hero-grid .hero-copy { padding-bottom: 0; }
-      .hero-grid h1, .hero-grid .section-eyebrow, .hero-grid .hero-sub, .hero-grid .hero-cta { text-align: center; }
-      .hero-grid .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-photo { max-width: 260px; }
-    }
 
 
 
@@ -1166,22 +1147,17 @@
   </div>
 
   <!-- HERO -->
-  <section class="video-section has-photo">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="section-eyebrow fade-in">For Contractors &amp; Home Service Businesses</p>
-        <h1 class="fade-in-2">Free Website For<br /><em>Contractors &amp; Home Services</em></h1>
-        <p class="hero-sub fade-in-2">
-          A professional, SEO-optimized website built for the trades, so customers find you when they search.
-          Never miss a job request, because every lead is texted directly to you, all for just $97 per month.
-        </p>
+  <section class="video-section">
+    <p class="section-eyebrow fade-in">For Contractors &amp; Home Service Businesses</p>
+  <h1 class="fade-in-2">Free Website For<br /><em>Contractors &amp; Home Services</em></h1>
+  <p class="hero-sub fade-in-2">
+    A professional, SEO-optimized website built for the trades, so customers find you when they search.
+    Never miss a job request, because every lead is texted directly to you, all for just $97 per month.
+  </p>
 
-        <div class="hero-cta fade-in-2">
-          <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
-        </div>
-      </div>
-      <img class="hero-photo fade-in-2" src="channing.png" alt="Channing from Multiply Local" width="500" height="500" />
-    </div>
+  <div class="hero-cta fade-in-2">
+    <button type="button" class="btn-primary" onclick="openModal()">Claim Your Free Website</button>
+  </div>
   </section>
 
   <!-- DIVIDER -->
