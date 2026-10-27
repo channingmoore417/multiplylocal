@@ -22,7 +22,7 @@ document.getElementById('registration').addEventListener('submit',async e=>{
   try{
     const response=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()});
     if(!response.ok)throw new Error('Submission failed');
-    status.textContent='You’re registered! Watch your email for workshop details.';sessionStorage.setItem('ml-registered','1');form.reset();
+    sessionStorage.setItem('ml-registered','1');try{sessionStorage.setItem('ml-lead',JSON.stringify({first_name:data.first_name,business_name:data.business_name,email:data.email,phone:data.phone}));}catch(e){}status.textContent='You’re registered! Taking you to your next steps…';form.reset();location.href='/lake-charles-webinar-thank-you'+location.search;
   }catch(error){status.textContent='Registration could not be submitted. Please try again.';}
   finally{button.disabled=false;}
 });
