@@ -1,18 +1,64 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/onboarding-starter", "destination": "/onboarding", "permanent": true },
-    { "source": "/onboarding-growth", "destination": "/onboarding", "permanent": true },
-    { "source": "/onboarding-pro", "destination": "/onboarding", "permanent": true },
-    { "source": "/lake-charles-book", "destination": "/free-website-offer", "permanent": true },
-    { "source": "/contractors", "destination": "/free-contractor-website", "permanent": true }
+    {
+      "source": "/onboarding-starter",
+      "destination": "/onboarding",
+      "permanent": true
+    },
+    {
+      "source": "/onboarding-growth",
+      "destination": "/onboarding",
+      "permanent": true
+    },
+    {
+      "source": "/onboarding-pro",
+      "destination": "/onboarding",
+      "permanent": true
+    },
+    {
+      "source": "/lake-charles-book",
+      "destination": "/free-website-offer",
+      "permanent": true
+    },
+    {
+      "source": "/contractors",
+      "destination": "/free-contractor-website",
+      "permanent": true
+    },
+    {
+      "source": "/LOCAL-BUSINESS-WEBINAR",
+      "destination": "/local-business-webinar",
+      "permanent": false
+    },
+    {
+      "source": "/LOCAL-BUSINESS-WEBINAR-THANK-YOU",
+      "destination": "/local-business-webinar-thank-you",
+      "permanent": false
+    },
+    {
+      "source": "/LAKE-CHARLES-WEBINAR",
+      "destination": "/lake-charles-webinar",
+      "permanent": false
+    },
+    {
+      "source": "/LAKE-CHARLES-WEBINAR-THANK-YOU",
+      "destination": "/lake-charles-webinar-thank-you",
+      "permanent": false
+    }
   ],
   "headers": [
     {
       "source": "/feed.xml",
       "headers": [
-        { "key": "Content-Type", "value": "application/rss+xml; charset=utf-8" },
-        { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=300" }
+        {
+          "key": "Content-Type",
+          "value": "application/rss+xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, s-maxage=300"
+        }
       ]
     }
   ]
