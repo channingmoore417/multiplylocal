@@ -26,6 +26,11 @@ document.getElementById('registration').addEventListener('submit',async e=>{
   if(!WEBHOOK_URL){status.textContent='Registration is not connected yet. Please try again later.';return;}
   button.disabled=true;status.textContent='Submitting your registration…';
   const data=Object.fromEntries(new FormData(form).entries());
+  // "required" accepts a lone space, so trim everything and block blanks (all fields mandatory).
+  for(const k of Object.keys(data))data[k]=String(data[k]).trim();
+  const labels={first_name:'first name',last_name:'last name',business_name:'business name',email:'email address',phone:'phone number'};
+  const missing=Object.keys(labels).find(k=>!data[k]||(k==='business_name'&&data[k].length<2));
+  if(missing){button.disabled=false;status.textContent='Please enter your '+labels[missing]+'.';const el=form.elements[missing];el.value='';el.focus();return;}
   data.source='multiply-local-workshop-usa';
   Object.assign(data,getTracking());
   try{
