@@ -139,9 +139,6 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset
 <section class="hero"><div class="wrap">
  <div class="eyebrow">✓ You’re registered for the free live workshop</div>
  <h1>You’re In<span id="h-name"></span>. <span class="red">Here’s What’s Next.</span></h1>
- <p class="event-title">How to Get 20–40 New Clients Every Month From Google + AI Search</p>
- <p class="event"><span data-ws="full" style="margin:0;color:inherit">Tuesday, November 17, 2026</span><span>•</span>2:00 PM Central (3 PM ET · 12 PM PT)<span>•</span>Live Online</p>
- <div class="countdown" role="timer" aria-label="Time until workshop"><div class="tile"><strong id="cd-days">--</strong><small>Days</small></div><div class="tile"><strong id="cd-hours">--</strong><small>Hours</small></div><div class="tile"><strong id="cd-minutes">--</strong><small>Minutes</small></div><div class="tile"><strong id="cd-seconds">--</strong><small>Seconds</small></div></div>
 </div></section>
 
 <section class="vsl" aria-labelledby="vsl-title"><div class="wrap">
@@ -277,8 +274,6 @@ function buildCalendar(){
 buildCalendar();
 document.addEventListener('workshop-date',buildCalendar);
 
-function tick(){W.refresh();let s=Math.max(0,Math.floor((W.start-Date.now())/1000));for(const [id,v] of Object.entries({'cd-days':Math.floor(s/86400),'cd-hours':Math.floor(s%86400/3600),'cd-minutes':Math.floor(s%3600/60),'cd-seconds':s%60}))document.getElementById(id).textContent=String(v).padStart(2,'0')}
-tick();setInterval(tick,1000);
 
 // Audit requests post to the same GoHighLevel webhook as the registration form.
 const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/rqfDKEvso1ofKq2wgy5d/webhook-trigger/646aa35c-df03-4e35-b3fd-5ee244c3ca76';
