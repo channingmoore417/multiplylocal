@@ -45,6 +45,11 @@
       "source": "/LAKE-CHARLES-WEBINAR-THANK-YOU",
       "destination": "/lake-charles-webinar-thank-you",
       "permanent": false
+    },
+    {
+      "source": "/CALL",
+      "destination": "/call",
+      "permanent": false
     }
   ],
   "headers": [
